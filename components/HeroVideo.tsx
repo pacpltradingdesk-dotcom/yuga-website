@@ -10,10 +10,12 @@ export default function HeroVideo() {
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-50"
+        className="absolute inset-0 w-full h-full object-cover opacity-80"
         src="/hero.mp4"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-green-950/80 via-gray-900/60 to-gray-900/80" />
+      {/* Light gradient overlay — keep text readable without hiding video */}
+      <div className="absolute inset-0 bg-gradient-to-r from-green-950/70 via-green-950/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl">
           <span className="inline-block bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
