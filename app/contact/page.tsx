@@ -1,3 +1,4 @@
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import { COMPANY } from "@/lib/company-data";
 import type { Metadata } from "next";
@@ -10,11 +11,20 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Header */}
-      <section className="bg-gradient-to-r from-green-50 to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">Contact Us</h1>
-          <p className="text-gray-600 text-lg">
+      {/* Header with image */}
+      <section className="relative bg-gradient-to-r from-green-900 to-gray-800 py-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
+            alt="Professional office meeting"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-bold text-white mb-3">Contact Us</h1>
+          <p className="text-gray-300 text-lg">
             Ready to start your bio-bitumen plant? Let&apos;s talk. First consultation is free.
           </p>
         </div>
