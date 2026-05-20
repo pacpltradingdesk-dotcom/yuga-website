@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/company-data";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact — PPS Anantams",
+  title: "Contact — YUGA",
   description: "Get a free consultation for your bio-bitumen plant. Call +91 7795242424 or WhatsApp Prince Shah directly.",
 };
 

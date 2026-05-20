@@ -5,8 +5,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services — PPS Anantams",
-  description: "Bio-Bitumen consulting, Project Management (PMC), and IT Solutions for industrial entrepreneurs. End-to-end support from PPS Anantams.",
+  title: "Services — YUGA",
+  description: "Bio-Bitumen consulting, Project Management (PMC), and IT Solutions for industrial entrepreneurs. End-to-end support from YUGA.",
 };
 
 export default function ServicesPage() {
@@ -229,7 +229,7 @@ export default function ServicesPage() {
                   <p className="text-xs font-semibold text-green-300 uppercase tracking-wide mb-2">Case Study — Live Product</p>
                   <h3 className="text-xl font-bold text-white mb-2">Bio-Bitumen Consultant Portal</h3>
                   <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                    Built for PPS Anantams: a full-stack web portal allowing consultant and clients to track plant setup progress across all 4 stages, upload documents, view payment milestones, and communicate — all in one place. Demonstrates the kind of industrial software we build.
+                    Built for YUGA: a full-stack web portal allowing consultant and clients to track plant setup progress across all 4 stages, upload documents, view payment milestones, and communicate — all in one place. Demonstrates the kind of industrial software we build.
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {["Next.js 16", "TypeScript", "Tailwind CSS", "Static Export", "Formspree"].map((tag) => (

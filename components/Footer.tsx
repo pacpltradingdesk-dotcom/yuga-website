@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-white font-bold text-lg mb-3">PPS Anantams</h3>
+            <h3 className="text-white font-bold text-lg mb-3">YUGA</h3>
             <p className="text-sm text-gray-400 mb-2">{COMPANY.tagline}</p>
             <p className="text-sm">{COMPANY.hq}</p>
             <p className="text-sm mt-1">GST: {COMPANY.gst}</p>

@@ -4,8 +4,8 @@ import TimelineSection from "@/components/TimelineSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us — PPS Anantams",
-  description: "25 years of bitumen industry expertise. Meet Prince Pratap Shah and the story of PPS Anantams Corporation.",
+  title: "About Us — YUGA",
+  description: "25 years of bitumen industry expertise. Meet Prince Pratap Shah and the story of YUGA.",
 };
 
 export default function AboutPage() {
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-green-950/80 to-transparent" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="text-white text-2xl font-black">{COMPANY.tradeName}</div>
+                <div className="text-white text-2xl font-black">YUGA</div>
                 <div className="text-orange-400 font-bold text-sm tracking-widest uppercase mt-1">Bio Bitumen Consultant</div>
                 <div className="text-gray-300 text-xs mt-2">{COMPANY.hq} &nbsp;·&nbsp; Est. 2019</div>
               </div>
@@ -54,7 +54,7 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-1">Company Overview</h2>
               <p className="text-orange-500 font-semibold text-sm mb-4 uppercase tracking-wider">Bio Bitumen Consultant</p>
               <p className="text-gray-600 mb-4 leading-relaxed">
-                <strong>{COMPANY.name}</strong> is India&apos;s leading bio-modified bitumen consulting firm,
+                <strong>YUGA</strong> is India&apos;s leading bio-modified bitumen consulting firm,
                 headquartered in {COMPANY.hq}. We provide end-to-end consulting for setting up bio-bitumen
                 manufacturing plants — from site selection and regulatory clearances to plant commissioning and
                 connecting you with our network of 4,452 industry buyers.

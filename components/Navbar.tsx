@@ -82,11 +82,11 @@ export default function Navbar() {
           {/* YUGA-style stacked logo */}
           <Link href="/" className="flex flex-col items-center gap-0 group">
             <YugaArrowStar size={44} />
-            <span className="font-serif font-black text-white text-[15px] leading-none tracking-tight -mt-0.5 group-hover:text-amber-300 transition-colors">
-              PPS Anantams
+            <span className="font-serif font-black text-white text-[17px] leading-none tracking-wider -mt-0.5 group-hover:text-amber-300 transition-colors">
+              YUGA
             </span>
-            <span className="text-[7px] font-bold tracking-[0.22em] text-amber-500 uppercase leading-none mt-0.5">
-              Bio Bitumen Consultant
+            <span className="text-[7px] font-bold tracking-[0.18em] text-amber-400 uppercase leading-none mt-0.5">
+              Vision · Strategy · Execution
             </span>
           </Link>
 

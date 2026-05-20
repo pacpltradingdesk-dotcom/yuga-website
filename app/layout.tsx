@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PPS Anantams — Bio-Modified Bitumen Consulting",
+  title: "YUGA — Bio-Modified Bitumen Consulting",
   description: "India's leading bio-bitumen plant setup and consulting firm. 25 years experience, 10 plants built, 4,452 industry contacts. Complete A-to-Z service.",
 };
 

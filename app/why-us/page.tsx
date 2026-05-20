@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us — PPS Anantams",
+  title: "Why Choose Us — YUGA",
   description: "25 years experience, 4,452 contacts, international supply contracts. India's only end-to-end bio-bitumen consultant.",
 };
 

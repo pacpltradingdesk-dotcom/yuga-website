@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pyrolysis — PPS Anantams",
+  title: "Pyrolysis — YUGA",
   description: "Complete guide to pyrolysis: feedstocks, process, outputs (bio-oil, biochar, syngas, carbon black), and value-added products. India market data and MNRE schemes.",
 };
 
@@ -342,7 +342,7 @@ export default function PyrolysisPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Set Up a Pyrolysis Plant?</h2>
           <p className="text-gray-600 mb-8">
-            PPS Anantams has guided 10 plant setups across India. We know every step — from site selection and machinery procurement to NHAI-approved bio-bitumen sales. First consultation is free.
+            YUGA has guided 10 plant setups across India. We know every step — from site selection and machinery procurement to NHAI-approved bio-bitumen sales. First consultation is free.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact"

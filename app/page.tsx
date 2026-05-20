@@ -127,7 +127,7 @@ export default function HomePage() {
       {/* Why Choose Us teaser */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose PPS Anantams?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose YUGA?</h2>
           <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
             India&apos;s only consultant offering complete end-to-end service — from site selection to your first sale.
           </p>
