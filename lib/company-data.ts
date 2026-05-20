@@ -390,7 +390,7 @@ export const PYROLYSIS_OUTPUTS: PyrolysisOutput[] = [
     name: "Carbon Black (Tyre Pyrolysis)",
     icon: "🖤",
     yieldRange: "~330 kg per tonne of waste tyres processed",
-    heatingValue: "Recovered carbon black (rCB) — direct substitute for virgin CB grades N330/N550",
+    heatingValue: "~32 MJ/kg combustion value; rCB replaces virgin carbon black grades N330/N550/N660",
     uses: ["Rubber & tyre manufacturing reinforcement", "Printing inks & pigments", "Plastic compounding & UV protection", "Asphalt & concrete filler"],
     colorClass: "bg-slate-50 border-slate-200",
   },

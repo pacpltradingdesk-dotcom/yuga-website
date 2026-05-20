@@ -32,6 +32,7 @@ describe("IT_SERVICES", () => {
       expect(s.description).toBeTruthy();
       expect(s.example).toBeTruthy();
       expect(Array.isArray(s.tags)).toBe(true);
+      expect(s.tags.length).toBeGreaterThan(0);
     });
   });
 });
@@ -47,6 +48,7 @@ describe("PYROLYSIS_FEEDSTOCKS", () => {
       expect(f.description).toBeTruthy();
       expect(f.indiaVolume).toBeTruthy();
       expect(f.highlight).toBeTruthy();
+      expect(f.imgSrc).toBeTruthy();
     });
   });
 });
@@ -63,6 +65,7 @@ describe("PYROLYSIS_OUTPUTS", () => {
       expect(o.heatingValue).toBeTruthy();
       expect(Array.isArray(o.uses)).toBe(true);
       expect(o.uses.length).toBeGreaterThan(0);
+      expect(o.colorClass).toBeTruthy();
     });
   });
 });
