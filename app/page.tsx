@@ -1,7 +1,7 @@
+import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
 import StatsBar from "@/components/StatsBar";
-import ServiceCard from "@/components/ServiceCard";
-import { FOUR_STAGES, WHY_NOW } from "@/lib/company-data";
+import { WHY_NOW } from "@/lib/company-data";
 import Link from "next/link";
 
 export default function HomePage() {
@@ -10,21 +10,54 @@ export default function HomePage() {
       <HeroSection />
       <StatsBar />
 
-      {/* Services overview */}
+      {/* Three Ways We Help */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">Our Services</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">Three Ways We Help</h2>
           <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-            Complete end-to-end support for setting up a bio-bitumen plant — from raw material to road.
+            From pyrolysis plant setup to project management to custom industrial software — complete support for ambitious entrepreneurs.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {FOUR_STAGES.map((stage) => <ServiceCard key={stage.stage} stage={stage} />)}
-          </div>
-          <div className="text-center mt-8">
-            <Link href="/services"
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
-              View All Services →
-            </Link>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "🏭",
+                title: "Bio-Bitumen Consulting",
+                description: "End-to-end consulting for bio-bitumen plant setup — site selection, raw material sourcing, plant commissioning, VG-30 supply, and NHAI-approved sales through our 4,452-contact network.",
+                href: "/services#bio-bitumen",
+                imgSrc: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                imgAlt: "Hot asphalt road construction",
+              },
+              {
+                icon: "📋",
+                title: "Project Management (PMC)",
+                description: "Full project management consulting — feasibility studies, procurement, civil supervision, regulatory clearances, commissioning, and monthly retainer support.",
+                href: "/services#pmc",
+                imgSrc: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+                imgAlt: "Construction site management and supervision",
+              },
+              {
+                icon: "💻",
+                title: "IT Solutions",
+                description: "Custom industrial software — portals, plant dashboards, supply chain tools, market intelligence systems, and mobile apps built for bitumen and pyrolysis operations.",
+                href: "/services#it-solutions",
+                imgSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+                imgAlt: "Software dashboard analytics on screen",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <div className="relative h-44">
+                  <Image src={item.imgSrc} alt={item.imgAlt} fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <div className="text-3xl mb-3">{item.icon}</div>
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{item.description}</p>
+                  <Link href={item.href} className="text-green-600 hover:text-green-700 font-medium text-sm">
+                    Learn More →
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -50,8 +83,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us teaser */}
+      {/* Pyrolysis Teaser */}
       <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block bg-orange-100 text-orange-700 text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
+                The Technology Behind Bio-Bitumen
+              </span>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">What is Pyrolysis?</h2>
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                Pyrolysis converts agricultural waste, plastic, and tyres into valuable products — bio-oil, biochar, syngas, and carbon black — using heat in an oxygen-free environment. No combustion. No open flame. Pure value extraction from waste.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "India has 750 million MT of biomass available annually (MNRE)",
+                  "1 tonne of biomass yields 600–700 kg of bio-oil via fast pyrolysis",
+                  "India became the world's first country to commercially produce bio-bitumen (Jan 2026)",
+                ].map((stat, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
+                    <span className="text-orange-500 font-bold shrink-0 mt-0.5">→</span>
+                    {stat}
+                  </li>
+                ))}
+              </ul>
+              <Link href="/pyrolysis"
+                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors inline-block">
+                Explore Pyrolysis In Depth →
+              </Link>
+            </div>
+            <div className="relative h-80 rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80"
+                alt="Agricultural biomass — wheat fields at sunset"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us teaser */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose PPS Anantams?</h2>
           <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -63,7 +137,7 @@ export default function HomePage() {
               { icon: "🤝", title: "4,452 Contacts", desc: "Live network: contractors, traders, importers, NHAI" },
               { icon: "🌍", title: "Global Supply", desc: "International VG-30 contract — 2.4 Lakh MT/yr from Iraq" },
             ].map((item) => (
-              <div key={item.title} className="bg-gray-50 rounded-2xl p-6">
+              <div key={item.title} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
                 <div className="text-4xl mb-3">{item.icon}</div>
                 <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-gray-600 text-sm">{item.desc}</p>
