@@ -1,3 +1,4 @@
+import Image from "next/image";
 import NetworkGrid from "@/components/NetworkGrid";
 import { PPS_STRENGTHS, WHY_NOW, COMPANY } from "@/lib/company-data";
 import Link from "next/link";
@@ -13,11 +14,20 @@ const STRENGTH_ICONS = ["🏭", "🤝", "🌍", "🔗", "📈", "🗺️", "🏆
 export default function WhyUsPage() {
   return (
     <>
-      {/* Header */}
-      <section className="bg-gradient-to-r from-green-50 to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">Why Choose Us?</h1>
-          <p className="text-gray-600 text-lg max-w-3xl">{COMPANY.usp}</p>
+      {/* Header with image */}
+      <section className="relative bg-gradient-to-r from-green-900 to-gray-800 py-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1540492649367-c8565a571e4b?w=1600&q=80"
+            alt="India infrastructure and roads"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-bold text-white mb-3">Why Choose Us?</h1>
+          <p className="text-gray-300 text-lg max-w-3xl">{COMPANY.usp}</p>
         </div>
       </section>
 
@@ -68,6 +78,23 @@ export default function WhyUsPage() {
                 <p className="text-xs text-gray-500 mt-3">Signed: 25 September 2024 — gives our clients direct access to competitively priced VG-30 for blending.</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Strip */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-3 gap-3">
+            {[
+              { src: "https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=500&q=80", alt: "Industrial oil drums storage" },
+              { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80", alt: "Industrial equipment and machinery" },
+              { src: "https://images.unsplash.com/photo-1570128861414-dc5f1e1e4a1a?w=500&q=80", alt: "Road and highway construction India" },
+            ].map((img, i) => (
+              <div key={i} className="relative h-36 rounded-xl overflow-hidden">
+                <Image src={img.src} alt={img.alt} fill className="object-cover" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
