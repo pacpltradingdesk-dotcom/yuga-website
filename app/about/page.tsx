@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { COMPANY, CAREER_TRACK, KEY_CREDENTIALS } from "@/lib/company-data";
 import TimelineItem from "@/components/TimelineItem";
 import type { Metadata } from "next";
@@ -10,11 +11,20 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Page header */}
-      <section className="bg-gradient-to-r from-green-50 to-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-3">About Us</h1>
-          <p className="text-gray-600 text-lg max-w-2xl">{COMPANY.tagline}</p>
+      {/* Page header with image */}
+      <section className="relative bg-gradient-to-r from-green-900 to-gray-800 py-16 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=1600&q=80"
+            alt="Industrial plant infrastructure"
+            fill
+            className="object-cover opacity-20"
+            priority
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-bold text-white mb-3">About Us</h1>
+          <p className="text-gray-300 text-lg max-w-2xl">{COMPANY.tagline}</p>
         </div>
       </section>
 
@@ -52,8 +62,13 @@ export default function AboutPage() {
 
             {/* Founder profile */}
             <div className="bg-green-50 rounded-2xl p-6">
-              <div className="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center text-4xl mb-4">
-                👤
+              <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-md">
+                <Image
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
+                  alt="Prince Pratap Shah — Founder & MD"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900">{COMPANY.owner}</h3>
               <p className="text-green-600 font-medium text-sm mb-3">Founder & Managing Director</p>
@@ -93,6 +108,41 @@ export default function AboutPage() {
               <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
                 <span className="text-green-500 font-bold text-lg shrink-0">✓</span>
                 <p className="text-gray-700 text-sm">{cred}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Photo Gallery */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Our Journey in Images</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                alt: "Road construction with asphalt",
+                caption: "Bio-bitumen road construction",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80",
+                alt: "Agricultural biomass fields",
+                caption: "Biomass sourcing from farmers",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+                alt: "Industrial plant construction",
+                caption: "Plant setup and commissioning",
+              },
+            ].map((img) => (
+              <div key={img.caption} className="rounded-2xl overflow-hidden shadow-sm">
+                <div className="relative h-48">
+                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
+                </div>
+                <div className="bg-white px-4 py-3">
+                  <p className="text-sm text-gray-600 font-medium">{img.caption}</p>
+                </div>
               </div>
             ))}
           </div>
