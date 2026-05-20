@@ -13,6 +13,7 @@ describe("Navbar", () => {
     render(<Navbar />);
     expect(screen.getByText("About Us")).toBeInTheDocument();
     expect(screen.getByText("Services")).toBeInTheDocument();
+    expect(screen.getByText("Pyrolysis")).toBeInTheDocument();
     expect(screen.getByText("Why Choose Us")).toBeInTheDocument();
     expect(screen.getByText("Contact")).toBeInTheDocument();
   });

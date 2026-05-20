@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
+  { href: "/pyrolysis", label: "Pyrolysis" },
   { href: "/why-us", label: "Why Choose Us" },
   { href: "/contact", label: "Contact" },
 ];
