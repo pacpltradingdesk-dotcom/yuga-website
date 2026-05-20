@@ -17,26 +17,34 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center gap-2.5">
-            {/* YUGA-style logo mark */}
-            <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
-              {/* Outer circle — deep green */}
-              <circle cx="21" cy="21" r="21" fill="#14532d" />
-              {/* Outer ring arc — lighter green accent */}
-              <path d="M8 28 A15 15 0 0 1 8 14" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M34 14 A15 15 0 0 1 34 28" stroke="#4ade80" strokeWidth="2.5" strokeLinecap="round" />
-              {/* Bold Y shape — roads converging to a single path */}
-              <path d="M21 32 L21 19" stroke="white" strokeWidth="4" strokeLinecap="round" />
-              <path d="M21 19 L12 9" stroke="white" strokeWidth="4" strokeLinecap="round" />
-              <path d="M21 19 L30 9" stroke="white" strokeWidth="4" strokeLinecap="round" />
-              {/* Orange junction dot */}
-              <circle cx="21" cy="19" r="3.5" fill="#f97316" />
-              {/* Orange base bar — the road */}
-              <rect x="14" y="30" width="14" height="3.5" rx="1.75" fill="#f97316" />
+          <Link href="/" className="flex items-center gap-3">
+            {/* YUGA-inspired logo mark: dark navy + gold arrow + star */}
+            <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+              <defs>
+                <linearGradient id="navArrowGold" x1="23" y1="14" x2="23" y2="43" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#f0c84a"/>
+                  <stop offset="55%" stopColor="#c98a28"/>
+                  <stop offset="100%" stopColor="#7c4a10"/>
+                </linearGradient>
+                <linearGradient id="navStarGold" x1="23" y1="2" x2="23" y2="12" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#fffde8"/>
+                  <stop offset="35%" stopColor="#f5d060"/>
+                  <stop offset="100%" stopColor="#c98a28"/>
+                </linearGradient>
+              </defs>
+              {/* Dark navy background */}
+              <rect width="46" height="46" rx="11" fill="#0d1b3e"/>
+              {/* Upward arrow: tip → left wing → left stem → bottom → right stem → right wing */}
+              <path d="M23 14 L10 29 L19 29 L19 43 L27 43 L27 29 L36 29 Z" fill="url(#navArrowGold)"/>
+              {/* 5-pointed star at tip */}
+              <polygon
+                points="23,3 24.3,6.8 28.4,6.8 25.1,9.2 26.4,13 23,10.6 19.6,13 20.9,9.2 17.6,6.8 21.7,6.8"
+                fill="url(#navStarGold)"
+              />
             </svg>
-            <div className="flex flex-col leading-none gap-0.5">
-              <span className="text-gray-900 font-black text-[15px] tracking-tight leading-none">PPS Anantams</span>
-              <span className="text-orange-500 font-bold text-[9px] tracking-[0.15em] uppercase leading-none">Bio Bitumen Consultant</span>
+            <div className="flex flex-col leading-none gap-1">
+              <span className="font-serif font-black text-[17px] text-[#0d1b3e] leading-none tracking-tight">PPS Anantams</span>
+              <span className="text-[9px] font-bold tracking-[0.2em] text-amber-600 uppercase leading-none">Bio Bitumen Consultant</span>
             </div>
           </Link>
           <div className="hidden md:flex items-center gap-6">
