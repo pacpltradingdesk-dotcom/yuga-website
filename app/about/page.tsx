@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { COMPANY, CAREER_TRACK, KEY_CREDENTIALS } from "@/lib/company-data";
-import TimelineItem from "@/components/TimelineItem";
+import { COMPANY, KEY_CREDENTIALS } from "@/lib/company-data";
+import TimelineSection from "@/components/TimelineSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -31,9 +31,28 @@ export default function AboutPage() {
       {/* Company overview */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image side */}
+            <div className="relative rounded-2xl overflow-hidden shadow-lg">
+              <div className="relative h-80">
+                <Image
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                  alt="Bio-bitumen plant — industrial construction and commissioning"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-green-950/80 to-transparent" />
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="text-white text-2xl font-black">{COMPANY.tradeName}</div>
+                <div className="text-orange-400 font-bold text-sm tracking-widest uppercase mt-1">Bio Bitumen Consultant</div>
+                <div className="text-gray-300 text-xs mt-2">{COMPANY.hq} &nbsp;·&nbsp; Est. 2019</div>
+              </div>
+            </div>
+
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Company Overview</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-1">Company Overview</h2>
+              <p className="text-orange-500 font-semibold text-sm mb-4 uppercase tracking-wider">Bio Bitumen Consultant</p>
               <p className="text-gray-600 mb-4 leading-relaxed">
                 <strong>{COMPANY.name}</strong> is India&apos;s leading bio-modified bitumen consulting firm,
                 headquartered in {COMPANY.hq}. We provide end-to-end consulting for setting up bio-bitumen
@@ -45,7 +64,7 @@ export default function AboutPage() {
                 successfully built 10 plants across India spanning 5 product types: Emulsion, Blown Bitumen,
                 CRMB, PMB, and VG30.
               </p>
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 mb-6">
                 {[
                   { label: "GST", value: COMPANY.gst },
                   { label: "CIN", value: COMPANY.cin },
@@ -58,28 +77,20 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
-            </div>
 
-            {/* Founder profile */}
-            <div className="bg-green-50 rounded-2xl p-6">
-              <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-md">
-                <Image
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80"
-                  alt="Prince Pratap Shah — Founder & MD"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">{COMPANY.owner}</h3>
-              <p className="text-green-600 font-medium text-sm mb-3">Founder & Managing Director</p>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                {COMPANY.experience}
-              </p>
-              <div className="text-sm text-gray-600 mb-3">
-                <strong>Education:</strong> {COMPANY.education}
-              </div>
-              <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1.5 rounded-full text-xs font-semibold">
-                🏆 {COMPANY.awards}
+              {/* Founder card — no stock photo */}
+              <div className="bg-green-50 rounded-2xl p-5 flex items-start gap-4">
+                <div className="w-14 h-14 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xl shrink-0 border-2 border-white shadow">
+                  PS
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900">{COMPANY.owner}</h3>
+                  <p className="text-green-600 font-medium text-xs mb-2">Founder & Managing Director</p>
+                  <p className="text-gray-600 text-xs leading-relaxed mb-2">{COMPANY.experience}</p>
+                  <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-semibold">
+                    🏆 {COMPANY.awards}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -87,17 +98,7 @@ export default function AboutPage() {
       </section>
 
       {/* Career Timeline */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">25-Year Career Timeline</h2>
-          <p className="text-gray-600 mb-8">From employee to founder to India&apos;s leading bio-bitumen consultant.</p>
-          <div className="max-w-2xl">
-            {CAREER_TRACK.map((item, i) => (
-              <TimelineItem key={`${item.year}-${item.company}`} item={item} isLast={i === CAREER_TRACK.length - 1} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <TimelineSection />
 
       {/* Key Credentials */}
       <section className="py-12 bg-white">

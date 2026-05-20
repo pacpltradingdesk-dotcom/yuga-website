@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroSection from "@/components/HeroSection";
+import HeroVideo from "@/components/HeroVideo";
 import StatsBar from "@/components/StatsBar";
 import { WHY_NOW } from "@/lib/company-data";
 import Link from "next/link";
@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
+      <HeroVideo />
       <StatsBar />
 
       {/* Three Ways We Help */}
@@ -25,7 +25,7 @@ export default function HomePage() {
                 description: "End-to-end consulting for bio-bitumen plant setup — site selection, raw material sourcing, plant commissioning, VG-30 supply, and NHAI-approved sales through our 4,452-contact network.",
                 href: "/services#bio-bitumen",
                 imgSrc: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-                imgAlt: "Hot asphalt road construction",
+                imgAlt: "Hot asphalt bitumen road construction paving",
               },
               {
                 icon: "📋",
@@ -33,7 +33,7 @@ export default function HomePage() {
                 description: "Full project management consulting — feasibility studies, procurement, civil supervision, regulatory clearances, commissioning, and monthly retainer support.",
                 href: "/services#pmc",
                 imgSrc: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-                imgAlt: "Construction site management and supervision",
+                imgAlt: "Industrial plant construction site management",
               },
               {
                 icon: "💻",
@@ -41,7 +41,7 @@ export default function HomePage() {
                 description: "Custom industrial software — portals, plant dashboards, supply chain tools, market intelligence systems, and mobile apps built for bitumen and pyrolysis operations.",
                 href: "/services#it-solutions",
                 imgSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-                imgAlt: "Software dashboard analytics on screen",
+                imgAlt: "Industrial analytics dashboard software screen",
               },
             ].map((item) => (
               <div key={item.title} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-shadow">

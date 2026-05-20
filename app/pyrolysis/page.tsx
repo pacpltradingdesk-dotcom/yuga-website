@@ -96,6 +96,103 @@ export default function PyrolysisPage() {
         </div>
       </section>
 
+      {/* Bio-Bitumen Plant — How It's Made */}
+      <section className="py-16 bg-green-950 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-4 uppercase tracking-widest">
+              From Waste to Road
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">How Bio-Bitumen is Made</h2>
+            <p className="text-green-200 max-w-2xl mx-auto">
+              Pyrolysis converts agro-waste into bio-oil, which is then refined and blended with petroleum bitumen to create NHAI-approved bio-modified bitumen for Indian roads.
+            </p>
+          </div>
+
+          {/* Plant diagram — 4 stages */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-0 mb-10">
+            {[
+              {
+                step: "01",
+                title: "Biomass Collection",
+                desc: "Agro-waste (rice straw, cotton stalk, sugarcane bagasse, groundnut shells) collected from farmers within 50–100 km. Dried & shredded to uniform pellets.",
+                img: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80",
+                imgAlt: "Agricultural biomass — wheat and rice fields",
+                capex: "₹15–30 Lakh",
+                color: "from-green-800",
+              },
+              {
+                step: "02",
+                title: "Pyrolysis Reactor",
+                desc: "Pellets fed into rotary kiln reactor, heated to 450–550°C in zero-oxygen environment. Long carbon chains break down into bio-oil vapour, biochar, and syngas.",
+                img: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80",
+                imgAlt: "Industrial pyrolysis reactor plant with high heat",
+                capex: "₹80L–1.5 Cr",
+                color: "from-orange-950",
+              },
+              {
+                step: "03",
+                title: "Bio-Oil Refining",
+                desc: "Condensed bio-oil is upgraded through oxidation at 230–250°C, removing water and volatile acids. Refined bio-oil achieves bitumen-compatible viscosity and softening point.",
+                img: "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=600&q=80",
+                imgAlt: "Industrial refinery plant with processing tanks",
+                capex: "₹40–80 Lakh",
+                color: "from-gray-800",
+              },
+              {
+                step: "04",
+                title: "VG-30 Blending & Testing",
+                desc: "15–30% refined bio-oil blended with VG-30 petroleum bitumen. Tests: penetration, softening point, ductility, rheology. NHAI/MoRTH certification obtained. Sold to road contractors.",
+                img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+                imgAlt: "Hot asphalt road construction — bitumen paving",
+                capex: "₹20–40 Lakh",
+                color: "from-green-900",
+              },
+            ].map((stage, i, arr) => (
+              <div key={stage.step} className={`relative overflow-hidden ${i === 0 ? "rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none xl:rounded-l-2xl xl:rounded-tr-none" : ""} ${i === arr.length - 1 ? "rounded-b-2xl md:rounded-r-2xl md:rounded-bl-none xl:rounded-r-2xl xl:rounded-bl-none" : ""}`}>
+                <div className="relative h-48">
+                  <Image src={stage.img} alt={stage.imgAlt} fill className="object-cover" />
+                  <div className={`absolute inset-0 bg-gradient-to-t ${stage.color}/80 to-transparent`} />
+                  <div className="absolute bottom-3 left-4">
+                    <span className="text-orange-400 font-black text-4xl opacity-60">{stage.step}</span>
+                  </div>
+                </div>
+                <div className="bg-green-900/80 p-5 backdrop-blur-sm h-full border-t border-green-700/50">
+                  <h3 className="font-black text-white text-base mb-2">{stage.title}</h3>
+                  <p className="text-green-200 text-xs leading-relaxed mb-3">{stage.desc}</p>
+                  <div className="inline-block bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-semibold px-2.5 py-1 rounded-full">
+                    CapEx: {stage.capex}
+                  </div>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="hidden xl:flex absolute top-24 -right-4 z-10 w-8 h-8 bg-orange-500 rounded-full items-center justify-center text-white font-black text-sm shadow-lg">
+                    →
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Key plant specs */}
+          <div className="bg-white/5 rounded-2xl p-6 border border-white/10">
+            <h3 className="font-bold text-white mb-5 text-center">Complete Plant Economics</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { val: "₹1.5–3.5 Cr", label: "Total CapEx (all 4 stages)" },
+                { val: "20–25%", label: "Bio-oil yield from biomass" },
+                { val: "15–30%", label: "Bio-oil in final VG-30 blend" },
+                { val: "NHAI/MoRTH", label: "Certification for road use" },
+              ].map(({ val, label }) => (
+                <div key={label} className="text-center">
+                  <div className="text-xl font-black text-orange-400 mb-1">{val}</div>
+                  <div className="text-green-300 text-xs">{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Feedstocks */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
