@@ -1,38 +1,44 @@
-# PPS Anantams — Company Website
+# YUGA — Bio-Modified Bitumen Consulting Website
 
-Public marketing website for **PPS Anantams Corporation Private Limited (PACPL)** — India's leading bio-modified bitumen consulting firm.
-
-## Stack
-
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS v4
-- Formspree (contact form)
+Website for **YUGA** (PPS Anantams Corporation Private Limited / PACPL), India's leading bio-bitumen plant setup and consulting firm.
 
 ## Pages
 
-- `/` — Home
-- `/about` — About Us
-- `/services` — Services
-- `/why-us` — Why Choose Us
-- `/contact` — Contact
+| Route | Purpose |
+|---|---|
+| `/` | Home — hero, stats, services overview, why now, pyrolysis teaser |
+| `/about` | Founder Prince Pratap Shah, career timeline, credentials |
+| `/services` | Bio-Bitumen Consulting, PMC, IT Solutions |
+| `/pyrolysis` | Pyrolysis technology deep-dive |
+| `/why-us` | Differentiators, industry network, GETKA contract |
+| `/contact` | Contact form + details |
+| `/thank-you` | Post-form submission confirmation |
 
-## Development
+## Tech Stack
+
+- Next.js 16 (static export)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Google Fonts: Playfair Display + Inter
+- Formspree (contact form)
+
+## Setup
 
 ```bash
 npm install
-npm run dev
+npm run dev       # development
+npm run build     # static export to /out
+npm run test      # run Jest test suite
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+## Environment Variables
 
-## Deploy
+```
+NEXT_PUBLIC_FORMSPREE_ID=your_formspree_id   # required for contact form
+NEXT_PUBLIC_SITE_URL=https://www.yuga.co.in  # used in sitemap
+```
 
-1. Push to GitHub
-2. Connect repo to [Vercel](https://vercel.com)
-3. Add env var: `NEXT_PUBLIC_FORMSPREE_ID=your_form_id`
-4. Deploy
+## Deployment
 
-## Contact Form Setup
-
-Sign up at [formspree.io](https://formspree.io), create a form, and set the `NEXT_PUBLIC_FORMSPREE_ID` env var in Vercel.
+Deployed on Vercel. Set environment variables in the Vercel project settings.

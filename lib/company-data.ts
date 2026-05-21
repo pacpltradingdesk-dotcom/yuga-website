@@ -1,11 +1,11 @@
 export const COMPANY = {
   name: "PPS Anantams Corporation Private Limited",
   shortName: "PACPL",
-  tradeName: "PPS Anantams",
+  tradeName: "YUGA",
   owner: "Prince Pratap Shah",
   phone: "+91 7795242424",
   email: "princepshah@gmail.com",
-  website: "www.princeshah.com",
+  website: "www.yuga.co.in", // Update to actual domain when assigned
   gst: "24AAHCV1611L2ZD",
   pan: "AAHCV1611L",
   cin: "U46632GJ2019PTC110676",
@@ -72,6 +72,7 @@ export const FOUR_STAGES = [
     icon: "🛣️",
   },
 ];
+export type FourStage = (typeof FOUR_STAGES)[0];
 
 export type TargetAudience = {
   type: string;
