@@ -3,11 +3,6 @@ import Link from "next/link";
 import { COMPANY } from "@/lib/company-data";
 
 export default function Footer() {
-  const whatsappNumber = "917795242424";
-  const whatsappMessage = encodeURIComponent(
-    "Hello, I'm interested in bio-bitumen plant consulting. Please share more details."
-  );
-
   return (
     <footer className="bg-primary text-white">
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
@@ -57,15 +52,6 @@ export default function Footer() {
           </p>
           <p className="text-white/70 text-sm mb-2">{COMPANY.phone}</p>
           <p className="text-white/70 text-sm mb-6">{COMPANY.email}</p>
-          <a
-            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-green-700 transition-colors mb-4"
-          >
-            WhatsApp Us
-          </a>
-          <br />
           <Link
             href="/contact"
             className="inline-block bg-accent text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-accent-hover transition-colors mt-2"

@@ -61,6 +61,8 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
         >
           <span
             className={`block w-6 h-0.5 bg-primary transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
@@ -76,7 +78,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="absolute top-[72px] left-0 right-0 bg-white border-b border-border px-6 py-4 flex flex-col gap-4 md:hidden shadow-lg">
+        <nav id="mobile-nav" aria-label="Mobile navigation" className="absolute top-[72px] left-0 right-0 bg-white border-b border-border px-6 py-4 flex flex-col gap-4 md:hidden shadow-lg">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
@@ -94,7 +96,7 @@ export default function Navbar() {
           >
             Get Consulting
           </Link>
-        </div>
+        </nav>
       )}
     </header>
   );
