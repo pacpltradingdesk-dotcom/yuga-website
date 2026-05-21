@@ -9,7 +9,17 @@ const STATS = [
   { value: 3, label: "Service Verticals", suffix: "" },
 ];
 
-function StatCard({ value, label, suffix, active }: { value: number; label: string; suffix: string; active: boolean }) {
+function StatCard({
+  value,
+  label,
+  suffix,
+  active,
+}: {
+  value: number;
+  label: string;
+  suffix: string;
+  active: boolean;
+}) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -29,11 +39,12 @@ function StatCard({ value, label, suffix, active }: { value: number; label: stri
   }, [active, value]);
 
   return (
-    <div className="text-center px-8 py-8">
-      <p className="font-sans text-4xl md:text-5xl font-extrabold text-brand-gold">
-        {active ? count.toLocaleString("en-IN") : "0"}{suffix}
+    <div className="text-center px-8 py-10">
+      <p className="text-4xl md:text-5xl font-extrabold text-accent">
+        {active ? count.toLocaleString("en-IN") : "0"}
+        {suffix}
       </p>
-      <p className="text-brand-muted text-sm font-medium mt-2 uppercase tracking-widest">{label}</p>
+      <p className="text-secondary text-sm font-medium mt-2 uppercase tracking-widest">{label}</p>
     </div>
   );
 }
@@ -44,7 +55,9 @@ export default function StatsBar() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setActive(true); },
+      ([entry]) => {
+        if (entry.isIntersecting) setActive(true);
+      },
       { threshold: 0.3 }
     );
     if (ref.current) observer.observe(ref.current);
@@ -52,8 +65,8 @@ export default function StatsBar() {
   }, []);
 
   return (
-    <div ref={ref} className="bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+    <div ref={ref} className="bg-white border-y border-border">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
         {STATS.map((stat) => (
           <StatCard key={stat.label} {...stat} active={active} />
         ))}
