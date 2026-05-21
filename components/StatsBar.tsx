@@ -6,54 +6,58 @@ const STATS = [
   { value: COMPANY.yearsExperience, label: "Years Experience", suffix: "+" },
   { value: COMPANY.plantsBuilt, label: "Plants Built", suffix: "" },
   { value: COMPANY.industryContacts, label: "Industry Contacts", suffix: "+" },
-  { value: COMPANY.statesNetwork, label: "States Network", suffix: "" },
+  { value: 3, label: "Service Verticals", suffix: "" },
 ];
 
-function StatCard({ value, label, suffix }: { value: number; label: string; suffix: string }) {
+function StatCard({ value, label, suffix, active }: { value: number; label: string; suffix: string; active: boolean }) {
   const [count, setCount] = useState(0);
-  const [active, setActive] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setActive(true);
-    }, { threshold: 0.1 });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!active) return;
-    const steps = 60;
-    const duration = 2000;
-    const increment = value / steps;
-    let current = 0;
+    let start = 0;
+    const step = Math.ceil(value / 60);
     const interval = setInterval(() => {
-      current += increment;
-      if (current >= value) { setCount(value); clearInterval(interval); }
-      else setCount(Math.floor(current));
-    }, duration / steps);
+      start += step;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(interval);
+      } else {
+        setCount(start);
+      }
+    }, 30);
     return () => clearInterval(interval);
   }, [active, value]);
 
   return (
-    <div ref={ref} className="text-center p-6">
-      <div className="text-4xl font-bold text-green-600">
-        {count.toLocaleString()}{suffix}
-      </div>
-      <div className="text-gray-600 mt-1 text-sm font-medium">{label}</div>
+    <div className="text-center px-8 py-8">
+      <p className="font-sans text-4xl md:text-5xl font-extrabold text-brand-gold">
+        {active ? count.toLocaleString() : "0"}{suffix}
+      </p>
+      <p className="text-brand-muted text-sm font-medium mt-2 uppercase tracking-widest">{label}</p>
     </div>
   );
 }
 
 export default function StatsBar() {
+  const [active, setActive] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setActive(true); },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-white border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-          {STATS.map((stat) => <StatCard key={stat.label} {...stat} />)}
-        </div>
+    <div ref={ref} className="bg-white">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+        {STATS.map((stat) => (
+          <StatCard key={stat.label} {...stat} active={active} />
+        ))}
       </div>
-    </section>
+    </div>
   );
 }

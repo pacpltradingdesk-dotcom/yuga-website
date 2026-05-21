@@ -9,23 +9,11 @@ import { render, screen } from "@testing-library/react";
 import StatsBar from "@/components/StatsBar";
 
 describe("StatsBar", () => {
-  it("renders Years Experience label", () => {
+  it("renders all four stat labels", () => {
     render(<StatsBar />);
-    expect(screen.getByText("Years Experience")).toBeInTheDocument();
-  });
-
-  it("renders Plants Built label", () => {
-    render(<StatsBar />);
-    expect(screen.getByText("Plants Built")).toBeInTheDocument();
-  });
-
-  it("renders Industry Contacts label", () => {
-    render(<StatsBar />);
-    expect(screen.getByText("Industry Contacts")).toBeInTheDocument();
-  });
-
-  it("renders States Network label", () => {
-    render(<StatsBar />);
-    expect(screen.getByText("States Network")).toBeInTheDocument();
+    expect(screen.getByText(/years.*experience/i)).toBeInTheDocument();
+    expect(screen.getByText(/plants.*built/i)).toBeInTheDocument();
+    expect(screen.getByText(/industry.*contacts/i)).toBeInTheDocument();
+    expect(screen.getByText(/service.*verticals/i)).toBeInTheDocument();
   });
 });
