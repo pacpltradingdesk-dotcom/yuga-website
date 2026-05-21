@@ -3,7 +3,7 @@ import HeroVideo from "@/components/HeroVideo";
 import StatsBar from "@/components/StatsBar";
 import WhyNowSection from "@/components/WhyNowSection";
 import ServiceCard from "@/components/ServiceCard";
-import { FOUR_STAGES, PYROLYSIS_FEEDSTOCKS } from "@/lib/company-data";
+import { FOUR_STAGES } from "@/lib/company-data";
 import Link from "next/link";
 
 export const metadata: Metadata = {
