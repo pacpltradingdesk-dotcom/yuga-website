@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Icon map keyed by exact strength text — eliminates silent index misalignment
 const STRENGTH_ICONS: Record<string, string> = {
   "25 years bitumen industry experience — 10 plants built": "🏭",
   "4,452 live industry contacts (contractors, traders, importers)": "🤝",
@@ -36,19 +35,15 @@ export default function WhyUsPage() {
       />
 
       {/* Strengths grid */}
-      <section className="bg-brand-navy py-20 px-6">
+      <section className="bg-surface py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            Our Advantages
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-white text-center mb-12">
-            What Sets YUGA Apart
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">Our Advantages</p>
+          <h2 className="font-display text-3xl md:text-4xl text-primary font-bold text-center mb-12">What Sets YUGA Apart</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {PPS_STRENGTHS.map((strength) => (
-              <div key={strength} className="bg-brand-card border-t-2 border-brand-gold p-6 flex gap-4">
+              <div key={strength} className="bg-white border border-border border-t-4 border-t-accent rounded-2xl p-6 flex gap-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
                 <span className="text-3xl shrink-0" aria-hidden="true">{STRENGTH_ICONS[strength] ?? "✅"}</span>
-                <p className="text-white leading-relaxed text-sm">{strength}</p>
+                <p className="text-secondary leading-relaxed text-sm">{strength}</p>
               </div>
             ))}
           </div>
@@ -56,15 +51,11 @@ export default function WhyUsPage() {
       </section>
 
       {/* Industry Network */}
-      <section className="bg-brand-slate py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            Live Industry Network
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-4">
-            4,452 Verified Contacts
-          </h2>
-          <p className="text-brand-muted text-center max-w-xl mx-auto mb-10">
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">Live Industry Network</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-4">4,452 Verified Contacts</h2>
+          <p className="text-secondary text-center max-w-xl mx-auto mb-10">
             Built over 25 years — contractors, traders, importers, and manufacturers across 17 states.
           </p>
           <div className="max-w-2xl mx-auto">
@@ -74,16 +65,14 @@ export default function WhyUsPage() {
       </section>
 
       {/* GETKA Highlight */}
-      <section className="bg-brand-navy py-20 px-6">
-        <div className="max-w-4xl mx-auto border-2 border-brand-gold p-10 text-center">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-4">
-            International Supply Contract
-          </p>
-          <h2 className="font-display text-3xl text-white mb-4">GETKA Energy Trading LLC</h2>
-          <p className="text-brand-muted mb-2">Getka Energy Trading LLC, USA (Iraq Origin)</p>
-          <p className="text-4xl font-extrabold text-brand-gold font-sans mb-2">2.4 Lakh MT/Year</p>
-          <p className="text-brand-muted text-sm">VG-30 International Supply Contract</p>
-          <div className="w-16 h-0.5 bg-brand-gold mx-auto mt-6" />
+      <section className="bg-surface py-20 px-6">
+        <div className="max-w-4xl mx-auto border-2 border-accent rounded-2xl p-10 text-center bg-white shadow-sm">
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-4">International Supply Contract</p>
+          <h2 className="font-display text-3xl text-primary font-bold mb-4">GETKA Energy Trading LLC</h2>
+          <p className="text-secondary mb-2">Getka Energy Trading LLC, USA (Iraq Origin)</p>
+          <p className="text-4xl font-extrabold text-accent mb-2">2.4 Lakh MT/Year</p>
+          <p className="text-secondary text-sm">VG-30 International Supply Contract</p>
+          <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-6" />
         </div>
       </section>
 

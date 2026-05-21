@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import {
-  PYROLYSIS_FEEDSTOCKS,
-  PYROLYSIS_OUTPUTS,
-  PYROLYSIS_PRODUCTS,
-} from "@/lib/company-data";
+import { PYROLYSIS_FEEDSTOCKS, PYROLYSIS_OUTPUTS, PYROLYSIS_PRODUCTS } from "@/lib/company-data";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pyrolysis Technology — YUGA",
@@ -53,20 +50,16 @@ export default function PyrolysisPage() {
       />
 
       {/* Process Flow */}
-      <section className="bg-brand-navy py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            The Process
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-12">
-            From Waste to Road — 6 Steps
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">The Process</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-12">From Waste to Road — 6 Steps</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {PROCESS_STEPS.map((step) => (
-              <div key={step.step} className="bg-brand-card p-6 border-l-4 border-brand-gold">
-                <p className="font-display text-3xl font-bold text-brand-gold mb-3">{step.step}</p>
-                <h3 className="text-white font-semibold mb-2">{step.title}</h3>
-                <p className="text-brand-muted text-sm leading-relaxed">{step.desc}</p>
+              <div key={step.step} className="bg-white border border-border border-l-4 border-l-accent rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
+                <p className="font-display text-3xl font-bold text-accent mb-3">{step.step}</p>
+                <h3 className="text-primary font-semibold mb-2">{step.title}</h3>
+                <p className="text-secondary text-sm leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -74,23 +67,19 @@ export default function PyrolysisPage() {
       </section>
 
       {/* Feedstocks */}
-      <section className="bg-brand-slate py-20 px-6">
+      <section className="bg-surface py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            Raw Materials
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-12">
-            What Goes In
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">Raw Materials</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-12">What Goes In</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {PYROLYSIS_FEEDSTOCKS.map((f) => (
-              <div key={f.name} className="bg-brand-card border-t-2 border-brand-gold p-6">
+              <div key={f.name} className="bg-white border border-border border-t-4 border-t-accent rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl" aria-hidden="true">{f.icon}</span>
-                  <h3 className="text-white font-display font-semibold">{f.name}</h3>
+                  <h3 className="text-primary font-bold">{f.name}</h3>
                 </div>
-                <p className="text-brand-muted text-sm leading-relaxed mb-3">{f.description}</p>
-                <p className="text-brand-gold text-xs font-semibold">{f.indiaVolume}</p>
+                <p className="text-secondary text-sm leading-relaxed mb-3">{f.description}</p>
+                <p className="text-accent text-xs font-semibold">{f.indiaVolume}</p>
               </div>
             ))}
           </div>
@@ -98,26 +87,22 @@ export default function PyrolysisPage() {
       </section>
 
       {/* Outputs */}
-      <section className="bg-brand-navy py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            Products
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-12">
-            What Comes Out
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">Products</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-12">What Comes Out</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {PYROLYSIS_OUTPUTS.map((o) => (
-              <div key={o.name} className="bg-brand-card border-t-2 border-brand-gold p-6">
+              <div key={o.name} className="bg-white border border-border border-t-4 border-t-accent rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl" aria-hidden="true">{o.icon}</span>
-                  <h3 className="text-white font-display font-semibold text-base">{o.name}</h3>
+                  <h3 className="text-primary font-bold text-base">{o.name}</h3>
                 </div>
-                <p className="text-brand-gold text-xs font-semibold mb-1">{o.yieldRange}</p>
+                <p className="text-accent text-xs font-semibold mb-1">{o.yieldRange}</p>
                 <ul className="space-y-1 mt-3">
                   {o.uses.slice(0, 3).map((u) => (
-                    <li key={u} className="flex gap-2 text-brand-muted text-xs">
-                      <span className="text-brand-gold shrink-0" aria-hidden="true">→</span>
+                    <li key={u} className="flex gap-2 text-secondary text-xs">
+                      <span className="text-accent shrink-0" aria-hidden="true">→</span>
                       {u}
                     </li>
                   ))}
@@ -129,20 +114,16 @@ export default function PyrolysisPage() {
       </section>
 
       {/* Market Stats */}
-      <section className="bg-brand-slate py-20 px-6">
+      <section className="bg-surface py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            India Market
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-12">
-            The Opportunity in Numbers
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">India Market</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-12">The Opportunity in Numbers</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {MARKET_STATS.map((stat) => (
-              <div key={stat.label} className="bg-brand-card p-6 text-center">
-                <p className="font-display text-3xl font-bold text-brand-gold mb-1">{stat.value}</p>
-                <p className="text-white font-semibold text-sm mb-1">{stat.label}</p>
-                <p className="text-brand-muted text-xs">{stat.note}</p>
+              <div key={stat.label} className="bg-white border border-border rounded-2xl p-6 text-center hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
+                <p className="font-display text-3xl font-bold text-accent mb-1">{stat.value}</p>
+                <p className="text-primary font-semibold text-sm mb-1">{stat.label}</p>
+                <p className="text-secondary text-xs">{stat.note}</p>
               </div>
             ))}
           </div>
@@ -150,21 +131,15 @@ export default function PyrolysisPage() {
       </section>
 
       {/* Govt Policy */}
-      <section className="bg-brand-navy py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            Policy Tailwinds
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-12">
-            Government Support
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">Policy Tailwinds</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-12">Government Support</h2>
           <ul className="space-y-4">
             {GOVT_POLICIES.map((policy, i) => (
-              <li key={policy} className="flex gap-4 bg-brand-card border-l-4 border-brand-gold p-5">
-                <span className="text-brand-gold font-bold font-display text-lg shrink-0">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-white leading-relaxed">{policy}</p>
+              <li key={policy} className="flex gap-4 bg-white border border-border border-l-4 border-l-accent rounded-2xl p-5">
+                <span className="text-accent font-bold text-lg shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                <p className="text-secondary leading-relaxed">{policy}</p>
               </li>
             ))}
           </ul>
@@ -172,24 +147,20 @@ export default function PyrolysisPage() {
       </section>
 
       {/* Value-added Products */}
-      <section className="bg-brand-slate py-20 px-6">
+      <section className="bg-surface py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
-            High-Value Outputs
-          </p>
-          <h2 className="font-display text-3xl text-white text-center mb-12">
-            Value-Added Products
-          </h2>
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3 text-center">High-Value Outputs</p>
+          <h2 className="font-display text-3xl text-primary font-bold text-center mb-12">Value-Added Products</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {PYROLYSIS_PRODUCTS.map((p) => (
-              <div key={p.name} className="bg-brand-card border-t-2 border-brand-gold p-6">
+              <div key={p.name} className="bg-white border border-border border-t-4 border-t-accent rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-3xl" aria-hidden="true">{p.icon}</span>
-                  <h3 className="text-white font-display font-semibold">{p.name}</h3>
+                  <h3 className="text-primary font-bold">{p.name}</h3>
                 </div>
-                <p className="text-brand-muted text-sm leading-relaxed mb-3">{p.description}</p>
-                <div className="bg-brand-navy border-l-4 border-brand-gold px-4 py-2">
-                  <p className="text-brand-gold text-xs font-semibold">{p.stat}</p>
+                <p className="text-secondary text-sm leading-relaxed mb-3">{p.description}</p>
+                <div className="bg-accent-light border-l-4 border-accent px-4 py-2 rounded-r-xl">
+                  <p className="text-accent text-xs font-semibold">{p.stat}</p>
                 </div>
               </div>
             ))}
@@ -198,16 +169,14 @@ export default function PyrolysisPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-gold py-14 px-6 text-center">
-        <h2 className="font-display text-3xl text-brand-navy font-bold mb-4">
-          Ready to Build Your Pyrolysis Plant?
-        </h2>
-        <a
+      <section className="bg-accent py-14 px-6 text-center">
+        <h2 className="font-display text-3xl text-white font-bold mb-4">Ready to Build Your Pyrolysis Plant?</h2>
+        <Link
           href="/contact"
-          className="inline-block bg-brand-navy text-white font-bold px-8 py-4 hover:bg-brand-slate transition-colors text-sm uppercase tracking-wider"
+          className="inline-block bg-white text-accent font-bold px-8 py-4 rounded-xl hover:bg-accent-light transition-colors text-sm uppercase tracking-wider"
         >
           Talk to an Expert
-        </a>
+        </Link>
       </section>
     </>
   );
