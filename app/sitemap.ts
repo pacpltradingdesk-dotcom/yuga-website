@@ -2,14 +2,45 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.yuga.co.in";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://pacpl.in";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["/", "/about", "/services", "/pyrolysis", "/why-us", "/contact"];
-  return routes.map((route) => ({
-    url: `${BASE_URL}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: route === "/" ? 1 : 0.8,
-  }));
+  return [
+    {
+      url: `${BASE_URL}/`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/consulting`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/it-products`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/pyrolysis`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/contact`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+  ];
 }
