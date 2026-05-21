@@ -1,53 +1,66 @@
-"use client";
+import Link from "next/link";
+import { COMPANY } from "@/lib/company-data";
+
 export default function HeroVideo() {
   return (
-    <div className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Fallback dark bg — shows when video is absent or loading */}
-      <div className="absolute inset-0 bg-brand-navy" />
+    <section className="relative bg-surface min-h-[90vh] flex items-center px-6 py-20 overflow-hidden">
+      {/* Decorative gradient blobs */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-accent-light via-white to-accent-border rounded-full opacity-70 blur-3xl translate-x-1/3 -translate-y-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-accent-border to-white rounded-full opacity-40 blur-3xl -translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
-      <video
-        className="absolute inset-0 w-full h-full object-cover opacity-10"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
-      >
-        <source src="/hero.mp4" type="video/mp4" />
-      </video>
+      <div className="relative max-w-7xl mx-auto w-full">
+        <div className="max-w-3xl">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-accent-light text-accent text-xs font-semibold px-4 py-2 rounded-full mb-8 uppercase tracking-widest">
+            India&apos;s Leading Bio-Bitumen Consultant
+          </div>
 
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-transparent to-brand-navy/80" />
+          {/* Headline */}
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary leading-tight tracking-tight mb-6">
+            India&apos;s{" "}
+            <span className="text-accent">Bio-Bitumen</span>{" "}
+            Revolution
+          </h1>
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
-          India&apos;s Leading Bio-Bitumen Consultant
-        </p>
-        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight mb-6">
-          India&apos;s{" "}
-          <span className="text-brand-gold">Bio-Bitumen</span>{" "}
-          Revolution
-        </h1>
-        <p className="text-brand-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-          End-to-end plant setup consulting — from site selection to commercial production.
-          25 years experience. 10 plants built. 4,452 verified industry contacts.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/contact"
-            className="bg-brand-gold text-brand-navy font-bold px-8 py-4 hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
-          >
-            Start Your Project
-          </a>
-          <a
-            href="/services"
-            className="border border-brand-gold text-brand-gold font-bold px-8 py-4 hover:bg-brand-gold hover:text-brand-navy transition-colors text-sm uppercase tracking-wider"
-          >
-            Our Services
-          </a>
+          {/* Subtext */}
+          <p className="text-secondary text-lg md:text-xl max-w-2xl mb-10 leading-relaxed">
+            End-to-end plant setup consulting — from site selection to commercial production.{" "}
+            {COMPANY.yearsExperience} years experience. {COMPANY.plantsBuilt} plants built.{" "}
+            {COMPANY.industryContacts.toLocaleString("en-IN")} verified industry contacts.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/contact"
+              className="inline-block bg-accent text-white font-semibold px-8 py-4 rounded-xl shadow-[0_4px_16px_rgba(37,99,235,0.35)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.45)] hover:scale-[1.02] transition-all duration-200 text-center"
+            >
+              Start Your Project
+            </Link>
+            <Link
+              href="/services"
+              className="inline-block bg-white text-accent font-semibold px-8 py-4 rounded-xl border border-accent-border hover:bg-accent-light transition-all duration-200 text-center"
+            >
+              Our Services →
+            </Link>
+          </div>
+
+          {/* Stats row */}
+          <div className="flex flex-wrap gap-6 mt-12 pt-8 border-t border-border">
+            {[
+              { value: `${COMPANY.yearsExperience}+`, label: "Years Experience" },
+              { value: String(COMPANY.plantsBuilt), label: "Plants Built" },
+              { value: COMPANY.industryContacts.toLocaleString("en-IN") + "+", label: "Industry Contacts" },
+              { value: "3", label: "Service Verticals" },
+            ].map(({ value, label }) => (
+              <div key={label} className="text-center min-w-[80px]">
+                <p className="text-2xl font-extrabold text-accent">{value}</p>
+                <p className="text-secondary text-xs uppercase tracking-widest mt-1">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
