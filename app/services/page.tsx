@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import ServiceCard from "@/components/ServiceCard";
 import { FOUR_STAGES, CONSULTING_SERVICES, PMC_SERVICES, IT_SERVICES } from "@/lib/company-data";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Services — YUGA",
@@ -25,7 +26,7 @@ export default function ServicesPage() {
 
       {/* Sticky tab nav */}
       <nav
-        className="sticky top-[72px] z-40 bg-brand-slate border-b border-brand-gold/30"
+        className="sticky top-[72px] z-40 bg-white border-b border-border"
         aria-label="Service sections"
       >
         <div className="max-w-7xl mx-auto px-6 flex gap-8 overflow-x-auto">
@@ -37,7 +38,7 @@ export default function ServicesPage() {
             <a
               key={href}
               href={href}
-              className="shrink-0 py-4 text-sm font-semibold text-brand-muted hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold transition-colors"
+              className="shrink-0 py-4 text-sm font-semibold text-secondary hover:text-accent border-b-2 border-transparent hover:border-accent transition-colors"
             >
               {label}
             </a>
@@ -46,38 +47,30 @@ export default function ServicesPage() {
       </nav>
 
       {/* Bio-Bitumen Section */}
-      <section id="bio-bitumen" className="bg-brand-navy py-20 px-6 scroll-mt-36">
+      <section id="bio-bitumen" className="bg-surface py-20 px-6 scroll-mt-36">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Service 01
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-white mb-4">
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">Service 01</p>
+          <h2 className="font-display text-3xl md:text-4xl text-primary font-bold mb-4">
             Bio-Bitumen Plant Consulting
           </h2>
-          <p className="text-brand-muted max-w-2xl mb-12 leading-relaxed">
+          <p className="text-secondary max-w-2xl mb-12 leading-relaxed">
             End-to-end consulting covering all four stages of a bio-bitumen plant — from raw material
             procurement to market access. The only consultant in India offering this complete scope.
           </p>
-
-          {/* 4 Stages */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {FOUR_STAGES.map((stage) => (
               <ServiceCard key={stage.stage} stage={stage} />
             ))}
           </div>
-
-          {/* Consulting Service Categories */}
-          <h3 className="font-display text-2xl text-white mb-8">What&apos;s Included</h3>
+          <h3 className="font-display text-2xl text-primary font-bold mb-8">What&apos;s Included</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {Object.entries(CONSULTING_SERVICES).map(([category, items]) => (
-              <div key={category} className="bg-brand-card p-6">
-                <h4 className="text-brand-gold font-semibold mb-4 text-sm uppercase tracking-widest">
-                  {category}
-                </h4>
+              <div key={category} className="bg-white border border-border rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
+                <h4 className="text-accent font-semibold mb-4 text-sm uppercase tracking-widest">{category}</h4>
                 <ul className="space-y-2">
                   {items.map((item, i) => (
-                    <li key={i} className="flex gap-2 text-brand-muted text-sm">
-                      <span className="text-brand-gold mt-0.5 shrink-0">→</span>
+                    <li key={i} className="flex gap-2 text-secondary text-sm">
+                      <span className="text-accent mt-0.5 shrink-0" aria-hidden="true">→</span>
                       {item}
                     </li>
                   ))}
@@ -89,30 +82,28 @@ export default function ServicesPage() {
       </section>
 
       {/* PMC Section */}
-      <section id="pmc" className="bg-brand-slate py-20 px-6 scroll-mt-36">
+      <section id="pmc" className="bg-white py-20 px-6 scroll-mt-36">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Service 02
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-white mb-4">
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">Service 02</p>
+          <h2 className="font-display text-3xl md:text-4xl text-primary font-bold mb-4">
             Project Management Consulting
           </h2>
-          <p className="text-brand-muted max-w-2xl mb-12 leading-relaxed">
+          <p className="text-secondary max-w-2xl mb-12 leading-relaxed">
             Full PMC scope from feasibility report to plant commissioning and handover — with optional
             retainer support post-launch.
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {PMC_SERVICES.map((service) => (
-              <div key={service.category} className="bg-brand-card border-l-2 border-brand-gold p-6">
+              <div key={service.category} className="bg-white border border-border border-l-4 border-l-accent rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">{service.icon}</span>
-                  <h3 className="text-white font-semibold font-display">{service.category}</h3>
+                  <span className="text-2xl" aria-hidden="true">{service.icon}</span>
+                  <h3 className="text-primary font-bold">{service.category}</h3>
                 </div>
-                <p className="text-brand-muted text-sm leading-relaxed mb-4">{service.description}</p>
+                <p className="text-secondary text-sm leading-relaxed mb-4">{service.description}</p>
                 <ul className="space-y-1">
-                  {service.deliverables.map((d, j) => (
-                    <li key={j} className="flex gap-2 text-brand-muted text-xs">
-                      <span className="text-brand-gold shrink-0">→</span>
+                  {service.deliverables.map((d) => (
+                    <li key={d} className="flex gap-2 text-secondary text-xs">
+                      <span className="text-accent shrink-0" aria-hidden="true">→</span>
                       {d}
                     </li>
                   ))}
@@ -124,33 +115,27 @@ export default function ServicesPage() {
       </section>
 
       {/* IT Solutions Section */}
-      <section id="it" className="bg-brand-navy py-20 px-6 scroll-mt-36">
+      <section id="it" className="bg-surface py-20 px-6 scroll-mt-36">
         <div className="max-w-7xl mx-auto">
-          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Service 03
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-white mb-4">IT Solutions</h2>
-          <p className="text-brand-muted max-w-2xl mb-12 leading-relaxed">
-            Custom software built for the bitumen and industrial sector — portals, dashboards, and supply
-            chain tools.
+          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">Service 03</p>
+          <h2 className="font-display text-3xl md:text-4xl text-primary font-bold mb-4">IT Solutions</h2>
+          <p className="text-secondary max-w-2xl mb-12 leading-relaxed">
+            Custom software built for the bitumen and industrial sector — portals, dashboards, and supply chain tools.
           </p>
           <div className="grid md:grid-cols-2 gap-5">
             {IT_SERVICES.map((service) => (
-              <div key={service.name} className="bg-brand-card border-t-2 border-brand-gold p-6">
+              <div key={service.name} className="bg-white border border-border border-t-4 border-t-accent rounded-2xl p-6 hover:-translate-y-0.5 hover:shadow-md transition-all duration-300">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">{service.icon}</span>
-                  <h3 className="text-white font-semibold font-display">{service.name}</h3>
+                  <span className="text-2xl" aria-hidden="true">{service.icon}</span>
+                  <h3 className="text-primary font-bold">{service.name}</h3>
                 </div>
-                <p className="text-brand-muted text-sm leading-relaxed mb-3">{service.description}</p>
-                <p className="text-brand-muted/70 text-xs italic mb-4 border-l-2 border-brand-gold/30 pl-3">
+                <p className="text-secondary text-sm leading-relaxed mb-3">{service.description}</p>
+                <p className="text-secondary/70 text-xs italic mb-4 border-l-2 border-accent-border pl-3">
                   {service.example}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs bg-brand-navy text-brand-gold border border-brand-gold/30 px-2 py-1"
-                    >
+                    <span key={tag} className="text-xs bg-accent-light text-accent border border-accent-border px-2 py-1 rounded-full">
                       {tag}
                     </span>
                   ))}
@@ -162,19 +147,17 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-gold py-14 px-6 text-center">
-        <h2 className="font-display text-3xl text-brand-navy font-bold mb-4">
-          Which Service Do You Need?
-        </h2>
-        <p className="text-brand-navy/80 max-w-lg mx-auto mb-8">
+      <section className="bg-accent py-14 px-6 text-center">
+        <h2 className="font-display text-3xl text-white font-bold mb-4">Which Service Do You Need?</h2>
+        <p className="text-white/80 max-w-lg mx-auto mb-8">
           Tell us about your project and we&apos;ll recommend the right scope.
         </p>
-        <a
+        <Link
           href="/contact"
-          className="inline-block bg-brand-navy text-white font-bold px-8 py-4 hover:bg-brand-slate transition-colors text-sm uppercase tracking-wider"
+          className="inline-block bg-white text-accent font-bold px-8 py-4 rounded-xl hover:bg-accent-light transition-colors text-sm uppercase tracking-wider"
         >
           Get in Touch
-        </a>
+        </Link>
       </section>
     </>
   );
