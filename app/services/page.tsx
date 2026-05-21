@@ -37,7 +37,7 @@ export default function ServicesPage() {
             <a
               key={href}
               href={href}
-              className="shrink-0 py-4 text-sm font-semibold text-brand-muted hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold transition-colors scroll-mt-36"
+              className="shrink-0 py-4 text-sm font-semibold text-brand-muted hover:text-brand-gold border-b-2 border-transparent hover:border-brand-gold transition-colors"
             >
               {label}
             </a>
@@ -102,8 +102,8 @@ export default function ServicesPage() {
             retainer support post-launch.
           </p>
           <div className="grid md:grid-cols-2 gap-5">
-            {PMC_SERVICES.map((service, i) => (
-              <div key={i} className="bg-brand-card border-l-2 border-brand-gold p-6">
+            {PMC_SERVICES.map((service) => (
+              <div key={service.category} className="bg-brand-card border-l-2 border-brand-gold p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">{service.icon}</span>
                   <h3 className="text-white font-semibold font-display">{service.category}</h3>
@@ -135,8 +135,8 @@ export default function ServicesPage() {
             chain tools.
           </p>
           <div className="grid md:grid-cols-2 gap-5">
-            {IT_SERVICES.map((service, i) => (
-              <div key={i} className="bg-brand-card border-t-2 border-brand-gold p-6">
+            {IT_SERVICES.map((service) => (
+              <div key={service.name} className="bg-brand-card border-t-2 border-brand-gold p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">{service.icon}</span>
                   <h3 className="text-white font-semibold font-display">{service.name}</h3>
