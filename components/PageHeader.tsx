@@ -6,25 +6,20 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, subtitle, breadcrumb }: PageHeaderProps) {
   return (
-    <section className="relative bg-brand-navy py-20 px-6 overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-5"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=60)",
-        }}
-      />
+    <section className="relative bg-surface py-16 px-6 overflow-hidden">
+      {/* Decorative gradient blob */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-accent-light via-white to-accent-border rounded-full opacity-60 blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="relative max-w-7xl mx-auto">
-        <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-4">
+        <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-4">
           {breadcrumb}
         </p>
-        <h1 className="font-display text-4xl md:text-5xl text-white font-bold max-w-2xl leading-tight">
+        <h1 className="font-display text-4xl md:text-5xl text-primary font-extrabold max-w-2xl leading-tight">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-brand-muted text-lg mt-4 max-w-xl leading-relaxed">{subtitle}</p>
+          <p className="text-secondary text-lg mt-4 max-w-xl leading-relaxed">{subtitle}</p>
         )}
-        <div className="w-16 h-0.5 bg-brand-gold mt-6" />
+        <div className="w-16 h-1 bg-accent rounded-full mt-6" />
       </div>
     </section>
   );
