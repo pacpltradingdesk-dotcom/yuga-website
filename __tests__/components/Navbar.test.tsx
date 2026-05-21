@@ -15,9 +15,9 @@ describe("Navbar", () => {
     render(<Navbar />);
     expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Services" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Consulting" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Pyrolysis" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Why Us" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "IT Products" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Contact" })).toBeInTheDocument();
   });
 
