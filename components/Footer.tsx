@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { COMPANY } from "@/lib/company-data";
 
-const QUICK_LINKS = [
+type NavLink = { href: string; label: string };
+
+const QUICK_LINKS: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
@@ -20,7 +22,7 @@ export default function Footer() {
           <div>
             <p className="font-display text-2xl font-bold text-brand-gold mb-3">YUGA</p>
             <p className="text-brand-muted text-sm leading-relaxed">
-              India&apos;s leading bio-modified bitumen consulting firm. End-to-end plant setup &amp; consulting.
+              {COMPANY.tagline}
             </p>
           </div>
 
@@ -61,7 +63,7 @@ export default function Footer() {
               href={`https://wa.me/${waNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-brand-gold text-brand-navy font-semibold text-sm px-5 py-2.5 hover:bg-[#b8963e] transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-gold text-brand-navy font-semibold text-sm px-5 py-2.5 hover:opacity-90 transition-colors"
             >
               WhatsApp Us
             </a>

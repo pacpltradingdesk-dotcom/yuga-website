@@ -14,8 +14,10 @@ describe("Footer", () => {
     expect(screen.getByRole("link", { name: "Contact" })).toBeInTheDocument();
   });
 
-  it("renders WhatsApp link", () => {
+  it("renders WhatsApp link with correct number", () => {
     render(<Footer />);
-    expect(screen.getByRole("link", { name: /whatsapp/i })).toBeInTheDocument();
+    const link = screen.getByRole("link", { name: /whatsapp/i });
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute("href", expect.stringContaining("917795242424"));
   });
 });
