@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["400", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "YUGA — Bio-Modified Bitumen Consulting",
@@ -14,9 +25,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex flex-col min-h-screen bg-white`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans flex flex-col min-h-screen bg-brand-navy`}>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pt-[72px]">{children}</main>
         <Footer />
       </body>
     </html>
