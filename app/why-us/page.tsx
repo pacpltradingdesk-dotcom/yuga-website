@@ -1,124 +1,93 @@
-import Image from "next/image";
-import NetworkGrid from "@/components/NetworkGrid";
-import { PPS_STRENGTHS, WHY_NOW, COMPANY } from "@/lib/company-data";
-import Link from "next/link";
 import type { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
+import WhyNowSection from "@/components/WhyNowSection";
+import NetworkGrid from "@/components/NetworkGrid";
+import { PPS_STRENGTHS } from "@/lib/company-data";
 
 export const metadata: Metadata = {
-  title: "Why Choose Us — YUGA",
-  description: "25 years experience, 4,452 contacts, international supply contracts. India's only end-to-end bio-bitumen consultant.",
+  title: "Why Choose YUGA — Bio-Bitumen Consulting",
+  description:
+    "25 years experience, 4,452 industry contacts, international VG-30 supply contract. Here's why YUGA is India's most trusted bio-bitumen consultant.",
+  openGraph: {
+    title: "Why Choose YUGA",
+    description: "The unmatched advantages of India's most experienced bio-bitumen consultant.",
+    type: "website",
+  },
 };
 
-const STRENGTH_ICONS = ["🏭", "🤝", "🌍", "🔗", "📈", "🗺️", "🏆"];
+// Icon map keyed by exact strength text — eliminates silent index misalignment
+const STRENGTH_ICONS: Record<string, string> = {
+  "25 years bitumen industry experience — 10 plants built": "🏭",
+  "4,452 live industry contacts (contractors, traders, importers)": "🤝",
+  "International VG-30 supply contract (2.4 Lakh MT/yr, Getka USA-Iraq)": "🌍",
+  "Only consultant offering end-to-end: site selection to sales network": "🔗",
+  "BSE-listed founder background (Omnipotent Industries)": "📈",
+  "5 product types expertise (Emulsion/Blown/CRMB/PMB/VG30)": "🗺️",
+  "17-state distribution network — first of its kind": "🏆",
+};
 
 export default function WhyUsPage() {
   return (
     <>
-      {/* Header with image */}
-      <section className="relative bg-gradient-to-r from-green-900 to-gray-800 py-16 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1540492649367-c8565a571e4b?w=1600&q=80"
-            alt="India infrastructure and roads"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-white mb-3">Why Choose Us?</h1>
-          <p className="text-gray-300 text-lg max-w-3xl">{COMPANY.usp}</p>
-        </div>
-      </section>
+      <PageHeader
+        title="Why Choose YUGA?"
+        subtitle="The only consultant in India offering end-to-end bio-bitumen plant setup with a proven buyer network"
+        breadcrumb="Why Us"
+      />
 
-      {/* 7 Strength cards */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Our Competitive Edge</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {PPS_STRENGTHS.map((strength, i) => (
-              <div key={i} className="flex items-start gap-4 bg-gray-50 rounded-2xl p-5">
-                <span className="text-2xl shrink-0">{STRENGTH_ICONS[i] ?? "✓"}</span>
-                <p className="text-gray-700 text-sm leading-relaxed">{strength}</p>
+      {/* Strengths grid */}
+      <section className="bg-brand-navy py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
+            Our Advantages
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl text-white text-center mb-12">
+            What Sets YUGA Apart
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {PPS_STRENGTHS.map((strength) => (
+              <div key={strength} className="bg-brand-card border-t-2 border-brand-gold p-6 flex gap-4">
+                <span className="text-3xl shrink-0" aria-hidden="true">{STRENGTH_ICONS[strength] ?? "✅"}</span>
+                <p className="text-white leading-relaxed text-sm">{strength}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Network Grid */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Live Industry Network</h2>
-          <p className="text-gray-600 mb-6">
-            {COMPANY.industryContacts.toLocaleString()} verified contacts built over 25 years — your unfair advantage from day one.
+      {/* Industry Network */}
+      <section className="bg-brand-slate py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
+            Live Industry Network
           </p>
-          <div className="max-w-xl">
+          <h2 className="font-display text-3xl text-white text-center mb-4">
+            4,452 Verified Contacts
+          </h2>
+          <p className="text-brand-muted text-center max-w-xl mx-auto mb-10">
+            Built over 25 years — contractors, traders, importers, and manufacturers across 17 states.
+          </p>
+          <div className="max-w-2xl mx-auto">
             <NetworkGrid />
           </div>
         </div>
       </section>
 
-      {/* GETKA contract highlight */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">International Supply Advantage</h2>
-          <div className="bg-green-50 border border-green-200 rounded-2xl p-6 max-w-2xl">
-            <div className="flex items-start gap-4">
-              <span className="text-4xl">🌍</span>
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2">GETKA Energy Trading Contract</h3>
-                <ul className="space-y-1.5 text-sm text-gray-700">
-                  <li><span className="font-medium">Supplier:</span> Getka Energy Trading LLC, Tulsa, Oklahoma, USA</li>
-                  <li><span className="font-medium">Product:</span> Bitumen VG-30 — Iraq origin (Erbil, Ex-Refinery)</li>
-                  <li><span className="font-medium">Volume:</span> 2.4 Lakh MT per year</li>
-                  <li><span className="font-medium">Quality:</span> SGS certified every shipment</li>
-                  <li><span className="font-medium">Payment:</span> Letter of Credit (L/C)</li>
-                </ul>
-                <p className="text-xs text-gray-500 mt-3">Signed: 25 September 2024 — gives our clients direct access to competitively priced VG-30 for blending.</p>
-              </div>
-            </div>
-          </div>
+      {/* GETKA Highlight */}
+      <section className="bg-brand-navy py-20 px-6">
+        <div className="max-w-4xl mx-auto border-2 border-brand-gold p-10 text-center">
+          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-4">
+            International Supply Contract
+          </p>
+          <h2 className="font-display text-3xl text-white mb-4">GETKA Energy Trading LLC</h2>
+          <p className="text-brand-muted mb-2">Getka Energy Trading LLC, USA (Iraq Origin)</p>
+          <p className="text-4xl font-extrabold text-brand-gold font-sans mb-2">2.4 Lakh MT/Year</p>
+          <p className="text-brand-muted text-sm">VG-30 International Supply Contract</p>
+          <div className="w-16 h-0.5 bg-brand-gold mx-auto mt-6" />
         </div>
       </section>
 
-      {/* Visual Strip */}
-      <section className="py-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-3 gap-3">
-            {[
-              { src: "https://images.unsplash.com/photo-1580894894513-541e068a3e2b?w=500&q=80", alt: "Industrial oil drums storage" },
-              { src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80", alt: "Industrial equipment and machinery" },
-              { src: "https://images.unsplash.com/photo-1570128861414-dc5f1e1e4a1a?w=500&q=80", alt: "Road and highway construction India" },
-            ].map((img, i) => (
-              <div key={i} className="relative h-36 rounded-xl overflow-hidden">
-                <Image src={img.src} alt={img.alt} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Now */}
-      <section className="py-12 bg-green-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-8">The Market Opportunity Is Now</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-10">
-            {WHY_NOW.map((point, i) => (
-              <div key={i} className="flex items-start gap-3 bg-green-700 rounded-xl p-4">
-                <span className="text-orange-300 font-bold text-lg mt-0.5 shrink-0">→</span>
-                <p className="text-sm leading-relaxed">{point}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <Link href="/contact"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-lg font-bold text-lg transition-colors">
-              Claim Your Spot — Contact Us Now
-            </Link>
-          </div>
-        </div>
-      </section>
+      <WhyNowSection />
     </>
   );
 }
