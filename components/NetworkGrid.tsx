@@ -11,14 +11,14 @@ const ROWS = [
 
 export default function NetworkGrid() {
   return (
-    <div className="overflow-x-auto">
+    <div className="bg-white rounded-2xl overflow-hidden border border-border shadow-sm">
       <table className="w-full text-sm">
         <thead>
-          <tr className="bg-brand-gold">
-            <th className="text-brand-navy font-bold text-left px-6 py-4 uppercase tracking-widest text-xs">
+          <tr className="bg-accent">
+            <th className="text-white font-semibold text-left px-6 py-4 uppercase tracking-widest text-xs">
               Contact Type
             </th>
-            <th className="text-brand-navy font-bold text-right px-6 py-4 uppercase tracking-widest text-xs">
+            <th className="text-white font-semibold text-right px-6 py-4 uppercase tracking-widest text-xs">
               Contacts
             </th>
           </tr>
@@ -27,17 +27,17 @@ export default function NetworkGrid() {
           {ROWS.map(({ label, key }, i) => (
             <tr
               key={key}
-              className={`border-b border-brand-gold/10 ${i % 2 === 0 ? "bg-brand-card" : "bg-brand-slate"}`}
+              className={`border-b border-border ${i % 2 === 0 ? "bg-white" : "bg-surface"}`}
             >
-              <td className="text-brand-muted px-6 py-4">{label}</td>
-              <td className="text-brand-gold font-bold text-right px-6 py-4 font-sans">
+              <td className="text-secondary px-6 py-4">{label}</td>
+              <td className="text-primary font-bold text-right px-6 py-4">
                 {INDUSTRY_NETWORK[key].toLocaleString("en-IN")}
               </td>
             </tr>
           ))}
-          <tr className="bg-brand-navy border-t-2 border-brand-gold">
-            <td className="text-white font-bold px-6 py-4 font-display">Total Network</td>
-            <td className="text-brand-gold font-extrabold text-right px-6 py-4 text-lg">
+          <tr className="bg-accent-light border-t-2 border-accent-border">
+            <td className="text-accent font-bold px-6 py-4">Total Network</td>
+            <td className="text-accent font-extrabold text-right px-6 py-4 text-lg">
               {INDUSTRY_NETWORK.total.toLocaleString("en-IN")}
             </td>
           </tr>

@@ -2,6 +2,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+const inputClass =
+  "w-full bg-white border border-border rounded-xl px-4 py-3 text-primary placeholder-secondary/50 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all duration-200";
+
 export default function ContactForm() {
   const router = useRouter();
   const [pending, setPending] = useState(false);
@@ -34,50 +37,30 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-brand-card p-8 space-y-6">
+    <form onSubmit={handleSubmit} className="bg-white border border-border rounded-2xl p-8 shadow-sm space-y-6">
       <div>
-        <label htmlFor="name" className="block text-brand-muted text-sm mb-2">
+        <label htmlFor="name" className="block text-primary text-sm font-medium mb-2">
           Full Name *
         </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          placeholder="Your name"
-          className="w-full bg-brand-navy border border-brand-gold/20 text-white placeholder-brand-muted/50 px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors"
-        />
+        <input id="name" name="name" type="text" required placeholder="Your name" className={inputClass} />
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-brand-muted text-sm mb-2">
+        <label htmlFor="email" className="block text-primary text-sm font-medium mb-2">
           Email Address *
         </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          placeholder="your@email.com"
-          className="w-full bg-brand-navy border border-brand-gold/20 text-white placeholder-brand-muted/50 px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors"
-        />
+        <input id="email" name="email" type="email" required placeholder="your@email.com" className={inputClass} />
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-brand-muted text-sm mb-2">
+        <label htmlFor="phone" className="block text-primary text-sm font-medium mb-2">
           Phone / WhatsApp
         </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          placeholder="+91 XXXXX XXXXX"
-          className="w-full bg-brand-navy border border-brand-gold/20 text-white placeholder-brand-muted/50 px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors"
-        />
+        <input id="phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" className={inputClass} />
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-brand-muted text-sm mb-2">
+        <label htmlFor="message" className="block text-primary text-sm font-medium mb-2">
           Message *
         </label>
         <textarea
@@ -86,12 +69,12 @@ export default function ContactForm() {
           required
           rows={5}
           placeholder="Tell us about your project..."
-          className="w-full bg-brand-navy border border-brand-gold/20 text-white placeholder-brand-muted/50 px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors resize-none"
+          className={`${inputClass} resize-none`}
         />
       </div>
 
       {error && (
-        <p className="text-red-400 text-sm border border-red-400/30 bg-red-400/10 px-4 py-3">
+        <p className="text-red-600 text-sm border border-red-200 bg-red-50 px-4 py-3 rounded-xl">
           {error}
         </p>
       )}
@@ -99,7 +82,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="w-full bg-brand-gold text-brand-navy font-bold py-4 text-sm uppercase tracking-wider hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed transition-opacity"
+        className="w-full bg-accent text-white font-semibold py-4 rounded-xl text-sm shadow-[0_4px_16px_rgba(37,99,235,0.35)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.45)] hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 transition-all duration-200"
       >
         {pending ? "Sending..." : "Send Message"}
       </button>
