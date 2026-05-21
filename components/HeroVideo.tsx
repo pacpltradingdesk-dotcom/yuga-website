@@ -1,60 +1,53 @@
 "use client";
-import Link from "next/link";
-import { COMPANY } from "@/lib/company-data";
-
 export default function HeroVideo() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gray-900">
+    <div className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Fallback dark bg — shows when video is absent or loading */}
+      <div className="absolute inset-0 bg-brand-navy" />
+
       <video
+        className="absolute inset-0 w-full h-full object-cover opacity-10"
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-80"
-        src="/hero.mp4"
-      />
-      {/* Light gradient overlay — keep text readable without hiding video */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-950/70 via-green-950/40 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="max-w-3xl">
-          <span className="inline-block bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
-            India&apos;s #1 Bio-Bitumen Consultant
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-tight mb-6">
-            {COMPANY.tagline}
-          </h1>
-          <p className="text-lg text-gray-200 mb-4 max-w-2xl leading-relaxed">{COMPANY.usp}</p>
-          <p className="text-sm text-green-300 mb-10 font-medium">{COMPANY.experience}</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/contact"
-              className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-xl font-bold text-lg text-center transition-all shadow-lg hover:shadow-orange-500/30"
-            >
-              Get Free Consultation
-            </Link>
-            <Link
-              href="/services"
-              className="border-2 border-white/70 text-white hover:bg-white hover:text-green-900 px-10 py-4 rounded-xl font-bold text-lg text-center transition-all"
-            >
-              Explore Services
-            </Link>
-          </div>
-          <div className="flex flex-wrap gap-6 mt-12">
-            {[
-              { val: "10+", label: "Plants Built" },
-              { val: "25 Yrs", label: "Experience" },
-              { val: "4,452", label: "Industry Buyers" },
-              { val: "17", label: "States Network" },
-            ].map(({ val, label }) => (
-              <div key={label} className="text-center">
-                <div className="text-2xl font-black text-orange-400">{val}</div>
-                <div className="text-xs text-gray-400 mt-0.5">{label}</div>
-              </div>
-            ))}
-          </div>
+        poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/60 via-transparent to-brand-navy/80" />
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
+          India&apos;s Leading Bio-Bitumen Consultant
+        </p>
+        <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-tight mb-6">
+          India&apos;s{" "}
+          <span className="text-brand-gold">Bio-Bitumen</span>{" "}
+          Revolution
+        </h1>
+        <p className="text-brand-muted text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          End-to-end plant setup consulting — from site selection to commercial production.
+          25 years experience. 10 plants built. 4,452 verified industry contacts.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            className="bg-brand-gold text-brand-navy font-bold px-8 py-4 hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
+          >
+            Start Your Project
+          </a>
+          <a
+            href="/services"
+            className="border border-brand-gold text-brand-gold font-bold px-8 py-4 hover:bg-brand-gold hover:text-brand-navy transition-colors text-sm uppercase tracking-wider"
+          >
+            Our Services
+          </a>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
