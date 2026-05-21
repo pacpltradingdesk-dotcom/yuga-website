@@ -1,25 +1,30 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "@/components/Navbar";
 
-jest.mock("next/navigation", () => ({ usePathname: () => "/" }));
+jest.mock("next/navigation", () => ({
+  usePathname: () => "/",
+}));
 
 describe("Navbar", () => {
-  it("renders company name", () => {
+  it("renders the YUGA logo", () => {
     render(<Navbar />);
-    expect(screen.getByText("PPS Anantams")).toBeInTheDocument();
+    expect(screen.getByText("YUGA")).toBeInTheDocument();
   });
 
   it("renders all nav links", () => {
     render(<Navbar />);
-    expect(screen.getByText("About Us")).toBeInTheDocument();
-    expect(screen.getByText("Services")).toBeInTheDocument();
-    expect(screen.getByText("Pyrolysis")).toBeInTheDocument();
-    expect(screen.getByText("Why Choose Us")).toBeInTheDocument();
-    expect(screen.getByText("Contact")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Home" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Services" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Pyrolysis" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Why Us" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Contact" })).toBeInTheDocument();
   });
 
-  it("renders Get Free Consultation CTA", () => {
+  it("toggles mobile menu on button click", () => {
     render(<Navbar />);
-    expect(screen.getAllByText("Get Free Consultation").length).toBeGreaterThan(0);
+    const button = screen.getByRole("button", { name: /open menu/i });
+    fireEvent.click(button);
+    expect(screen.getByRole("button", { name: /close menu/i })).toBeInTheDocument();
   });
 });
