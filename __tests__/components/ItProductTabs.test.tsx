@@ -27,8 +27,8 @@ describe("ItProductTabs", () => {
     await user.click(tabs[1]);
 
     // The second panel should now be visible (not hidden)
-    const secondPanel = screen.getByRole("tabpanel", { hidden: false });
-    expect(secondPanel).toHaveAttribute("id", "panel-1");
+    const secondPanel = document.getElementById("panel-1");
+    expect(secondPanel).not.toHaveAttribute("hidden");
     expect(secondPanel).toContainElement(
       screen.getByRole("heading", { name: IT_SERVICES[1].name })
     );
@@ -45,9 +45,9 @@ describe("ItProductTabs", () => {
     expect(firstPanel).toHaveAttribute("hidden");
   });
 
-  it("renders 5 tab buttons in total", () => {
+  it("renders the correct number of tab buttons", () => {
     render(<ItProductTabs />);
     const tabs = screen.getAllByRole("tab");
-    expect(tabs).toHaveLength(5);
+    expect(tabs).toHaveLength(IT_SERVICES.length);
   });
 });
