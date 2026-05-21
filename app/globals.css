@@ -1,17 +1,17 @@
+/* app/globals.css */
 @import "tailwindcss";
 
 @theme {
-  /* White theme palette */
   --color-white: #FFFFFF;
   --color-surface: #F8FAFC;
-  --color-primary: #000000;
-  --color-secondary: #666666;
-  --color-accent: #2563EB;
+  --color-primary: #0F172A;
+  --color-secondary: #64748B;
+  --color-accent: #1D4ED8;
+  --color-accent-hover: #1E40AF;
   --color-accent-light: #EFF6FF;
-  --color-accent-border: #DBEAFE;
-  --color-border: #E5E7EB;
+  --color-accent-border: #BFDBFE;
+  --color-border: #E2E8F0;
 
-  /* Poppins for both display and body */
   --font-sans: var(--font-poppins), system-ui, sans-serif;
   --font-display: var(--font-poppins), system-ui, sans-serif;
 }
@@ -19,4 +19,8 @@
 body {
   background-color: var(--color-white);
   color: var(--color-primary);
+}
+
+html {
+  scroll-behavior: smooth;
 }
