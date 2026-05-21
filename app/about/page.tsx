@@ -1,149 +1,75 @@
-import Image from "next/image";
-import { COMPANY, KEY_CREDENTIALS } from "@/lib/company-data";
-import TimelineSection from "@/components/TimelineSection";
 import type { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
+import StatsBar from "@/components/StatsBar";
+import TimelineSection from "@/components/TimelineSection";
+import { COMPANY, KEY_CREDENTIALS } from "@/lib/company-data";
 
 export const metadata: Metadata = {
-  title: "About Us — YUGA",
-  description: "25 years of bitumen industry expertise. Meet Prince Pratap Shah and the story of YUGA.",
+  title: "About — YUGA",
+  description:
+    "Meet Prince Pratap Shah — 25 years in the bitumen industry, 10 plants built across India. Founder of YUGA, India's leading bio-bitumen consulting firm.",
+  openGraph: {
+    title: "About — YUGA",
+    description: "Meet the founder behind India's most experienced bio-bitumen consultancy.",
+    type: "website",
+  },
 };
+
+const CREDENTIAL_ICONS = ["📈", "🌍", "🔧", "🏭", "🗺️", "🏆", "🤝", "🏛️"];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Page header with image */}
-      <section className="relative bg-gradient-to-r from-green-900 to-gray-800 py-16 overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?w=1600&q=80"
-            alt="Industrial plant infrastructure"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-bold text-white mb-3">About Us</h1>
-          <p className="text-gray-300 text-lg max-w-2xl">{COMPANY.tagline}</p>
-        </div>
-      </section>
+      <PageHeader
+        title="About YUGA"
+        subtitle="India's most experienced bio-bitumen plant setup consultant"
+        breadcrumb="About"
+      />
 
-      {/* Company overview */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Image side */}
-            <div className="relative rounded-2xl overflow-hidden shadow-lg">
-              <div className="relative h-80">
-                <Image
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-                  alt="Bio-bitumen plant — industrial construction and commissioning"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-green-950/80 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="text-white text-2xl font-black">YUGA</div>
-                <div className="text-orange-400 font-bold text-sm tracking-widest uppercase mt-1">Bio Bitumen Consultant</div>
-                <div className="text-gray-300 text-xs mt-2">{COMPANY.hq} &nbsp;·&nbsp; Est. 2019</div>
-              </div>
+      {/* Founder Bio */}
+      <section className="bg-brand-navy py-20 px-6">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          <div className="flex justify-center">
+            <div className="w-56 h-56 border-4 border-brand-gold bg-brand-card flex items-center justify-center">
+              <span className="text-7xl">👤</span>
             </div>
-
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-1">Company Overview</h2>
-              <p className="text-orange-500 font-semibold text-sm mb-4 uppercase tracking-wider">Bio Bitumen Consultant</p>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                <strong>YUGA</strong> is India&apos;s leading bio-modified bitumen consulting firm,
-                headquartered in {COMPANY.hq}. We provide end-to-end consulting for setting up bio-bitumen
-                manufacturing plants — from site selection and regulatory clearances to plant commissioning and
-                connecting you with our network of 4,452 industry buyers.
-              </p>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Founded by Prince Pratap Shah with 25 years of hands-on bitumen industry experience, we have
-                successfully built 10 plants across India spanning 5 product types: Emulsion, Blown Bitumen,
-                CRMB, PMB, and VG30.
-              </p>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                {[
-                  { label: "GST", value: COMPANY.gst },
-                  { label: "CIN", value: COMPANY.cin },
-                  { label: "PAN", value: COMPANY.pan },
-                  { label: "HQ", value: COMPANY.hq },
-                ].map(({ label, value }) => (
-                  <div key={label} className="bg-gray-50 rounded-lg p-3">
-                    <div className="text-xs text-gray-500">{label}</div>
-                    <div className="text-sm font-medium text-gray-800 mt-0.5">{value}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Founder card — no stock photo */}
-              <div className="bg-green-50 rounded-2xl p-5 flex items-start gap-4">
-                <div className="w-14 h-14 rounded-full bg-green-700 flex items-center justify-center text-white font-black text-xl shrink-0 border-2 border-white shadow">
-                  PS
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900">{COMPANY.owner}</h3>
-                  <p className="text-green-600 font-medium text-xs mb-2">Founder & Managing Director</p>
-                  <p className="text-gray-600 text-xs leading-relaxed mb-2">{COMPANY.experience}</p>
-                  <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-xs font-semibold">
-                    🏆 {COMPANY.awards}
-                  </div>
-                </div>
-              </div>
+          </div>
+          <div>
+            <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3">
+              Founder &amp; Managing Director
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl text-white mb-6">{COMPANY.owner}</h2>
+            <p className="text-brand-muted leading-relaxed mb-4">{COMPANY.experience}.</p>
+            <p className="text-brand-muted leading-relaxed mb-6">{COMPANY.education}.</p>
+            <div className="border-l-4 border-brand-gold pl-4 py-3 bg-brand-card mb-8">
+              <p className="text-white font-medium text-sm">{COMPANY.awards}</p>
             </div>
+            <a
+              href="/contact"
+              className="inline-block bg-brand-gold text-brand-navy font-bold px-6 py-3 hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
+            >
+              Book a Consultation
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Career Timeline */}
+      <StatsBar />
+
       <TimelineSection />
 
-      {/* Key Credentials */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Key Credentials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Credentials */}
+      <section className="bg-brand-navy py-20 px-6">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-3 text-center">
+            Track Record
+          </p>
+          <h2 className="font-display text-3xl text-white text-center mb-12">Key Credentials</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {KEY_CREDENTIALS.map((cred, i) => (
-              <div key={i} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
-                <span className="text-green-500 font-bold text-lg shrink-0">✓</span>
-                <p className="text-gray-700 text-sm">{cred}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Photo Gallery */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8">Our Journey in Images</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              {
-                src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-                alt: "Road construction with asphalt",
-                caption: "Bio-bitumen road construction",
-              },
-              {
-                src: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80",
-                alt: "Agricultural biomass fields",
-                caption: "Biomass sourcing from farmers",
-              },
-              {
-                src: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-                alt: "Industrial plant construction",
-                caption: "Plant setup and commissioning",
-              },
-            ].map((img) => (
-              <div key={img.caption} className="rounded-2xl overflow-hidden shadow-sm">
-                <div className="relative h-48">
-                  <Image src={img.src} alt={img.alt} fill className="object-cover" />
-                </div>
-                <div className="bg-white px-4 py-3">
-                  <p className="text-sm text-gray-600 font-medium">{img.caption}</p>
-                </div>
+              <div key={i} className="bg-brand-card border-t-2 border-brand-gold p-6">
+                <span className="text-3xl mb-4 block">{CREDENTIAL_ICONS[i] ?? "✅"}</span>
+                <p className="text-brand-muted text-sm leading-relaxed">{cred}</p>
               </div>
             ))}
           </div>
