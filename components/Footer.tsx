@@ -33,8 +33,8 @@ export default function Footer() {
             {[
               { href: "/", label: "Home" },
               { href: "/consulting", label: "Consulting" },
-              { href: "/pyrolysis", label: "Pyrolysis" },
               { href: "/it-products", label: "IT Products" },
+              { href: "/pyrolysis", label: "Pyrolysis" },
               { href: "/about", label: "About" },
               { href: "/contact", label: "Contact" },
             ].map(({ href, label }) => (
