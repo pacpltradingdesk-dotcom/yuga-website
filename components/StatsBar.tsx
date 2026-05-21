@@ -31,7 +31,7 @@ function StatCard({ value, label, suffix, active }: { value: number; label: stri
   return (
     <div className="text-center px-8 py-8">
       <p className="font-sans text-4xl md:text-5xl font-extrabold text-brand-gold">
-        {active ? count.toLocaleString() : "0"}{suffix}
+        {active ? count.toLocaleString("en-IN") : "0"}{suffix}
       </p>
       <p className="text-brand-muted text-sm font-medium mt-2 uppercase tracking-widest">{label}</p>
     </div>

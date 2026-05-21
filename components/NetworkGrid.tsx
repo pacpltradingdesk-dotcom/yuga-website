@@ -31,14 +31,14 @@ export default function NetworkGrid() {
             >
               <td className="text-brand-muted px-6 py-4">{label}</td>
               <td className="text-brand-gold font-bold text-right px-6 py-4 font-sans">
-                {INDUSTRY_NETWORK[key].toLocaleString()}
+                {INDUSTRY_NETWORK[key].toLocaleString("en-IN")}
               </td>
             </tr>
           ))}
           <tr className="bg-brand-navy border-t-2 border-brand-gold">
             <td className="text-white font-bold px-6 py-4 font-display">Total Network</td>
             <td className="text-brand-gold font-extrabold text-right px-6 py-4 text-lg">
-              {INDUSTRY_NETWORK.total.toLocaleString()}
+              {INDUSTRY_NETWORK.total.toLocaleString("en-IN")}
             </td>
           </tr>
         </tbody>
