@@ -1,30 +1,48 @@
 import { INDUSTRY_NETWORK } from "@/lib/company-data";
 
-const NETWORK_ITEMS = [
-  { label: "Road Contractors", count: INDUSTRY_NETWORK.contractors, icon: "🚧" },
-  { label: "Bitumen Traders", count: INDUSTRY_NETWORK.traders, icon: "🏪" },
-  { label: "Importers", count: INDUSTRY_NETWORK.importers, icon: "🚢" },
-  { label: "Transporters", count: INDUSTRY_NETWORK.transporters, icon: "🚛" },
-  { label: "Manufacturers", count: INDUSTRY_NETWORK.manufacturers, icon: "🏭" },
-  { label: "Decanters", count: INDUSTRY_NETWORK.decanters, icon: "⚙️" },
+const ROWS = [
+  { label: "Road Contractors", key: "contractors" as const },
+  { label: "Bitumen Traders", key: "traders" as const },
+  { label: "Importers", key: "importers" as const },
+  { label: "Transporters", key: "transporters" as const },
+  { label: "Manufacturers", key: "manufacturers" as const },
+  { label: "Decanters", key: "decanters" as const },
 ];
 
 export default function NetworkGrid() {
   return (
-    <div className="bg-green-50 rounded-2xl p-6">
-      <div className="flex justify-between items-center mb-4">
-        <h3 className="font-bold text-gray-900">Live Industry Network</h3>
-        <span className="text-2xl font-bold text-green-600">{INDUSTRY_NETWORK.total.toLocaleString()}</span>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-        {NETWORK_ITEMS.map((item) => (
-          <div key={item.label} className="bg-white rounded-xl p-3 text-center">
-            <div className="text-xl mb-1">{item.icon}</div>
-            <div className="text-lg font-bold text-green-600">{item.count.toLocaleString()}</div>
-            <div className="text-xs text-gray-600">{item.label}</div>
-          </div>
-        ))}
-      </div>
+    <div className="overflow-x-auto">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="bg-brand-gold">
+            <th className="text-brand-navy font-bold text-left px-6 py-4 uppercase tracking-widest text-xs">
+              Contact Type
+            </th>
+            <th className="text-brand-navy font-bold text-right px-6 py-4 uppercase tracking-widest text-xs">
+              Contacts
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {ROWS.map(({ label, key }, i) => (
+            <tr
+              key={key}
+              className={`border-b border-brand-gold/10 ${i % 2 === 0 ? "bg-brand-card" : "bg-brand-slate"}`}
+            >
+              <td className="text-brand-muted px-6 py-4">{label}</td>
+              <td className="text-brand-gold font-bold text-right px-6 py-4 font-sans">
+                {INDUSTRY_NETWORK[key].toLocaleString()}
+              </td>
+            </tr>
+          ))}
+          <tr className="bg-brand-navy border-t-2 border-brand-gold">
+            <td className="text-white font-bold px-6 py-4 font-display">Total Network</td>
+            <td className="text-brand-gold font-extrabold text-right px-6 py-4 text-lg">
+              {INDUSTRY_NETWORK.total.toLocaleString()}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }

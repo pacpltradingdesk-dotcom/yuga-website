@@ -2,13 +2,15 @@ import { render, screen } from "@testing-library/react";
 import NetworkGrid from "@/components/NetworkGrid";
 
 describe("NetworkGrid", () => {
-  it("renders contractor count", () => {
+  it("renders total contacts figure", () => {
     render(<NetworkGrid />);
-    expect(screen.getByText("2,758")).toBeInTheDocument();
+    expect(screen.getByText(/4,452/)).toBeInTheDocument();
   });
 
-  it("renders total contacts", () => {
+  it("renders contact categories", () => {
     render(<NetworkGrid />);
-    expect(screen.getByText("4,452")).toBeInTheDocument();
+    expect(screen.getByText(/contractor/i)).toBeInTheDocument();
+    expect(screen.getByText(/trader/i)).toBeInTheDocument();
+    expect(screen.getByText(/importer/i)).toBeInTheDocument();
   });
 });
