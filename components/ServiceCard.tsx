@@ -1,29 +1,37 @@
-type Stage = {
-  stage: number;
-  name: string;
-  description: string;
-  capex: string;
-  manpower: string;
-  space?: string;
-  icon: string;
-};
+import { FOUR_STAGES } from "@/lib/company-data";
+type FourStage = (typeof FOUR_STAGES)[0];
 
-export default function ServiceCard({ stage }: { stage: Stage }) {
+interface ServiceCardProps {
+  stage: FourStage;
+}
+
+export default function ServiceCard({ stage }: ServiceCardProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-shadow">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="text-3xl">{stage.icon}</span>
-        <span className="text-xs font-semibold text-orange-500 uppercase tracking-wide">
+    <div className="bg-brand-card border-t-2 border-brand-gold p-6 flex flex-col gap-4">
+      <div className="flex items-center gap-3">
+        <span className="font-sans text-xs font-bold text-brand-gold uppercase tracking-widest">
           Stage {stage.stage}
         </span>
+        <span className="text-2xl">{stage.icon}</span>
       </div>
-      <h3 className="font-bold text-gray-900 mb-3 leading-snug">{stage.name}</h3>
-      <p className="text-gray-600 text-sm mb-4 leading-relaxed">{stage.description}</p>
-      <div className="space-y-1 text-xs text-gray-500 border-t border-gray-50 pt-3">
-        <div><span className="font-medium text-gray-700">CAPEX:</span> {stage.capex}</div>
-        <div><span className="font-medium text-gray-700">Manpower:</span> {stage.manpower}</div>
-        {stage.space && <div><span className="font-medium text-gray-700">Space:</span> {stage.space}</div>}
-      </div>
+      <h3 className="font-display text-lg text-white font-semibold leading-snug">{stage.name}</h3>
+      <p className="text-brand-muted text-sm leading-relaxed flex-1">{stage.description}</p>
+      {(stage.capex || stage.manpower) && (
+        <div className="border-t border-brand-gold/20 pt-4 grid grid-cols-2 gap-3 text-xs">
+          {stage.capex && (
+            <div>
+              <p className="text-brand-gold font-semibold">CapEx</p>
+              <p className="text-brand-muted">{stage.capex}</p>
+            </div>
+          )}
+          {stage.manpower && (
+            <div>
+              <p className="text-brand-gold font-semibold">Manpower</p>
+              <p className="text-brand-muted">{stage.manpower}</p>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
