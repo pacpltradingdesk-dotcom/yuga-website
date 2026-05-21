@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors */
-  --color-brand-navy: #0A1628;
-  --color-brand-slate: #152035;
-  --color-brand-card: #1C2E4A;
-  --color-brand-gold: #C9A84C;
-  --color-brand-muted: #A8B0BC;
-  --color-brand-forest: #2D6A4F;
+  /* White theme palette */
+  --color-white: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-primary: #000000;
+  --color-secondary: #666666;
+  --color-accent: #2563EB;
+  --color-accent-light: #EFF6FF;
+  --color-accent-border: #DBEAFE;
+  --color-border: #E5E7EB;
 
-  /* Fonts — resolved via Next.js CSS variables set in layout.tsx */
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-playfair), Georgia, serif;
+  /* Poppins for both display and body */
+  --font-sans: var(--font-poppins), system-ui, sans-serif;
+  --font-display: var(--font-poppins), system-ui, sans-serif;
 }
 
 body {
-  background-color: var(--color-brand-navy);
-  color: #ffffff;
+  background-color: var(--color-white);
+  color: var(--color-primary);
 }
