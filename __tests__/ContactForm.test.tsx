@@ -1,19 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import ContactForm from "@/components/ContactForm";
 
-describe("ContactForm", () => {
-  it("renders name field", () => {
-    render(<ContactForm />);
-    expect(screen.getByPlaceholderText("Your Name")).toBeInTheDocument();
-  });
+jest.mock("next/navigation", () => ({
+  useRouter: () => ({ push: jest.fn() }),
+}));
 
-  it("renders phone field", () => {
+describe("ContactForm", () => {
+  it("renders all form fields", () => {
     render(<ContactForm />);
-    expect(screen.getByPlaceholderText("Your Phone Number")).toBeInTheDocument();
+    expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/message/i)).toBeInTheDocument();
   });
 
   it("renders submit button", () => {
     render(<ContactForm />);
-    expect(screen.getByRole("button", { name: /Send Message/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /send/i })).toBeInTheDocument();
   });
 });
