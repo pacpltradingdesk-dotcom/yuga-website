@@ -31,50 +31,38 @@ export default function ContactPage() {
         breadcrumb="Contact"
       />
 
-      <section className="bg-brand-navy py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
-          {/* Contact details */}
           <div>
-            <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
-              Reach Us
-            </p>
+            <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-6">Reach Us</p>
             <div className="space-y-4 mb-10">
               {CONTACT_DETAILS.map(({ icon, label, value, href }) => (
-                <div key={label} className="bg-brand-card p-5 flex gap-4 items-start">
+                <div key={label} className="bg-surface border border-border rounded-2xl p-5 flex gap-4 items-start">
                   <span className="text-2xl shrink-0" aria-hidden="true">{icon}</span>
                   <div>
-                    <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-1">
-                      {label}
-                    </p>
+                    <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-1">{label}</p>
                     {href ? (
-                      <a href={href} className="text-white hover:text-brand-gold transition-colors">
-                        {value}
-                      </a>
+                      <a href={href} className="text-primary hover:text-accent transition-colors">{value}</a>
                     ) : (
-                      <p className="text-white">{value}</p>
+                      <p className="text-primary">{value}</p>
                     )}
                   </div>
                 </div>
               ))}
             </div>
-
-            {/* WhatsApp CTA */}
             <a
               href={`https://wa.me/${waNumber}?text=Hi%20YUGA%2C%20I%20am%20interested%20in%20bio-bitumen%20plant%20setup%20consulting.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-6 py-4 hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
+              className="inline-flex items-center gap-3 bg-[#25D366] text-white font-bold px-6 py-4 rounded-xl hover:opacity-90 transition-opacity text-sm uppercase tracking-wider"
             >
               <span className="text-xl" aria-hidden="true">💬</span>
               WhatsApp Us Now
             </a>
           </div>
 
-          {/* Form */}
           <div>
-            <p className="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-6">
-              Send a Message
-            </p>
+            <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-6">Send a Message</p>
             <ContactForm />
           </div>
         </div>
