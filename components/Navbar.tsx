@@ -23,8 +23,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   return (
     <nav
+      aria-label="Main"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-brand-navy/95 backdrop-blur-md border-b border-brand-gold/30"
@@ -70,19 +75,22 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="md:hidden fixed inset-0 top-[72px] bg-brand-navy z-40 flex flex-col items-center justify-center gap-10">
-          {NAV_LINKS.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setMenuOpen(false)}
-              className={`text-2xl font-display font-semibold transition-colors hover:text-brand-gold ${
-                pathname === href ? "text-brand-gold" : "text-white"
-              }`}
-            >
-              {label}
-            </Link>
-          ))}
+        <div className="md:hidden fixed inset-0 top-[72px] bg-brand-navy z-50 flex flex-col items-center justify-center gap-10">
+          <ul className="flex flex-col items-center gap-10">
+            {NAV_LINKS.map(({ href, label }) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  className={`text-2xl font-display font-semibold transition-colors hover:text-brand-gold ${
+                    pathname === href ? "text-brand-gold" : "text-white"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </nav>
