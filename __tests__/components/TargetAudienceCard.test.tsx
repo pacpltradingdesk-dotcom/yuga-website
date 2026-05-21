@@ -34,9 +34,9 @@ describe("TargetAudienceCard", () => {
   });
 
   it("renders at least one key service with a checkmark", () => {
-    render(<TargetAudienceCard audience={mockAudience} />);
+    const { container } = render(<TargetAudienceCard audience={mockAudience} />);
     expect(screen.getByText("Complete A-to-Z plant setup from SCRATCH")).toBeInTheDocument();
-    const checkmarks = document.querySelectorAll('[aria-hidden="true"]');
+    const checkmarks = container.querySelectorAll('[aria-hidden="true"]');
     expect(checkmarks.length).toBeGreaterThanOrEqual(1);
   });
 });

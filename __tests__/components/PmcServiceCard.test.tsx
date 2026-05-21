@@ -11,9 +11,9 @@ const mockService: PmcService = {
 
 describe("PmcServiceCard", () => {
   it("renders the icon", () => {
-    render(<PmcServiceCard service={mockService} />);
-    const icon = document.querySelector('[aria-hidden="true"]');
-    expect(icon).toBeInTheDocument();
+    const { container } = render(<PmcServiceCard service={mockService} />);
+    const icon = container.querySelector('[aria-hidden="true"]');
+    expect(icon).not.toBeNull();
     expect(icon?.textContent).toBe(mockService.icon);
   });
 

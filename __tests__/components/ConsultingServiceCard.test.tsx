@@ -4,9 +4,9 @@ import ConsultingServiceCard from "@/components/ConsultingServiceCard";
 const mockItems = ["Site selection", "DPR preparation", "Vendor sourcing"];
 
 describe("ConsultingServiceCard", () => {
-  it("renders the category", () => {
+  it("renders the category as a heading", () => {
     render(<ConsultingServiceCard category="Land & Location" items={mockItems} />);
-    expect(screen.getByText("Land & Location")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Land & Location" })).toBeInTheDocument();
   });
 
   it("renders all items", () => {
@@ -17,8 +17,10 @@ describe("ConsultingServiceCard", () => {
   });
 
   it("renders arrow prefix for each item", () => {
-    render(<ConsultingServiceCard category="Land & Location" items={mockItems} />);
-    const arrows = document.querySelectorAll('[aria-hidden="true"]');
+    const { container } = render(
+      <ConsultingServiceCard category="Land & Location" items={mockItems} />
+    );
+    const arrows = container.querySelectorAll('[aria-hidden="true"]');
     expect(arrows.length).toBe(mockItems.length);
   });
 });
