@@ -28,9 +28,9 @@ describe("ItProductsPage", () => {
     ).toBeInTheDocument();
   });
 
-  it("renders the Why PACPL section heading", () => {
+  it("renders the Why YUGA section heading", () => {
     expect(
-      screen.getByRole("heading", { name: /Built by Practitioners, Not Generalists/i })
+      screen.getByText(/Built by/i)
     ).toBeInTheDocument();
   });
 

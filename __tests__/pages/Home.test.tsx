@@ -18,7 +18,7 @@ describe("HomePage", () => {
 
   it("renders 4 stage cards", () => {
     render(<HomePage />);
-    expect(screen.getByText("Stage 1")).toBeInTheDocument();
-    expect(screen.getByText("Stage 4")).toBeInTheDocument();
+    expect(screen.getByText(/Raw Material Procurement/i)).toBeInTheDocument();
+    expect(screen.getByText(/Bio-Bitumen Testing/i)).toBeInTheDocument();
   });
 });

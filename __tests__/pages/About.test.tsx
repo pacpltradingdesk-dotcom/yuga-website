@@ -22,12 +22,12 @@ describe("AboutPage", () => {
     render(<AboutPage />);
   });
 
-  it("renders 'About PACPL' heading", () => {
-    expect(screen.getByRole("heading", { name: /About PACPL/i })).toBeInTheDocument();
+  it("renders 'About YUGA' heading", () => {
+    expect(screen.getByRole("heading", { name: /About YUGA/i })).toBeInTheDocument();
   });
 
   it("renders 'Prince Pratap Shah' name", () => {
-    expect(screen.getByText(/Prince Pratap Shah/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Prince Pratap Shah/i).length).toBeGreaterThan(0);
   });
 
   it("renders '25 Years Across India' section heading", () => {

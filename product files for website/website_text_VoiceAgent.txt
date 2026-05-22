@@ -1,0 +1,109 @@
+================================================================
+AI VOICE AGENT — WEBSITE TEXT CONTENT
+================================================================
+
+--- HERO SECTION ---
+
+Headline:
+Talk to AI. Instantly. Naturally.
+
+Subheadline:
+An experimental real-time voice conversation agent — speak into your mic and get an intelligent spoken response within seconds. Built on WebRTC for zero-latency audio and powered by OpenAI GPT-4o.
+
+CTA Button Text:
+Try the Demo
+
+Status Badge:
+Work In Progress — Not Production Ready
+
+
+--- WHAT IS IT ---
+
+Section Title:
+Real-Time AI Voice Conversations
+
+Description:
+The AI Voice Agent is a demo project that brings together the best speech and language AI available today — Deepgram for fast, accurate speech recognition; OpenAI GPT-4o for intelligent responses; and Deepgram's Aura voice for natural-sounding text-to-speech — all connected over a live WebRTC audio stream directly in the browser.
+
+No phone calls. No phone numbers. Just open the web app, speak, and hear the AI respond.
+
+
+--- HOW IT WORKS ---
+
+Section Title:
+The Conversation Pipeline
+
+Step 1 — You Speak
+   Your microphone audio is captured by the browser and streamed in real-time over a WebRTC peer connection to the server.
+
+Step 2 — Speech to Text
+   Deepgram's streaming STT API transcribes your speech with extremely low latency — words are recognized as you speak them.
+
+Step 3 — AI Thinks
+   The transcript is sent to OpenAI GPT-4o, which generates a contextual, intelligent response.
+
+Step 4 — Text to Speech
+   The response is converted to natural-sounding speech using Deepgram Aura (aura-asteria-en voice model).
+
+Step 5 — You Hear the Answer
+   The audio streams back to your browser over WebRTC and plays immediately — the whole round-trip takes seconds.
+
+
+--- TECH STACK ---
+
+Section Title:
+Built With
+
+Backend:
+• FastAPI (Python) — handles WebRTC signaling and session management
+• Pipecat Framework — orchestrates the STT → LLM → TTS pipeline
+• AioRTC — WebRTC transport layer for real-time audio
+• Deepgram API — Speech-to-Text (streaming)
+• OpenAI GPT-4o — Language model for response generation
+• Deepgram Aura TTS — Text-to-Speech (aura-asteria-en)
+
+Frontend:
+• React + Vite — browser client
+• WebRTC RTCPeerConnection — real-time audio stream
+• POST /offer — SDP exchange for WebRTC handshake
+
+
+--- USE CASES ---
+
+Section Title:
+Potential Applications
+
+• Customer Support Bot — AI answers FAQs via voice, 24/7
+• Sales Assistant — voice-based product information and lead capture
+• Internal Help Desk — employees ask questions and get spoken answers
+• Voice-Activated Workflows — trigger actions by speaking commands
+• Language Practice Tool — converse with AI for language learning
+
+
+--- CURRENT STATUS ---
+
+Section Title:
+Development Status
+
+This is an experimental/demo project, currently not production-ready. Two core issues need to be resolved before it functions end-to-end:
+
+Issue 1:
+The WebRTC offer handler in bot.py uses an API call that does not exist in the current Pipecat version. This needs to be updated to match the latest Pipecat API.
+
+Issue 2:
+The pipeline is constructed but never started. The PipelineRunner.run() call is missing, so no audio processing actually happens.
+
+Once these two issues are fixed, the full pipeline should function correctly.
+
+NOTE: API keys must be moved from plain text files to environment variables before any deployment.
+
+
+--- FOOTER / CONTACT TAG ---
+
+An experimental AI project by PACPL.
+For inquiries: pacpl.tradingdesk@gmail.com
+
+
+================================================================
+END OF VOICE AGENT WEBSITE TEXT
+================================================================

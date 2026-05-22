@@ -11,6 +11,15 @@ jest.mock("next/link", () => {
   return MockLink;
 });
 
+jest.mock("framer-motion", () => ({
+  motion: {
+    div: require("react").forwardRef(({ children, ...props }: any, ref: any) => (
+      <div {...props} ref={ref}>{children}</div>
+    )),
+  },
+  AnimatePresence: ({ children }: any) => children,
+}));
+
 describe("ItProductTabs", () => {
   it("renders the first product by default", () => {
     render(<ItProductTabs />);
@@ -26,9 +35,9 @@ describe("ItProductTabs", () => {
     const tabs = screen.getAllByRole("tab");
     await user.click(tabs[1]);
 
-    // The second panel should now be visible (not hidden)
+    // The second panel should now be visible in the document
     const secondPanel = document.getElementById("panel-1");
-    expect(secondPanel).not.toHaveAttribute("hidden");
+    expect(secondPanel).toBeInTheDocument();
     expect(secondPanel).toContainElement(
       screen.getByRole("heading", { name: IT_SERVICES[1].name })
     );
@@ -42,7 +51,7 @@ describe("ItProductTabs", () => {
     await user.click(tabs[1]);
 
     const firstPanel = document.getElementById("panel-0");
-    expect(firstPanel).toHaveAttribute("hidden");
+    expect(firstPanel).not.toBeInTheDocument();
   });
 
   it("renders the correct number of tab buttons", () => {

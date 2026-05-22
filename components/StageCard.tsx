@@ -1,37 +1,71 @@
 // components/StageCard.tsx
+"use client";
+
 import type { FourStage } from "@/lib/company-data";
+import { motion } from "framer-motion";
+import { Factory, Flame, FlaskConical, Truck } from "lucide-react";
 
-type Props = { stage: FourStage };
+type Props = { stage: FourStage; index?: number };
 
-export default function StageCard({ stage }: Props) {
+export default function StageCard({ stage, index = 0 }: Props) {
+  // Map old emojis to sleek lucide icons
+  const getIcon = (emoji: string) => {
+    switch (emoji) {
+      case "🌾": return <Factory className="text-accent" size={24} />;
+      case "🔥": return <Flame className="text-accent" size={24} />;
+      case "⚗️": return <FlaskConical className="text-accent" size={24} />;
+      case "🛣️": return <Truck className="text-accent" size={24} />;
+      default: return <Factory className="text-accent" size={24} />;
+    }
+  };
+
   return (
-    <div className="bg-white border border-border border-t-4 border-t-accent rounded-2xl p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="text-3xl" aria-hidden="true">{stage.icon}</span>
-        <span className="text-accent text-xs font-semibold uppercase tracking-widest">
-          Stage {stage.stage}
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="glass p-6 rounded-2xl group hover:glass-hover transition-all duration-300 relative overflow-hidden"
+    >
+      {/* Top Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-eco opacity-50 group-hover:opacity-100 transition-opacity" />
+      
+      {/* Background Glow */}
+      <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-colors" />
+
+      <div className="flex items-center justify-between mb-6 relative z-10">
+        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-accent/30 transition-colors">
+          {getIcon(stage.icon)}
+        </div>
+        <span className="text-white/30 text-4xl font-extrabold font-display">
+          0{stage.stage}
         </span>
       </div>
-      <h3 className="font-display text-base text-primary font-bold mb-3 leading-snug">
+      
+      <h3 className="font-display text-lg text-white font-bold mb-3 leading-snug relative z-10">
         {stage.name}
       </h3>
-      <p className="text-secondary text-sm leading-relaxed mb-4">{stage.description}</p>
-      <dl className="space-y-1 text-xs text-secondary">
-        <div className="flex gap-2">
-          <dt className="font-semibold text-primary">CAPEX:</dt>
-          <dd>{stage.capex}</dd>
+      
+      <p className="text-secondary text-sm leading-relaxed mb-6 relative z-10 min-h-[80px]">
+        {stage.description}
+      </p>
+      
+      <div className="space-y-3 pt-4 border-t border-white/5 relative z-10">
+        <div className="flex justify-between items-center text-xs">
+          <span className="font-semibold text-white/50 uppercase tracking-wider">CAPEX</span>
+          <span className="text-accent font-medium">{stage.capex}</span>
         </div>
-        <div className="flex gap-2">
-          <dt className="font-semibold text-primary">Manpower:</dt>
-          <dd>{stage.manpower}</dd>
+        <div className="flex justify-between items-center text-xs">
+          <span className="font-semibold text-white/50 uppercase tracking-wider">Manpower</span>
+          <span className="text-white">{stage.manpower}</span>
         </div>
         {stage.space && (
-          <div className="flex gap-2">
-            <dt className="font-semibold text-primary">Space:</dt>
-            <dd>{stage.space}</dd>
+          <div className="flex justify-between items-center text-xs">
+            <span className="font-semibold text-white/50 uppercase tracking-wider">Space</span>
+            <span className="text-white">{stage.space}</span>
           </div>
         )}
-      </dl>
-    </div>
+      </div>
+    </motion.div>
   );
 }

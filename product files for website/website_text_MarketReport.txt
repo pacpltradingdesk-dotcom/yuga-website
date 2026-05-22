@@ -1,0 +1,118 @@
+================================================================
+PACPL MARKET REPORT — WEBSITE TEXT CONTENT
+================================================================
+
+--- HERO SECTION ---
+
+Headline:
+Daily Market Intelligence. Delivered Automatically.
+
+Subheadline:
+PACPL Market Report generates professional Nifty and BankNifty analysis PDFs every morning and evening — and sends them directly to your WhatsApp groups and channels. Zero manual work. Never miss a market day.
+
+CTA Button Text:
+See Sample Report
+
+
+--- WHAT IS IT ---
+
+Section Title:
+Your Daily Market Briefing, on Autopilot
+
+Description:
+Every trading day, two reports are generated and delivered to PACPL's WhatsApp groups automatically. The morning report sets up the day; the evening report closes it out. No holidays missed — the system knows the NSE calendar.
+
+Reports are delivered to:
+- PDF Groups (members receive the full report document)
+- Image Channel (every page posted as a high-quality image for easy viewing)
+
+
+--- REPORTS ---
+
+Section Title:
+Two Reports. Every Trading Day.
+
+Morning Report — 8:45 AM IST
+   A comprehensive pre-market briefing covering:
+   • Global Indices — US, European, and Asian market performance overnight
+   • FII / DII Flow — institutional money movement
+   • Nifty & BankNifty — key levels, support, resistance
+   • Stocks Radar — curated watchlist for the day
+
+Evening Report — 4:00 PM IST
+   A closing market summary covering:
+   • Market Recap — what happened today and why
+   • Top Gainers & Losers — best and worst performers
+   • Sector Performance — which sectors led and lagged
+   • Key Highlights — notable events and data points
+
+
+--- HOW IT WORKS ---
+
+Section Title:
+Fully Automated Pipeline
+
+Step 1 — Data Collection
+   Real-time market data is pulled automatically from financial data sources — indices, FII/DII flows, individual stock data.
+
+Step 2 — Report Generation
+   Python scripts process the data and generate a professionally formatted multi-page PDF with charts, tables, and analysis.
+
+Step 3 — Image Conversion
+   The PDF is converted to high-resolution images — one per page — for WhatsApp channel delivery.
+
+Step 4 — WhatsApp Delivery
+   Reports are sent to configured groups and channels via automated browser session. Delivery is confirmed before the process ends.
+
+Step 5 — Self-Monitoring
+   If anything goes wrong — send failure, login expiry, data issue — an automatic alert is sent to the admin's personal WhatsApp number.
+
+
+--- INFRASTRUCTURE ---
+
+Section Title:
+Running 24/7 on Cloud Infrastructure
+
+Description:
+The Market Report system is deployed on a dedicated VPS in Mumbai (India) — ensuring low latency for NSE data access and reliable 8:45 AM / 4:00 PM delivery every trading day, regardless of whether any local computer is on.
+
+Infrastructure:
+• Server: Hostinger KVM 2 — 2 vCPU, Ubuntu 24.04 LTS, Mumbai
+• Scheduling: systemd timers (no cron drift)
+• Display: Xvfb virtual display (headless Chrome)
+• Code: Private GitHub repo with server deploy key
+• Monitoring: Self-alert via WhatsApp on any failure
+
+NSE Holiday Aware:
+The system automatically skips non-trading days using a built-in NSE holiday calendar. No manual intervention needed on market holidays.
+
+
+--- STATUS ---
+
+Section Title:
+Live and Running
+
+• Morning reports: Live daily at 8:45 AM IST
+• Evening reports: Live daily at 4:00 PM IST
+• VPS uptime: 24/7 (Mumbai datacenter)
+• WhatsApp delivery: Groups + Channel
+• Self-monitoring: Active (WhatsApp alerts on failure)
+• Holiday handling: Automatic (NSE calendar integrated)
+
+
+--- TECH STACK ---
+
+Python 3.12, selenium, yfinance, matplotlib, pymupdf, pillow
+Chrome (headless via Xvfb), systemd timers
+Hosted on Hostinger KVM 2 — Ubuntu 24.04 — Mumbai
+
+
+--- FOOTER / CONTACT TAG ---
+
+An internal automation tool built for PACPL's daily trading operations.
+For inquiries: pacpl.tradingdesk@gmail.com
+
+
+================================================================
+END OF MARKET REPORT WEBSITE TEXT
+================================================================

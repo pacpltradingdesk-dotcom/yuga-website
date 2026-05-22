@@ -1,14 +1,11 @@
 // app/it-products/page.tsx
-import type { Metadata } from "next";
+"use client";
+
 import PageHeader from "@/components/PageHeader";
 import ItProductTabs from "@/components/ItProductTabs";
 import CtaStrip from "@/components/CtaStrip";
-
-export const metadata: Metadata = {
-  title: "IT Products — PACPL",
-  description:
-    "Custom software solutions built for the bitumen and industrial sector — designed by practitioners who understand your operations.",
-};
+import { motion } from "framer-motion";
+import { Factory, Globe, Rocket } from "lucide-react";
 
 export default function ItProductsPage() {
   return (
@@ -17,63 +14,113 @@ export default function ItProductsPage() {
         title="IT Products"
         subtitle="Custom software built for the bitumen and industrial sector"
         breadcrumb="IT Products"
+        bgImage="/assets/it-dashboard-mockup.png"
       />
 
       {/* Tab Section */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">
-            Our Products
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-primary font-bold mb-4">
-            Software Built for the Bitumen Industry
-          </h2>
-          <p className="text-secondary max-w-2xl mb-12 leading-relaxed">
-            Domain-specific tools engineered for the unique workflows of bitumen plants, supply
-            chains, and industrial operations — not generic software retrofitted to your process.
-          </p>
+      <section className="py-24 px-6 bg-background relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-[0.2em] mb-4">
+              <span className="w-4 h-px bg-accent/50" />
+              Our Products
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-6 tracking-tight">
+              Software Built for the <span className="text-gradient">Bitumen Industry</span>
+            </h2>
+            <p className="text-secondary text-lg max-w-2xl mb-16 leading-relaxed">
+              Domain-specific tools engineered for the unique workflows of bitumen plants, supply
+              chains, and industrial operations — not generic software retrofitted to your process.
+            </p>
+          </motion.div>
+          
           <ItProductTabs />
         </div>
       </section>
 
       {/* Why PACPL for IT Section */}
-      <section className="bg-surface py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-accent text-xs font-semibold uppercase tracking-widest mb-3">
-            Why Us
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl text-primary font-bold mb-4">
-            Built by Practitioners, Not Generalists
-          </h2>
-          <div className="grid md:grid-cols-3 gap-5 mt-12">
+      <section className="bg-surface py-24 px-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <p className="flex items-center justify-center gap-2 text-accent text-xs font-bold uppercase tracking-[0.2em] mb-4">
+              <span className="w-4 h-px bg-accent/50" />
+              Why Us
+              <span className="w-4 h-px bg-accent/50" />
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight">
+              Built by <span className="text-gradient">Practitioners</span>, Not Generalists
+            </h2>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="bg-white border border-border rounded-2xl p-6">
-              <div className="text-3xl mb-3">🏭</div>
-              <h3 className="font-bold text-primary mb-2">Domain Expertise</h3>
-              <p className="text-secondary text-sm leading-relaxed">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="glass p-8 rounded-2xl group hover:glass-hover transition-all duration-300"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Factory className="text-accent" size={28} />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-white mb-4">Domain Expertise</h3>
+              <p className="text-secondary text-base leading-relaxed">
                 25 years in bitumen means we know exactly what operators need before they ask for
                 it.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 2 */}
-            <div className="bg-white border border-border rounded-2xl p-6">
-              <div className="text-3xl mb-3">🌐</div>
-              <h3 className="font-bold text-primary mb-2">Built-In Client Network</h3>
-              <p className="text-secondary text-sm leading-relaxed">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="glass p-8 rounded-2xl group hover:glass-hover transition-all duration-300"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Globe className="text-accent" size={28} />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-white mb-4">Built-In Client Network</h3>
+              <p className="text-secondary text-base leading-relaxed">
                 You talk to real plant operators, supply chain heads, and logistics managers every
                 day — we build for them directly.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 3 */}
-            <div className="bg-white border border-border rounded-2xl p-6">
-              <div className="text-3xl mb-3">🚀</div>
-              <h3 className="font-bold text-primary mb-2">Full-Stack Delivery</h3>
-              <p className="text-secondary text-sm leading-relaxed">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="glass p-8 rounded-2xl group hover:glass-hover transition-all duration-300"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Rocket className="text-accent" size={28} />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-white mb-4">Full-Stack Delivery</h3>
+              <p className="text-secondary text-base leading-relaxed">
                 Design → code → deploy → support. One team, no handoffs, no excuses.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

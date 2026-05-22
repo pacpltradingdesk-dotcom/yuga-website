@@ -11,7 +11,7 @@ describe("Footer", () => {
     render(<Footer />);
     expect(screen.getByRole("link", { name: "About" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Pyrolysis" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Contact" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Consulting" })).toBeInTheDocument();
   });
 
   it("renders Send a Message contact link", () => {

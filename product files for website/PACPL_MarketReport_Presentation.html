@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PACPL Market Report — WhatsApp Auto-Send</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0a1628; color: #fff; overflow: hidden; }
+  .slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; flex-direction: column; justify-content: center; position: relative; }
+  .slide.active { display: flex; }
+  .slide-number { position: absolute; bottom: 24px; right: 36px; font-size: 13px; color: rgba(255,255,255,0.3); }
+  .nav { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 100; }
+  .nav button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px 28px; border-radius: 30px; cursor: pointer; font-size: 14px; transition: all 0.2s; }
+  .nav button:hover { background: rgba(255,255,255,0.2); }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #25d366, #128c7e); transition: width 0.4s; }
+
+  .s1 { background: linear-gradient(135deg, #054d2e 0%, #075e40 50%, #0a1628 100%); }
+  .s1 .tag { background: #25d366; color: #000; display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
+  .s1 h1 { font-size: 62px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+  .s1 h1 span { color: #25d366; }
+  .s1 p { font-size: 22px; color: rgba(255,255,255,0.65); max-width: 640px; }
+  .s1 .status-chip { position: absolute; top: 40px; right: 60px; background: rgba(37,211,102,0.15); border: 1px solid #25d366; border-radius: 20px; padding: 8px 20px; color: #25d366; font-size: 14px; font-weight: 600; }
+
+  .s2 { background: linear-gradient(135deg, #0a1628, #0d1f3c); }
+  .s2 h2 { font-size: 40px; color: #25d366; margin-bottom: 36px; }
+  .schedule-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .sched-card { background: rgba(37,211,102,0.07); border: 1px solid rgba(37,211,102,0.25); border-radius: 16px; padding: 30px; }
+  .sched-card .time { font-size: 52px; font-weight: 800; color: #25d366; margin-bottom: 8px; }
+  .sched-card .label { font-size: 16px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+  .sched-card ul { list-style: none; }
+  .sched-card li { font-size: 15px; color: rgba(255,255,255,0.75); padding: 5px 0; padding-left: 20px; position: relative; }
+  .sched-card li::before { content: '→'; position: absolute; left: 0; color: #25d366; }
+
+  .s3 { background: linear-gradient(135deg, #0d1f3c, #0a1628); }
+  .s3 h2 { font-size: 40px; color: #00cec9; margin-bottom: 36px; }
+  .flow { display: flex; flex-direction: column; gap: 14px; }
+  .flow-item { display: flex; align-items: center; gap: 20px; background: rgba(0,206,201,0.07); border: 1px solid rgba(0,206,201,0.2); border-radius: 12px; padding: 16px 22px; }
+  .flow-num { width: 36px; height: 36px; border-radius: 50%; background: #00cec9; color: #000; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .flow-item h4 { font-size: 16px; color: #00cec9; margin-bottom: 3px; }
+  .flow-item p { font-size: 13px; color: rgba(255,255,255,0.55); }
+
+  .s4 { background: linear-gradient(135deg, #1a0a0a, #0d1f3c); }
+  .s4 h2 { font-size: 40px; color: #fd79a8; margin-bottom: 36px; }
+  .target-cards { display: flex; flex-direction: column; gap: 16px; }
+  .target { display: flex; align-items: center; gap: 18px; background: rgba(253,121,168,0.07); border: 1px solid rgba(253,121,168,0.2); border-radius: 12px; padding: 20px; }
+  .target .wa-ico { font-size: 36px; flex-shrink: 0; }
+  .target-type { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .target h4 { font-size: 17px; color: #fd79a8; }
+  .target p { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 3px; }
+
+  .s5 { background: linear-gradient(135deg, #0a1628, #0f2a1e); }
+  .s5 h2 { font-size: 40px; color: #55efc4; margin-bottom: 36px; }
+  .vps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 24px; }
+  .vps-box { background: rgba(85,239,196,0.07); border: 1px solid rgba(85,239,196,0.25); border-radius: 12px; padding: 20px; text-align: center; }
+  .vps-box .label { font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .vps-box .val { font-size: 16px; color: #55efc4; font-weight: 600; }
+  .timeline { display: flex; gap: 0; }
+  .tl-item { flex: 1; text-align: center; position: relative; }
+  .tl-dot { width: 14px; height: 14px; border-radius: 50%; background: #55efc4; margin: 0 auto 8px; }
+  .tl-dot.pending { background: rgba(255,255,255,0.2); border: 2px solid rgba(255,255,255,0.3); }
+  .tl-line { position: absolute; top: 6px; left: 50%; width: 100%; height: 2px; background: rgba(85,239,196,0.3); z-index: -1; }
+  .tl-item:last-child .tl-line { display: none; }
+  .tl-item .tl-label { font-size: 12px; color: rgba(255,255,255,0.6); }
+  .tl-item.done .tl-label { color: #55efc4; }
+
+  .s6 { background: linear-gradient(135deg, #1a1205, #0a1628); }
+  .s6 h2 { font-size: 40px; color: #fdcb6e; margin-bottom: 36px; }
+  .status-rows { display: flex; flex-direction: column; gap: 14px; }
+  .st-row { display: flex; align-items: center; gap: 16px; background: rgba(253,203,110,0.06); border: 1px solid rgba(253,203,110,0.2); border-radius: 12px; padding: 16px 20px; }
+  .badge { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; flex-shrink: 0; }
+  .badge.done { background: #00b894; color: #fff; }
+  .badge.pending { background: #fdcb6e; color: #1a1a2e; }
+  .st-row h4 { font-size: 15px; color: rgba(255,255,255,0.9); margin-bottom: 2px; }
+  .st-row p { font-size: 13px; color: rgba(255,255,255,0.45); }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- SLIDE 1: Title -->
+<div class="slide s1 active">
+  <div class="status-chip">✅ VPS Pe Live</div>
+  <div class="tag">PACPL Daily Reports</div>
+  <h1>Market<br><span>Report</span></h1>
+  <p>Automated daily Nifty/BankNifty market reports — PDF generate karo aur WhatsApp groups pe auto-send karo</p>
+  <div class="slide-number">1 / 6</div>
+</div>
+
+<!-- SLIDE 2: Schedule -->
+<div class="slide s2">
+  <h2>Daily Schedule</h2>
+  <div class="schedule-grid">
+    <div class="sched-card">
+      <div class="time">08:45</div>
+      <div class="label">Morning Report (IST)</div>
+      <ul>
+        <li>Global Indices (US, Europe, Asia)</li>
+        <li>FII / DII Flow</li>
+        <li>Nifty + BankNifty levels</li>
+        <li>Stocks Radar — watchlist</li>
+      </ul>
+    </div>
+    <div class="sched-card">
+      <div class="time">16:00</div>
+      <div class="label">Evening Report (IST)</div>
+      <ul>
+        <li>Market Recap — aaj kya hua</li>
+        <li>Top Gainers + Losers</li>
+        <li>Sector Performance</li>
+        <li>Key highlights</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:20px;font-size:14px;color:rgba(255,255,255,0.4);text-align:center">NSE holidays pe automatically skip hota hai — nse_calendar.py</div>
+  <div class="slide-number">2 / 6</div>
+</div>
+
+<!-- SLIDE 3: How it works -->
+<div class="slide s3">
+  <h2>Kaise kaam karta hai?</h2>
+  <div class="flow">
+    <div class="flow-item"><div class="flow-num">1</div><div><h4>Data Fetch</h4><p>yfinance se market data pull karta hai — indices, FII/DII, stocks</p></div></div>
+    <div class="flow-item"><div class="flow-num">2</div><div><h4>PDF Generate</h4><p>morning_report.py / market_report.py — matplotlib charts + pymupdf se beautiful PDF banta hai</p></div></div>
+    <div class="flow-item"><div class="flow-num">3</div><div><h4>Image Convert</h4><p>pdf_to_images.py — PDF pages ko JPG mein convert karta hai (channel ke liye)</p></div></div>
+    <div class="flow-item"><div class="flow-num">4</div><div><h4>WhatsApp Send</h4><p>whatsapp_sender.py — Selenium + Chrome se WA Web open karta hai, groups + channel pe send karta hai</p></div></div>
+    <div class="flow-item"><div class="flow-num">5</div><div><h4>Self-Alert</h4><p>FAIL/PARTIAL hone pe apne number pe WhatsApp message aata hai</p></div></div>
+  </div>
+  <div class="slide-number">3 / 6</div>
+</div>
+
+<!-- SLIDE 4: Targets -->
+<div class="slide s4">
+  <h2>WhatsApp Targets</h2>
+  <div class="target-cards">
+    <div class="target">
+      <div class="wa-ico">👥</div>
+      <div>
+        <div class="target-type">PDF Group</div>
+        <h4>PS Enterprise (Daily Update) 📈</h4>
+        <p>PDF file directly bheja jaata hai group mein</p>
+      </div>
+    </div>
+    <div class="target">
+      <div class="wa-ico">👥</div>
+      <div>
+        <div class="target-type">PDF Group</div>
+        <h4>PACPL MARKET NEWS UPDATES 📈📈</h4>
+        <p>PDF file directly bheja jaata hai group mein</p>
+      </div>
+    </div>
+    <div class="target">
+      <div class="wa-ico">📢</div>
+      <div>
+        <div class="target-type">Image Channel</div>
+        <h4>PACPL STOCK MARKET NEWS REPORT</h4>
+        <p>PDF ko JPG images mein convert karke channel pe post kiya jaata hai</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-number">4 / 6</div>
+</div>
+
+<!-- SLIDE 5: VPS Deployment -->
+<div class="slide s5">
+  <h2>Hostinger VPS Deployment</h2>
+  <div class="vps-grid">
+    <div class="vps-box"><div class="label">Server</div><div class="val">srv1209036.hstgr.cloud</div></div>
+    <div class="vps-box"><div class="label">IP Address</div><div class="val">82.112.231.3</div></div>
+    <div class="vps-box"><div class="label">Location</div><div class="val">Mumbai, India</div></div>
+    <div class="vps-box"><div class="label">OS</div><div class="val">Ubuntu 24.04 LTS</div></div>
+    <div class="vps-box"><div class="label">Display</div><div class="val">Xvfb :99 (Headless Chrome)</div></div>
+    <div class="vps-box"><div class="label">Deploy Path</div><div class="val">/opt/pacpl-market-report/</div></div>
+  </div>
+  <div style="font-size:14px;color:rgba(85,239,196,0.7);margin-bottom:12px;font-weight:600">Migration Tasks:</div>
+  <div class="timeline">
+    <div class="tl-item done"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot"></div></div><div class="tl-label">VPS Setup</div></div>
+    <div class="tl-item done"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot"></div></div><div class="tl-label">GitHub Repo</div></div>
+    <div class="tl-item done"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot"></div></div><div class="tl-label">Deploy + Deps</div></div>
+    <div class="tl-item done"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot"></div></div><div class="tl-label">QR Scan</div></div>
+    <div class="tl-item done"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot"></div></div><div class="tl-label">systemd Timers</div></div>
+    <div class="tl-item done"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot"></div></div><div class="tl-label">Self-Alert</div></div>
+    <div class="tl-item pending"><div style="position:relative"><div class="tl-line"></div><div class="tl-dot pending"></div></div><div class="tl-label">Backups</div></div>
+  </div>
+  <div class="slide-number">5 / 6</div>
+</div>
+
+<!-- SLIDE 6: Status -->
+<div class="slide s6">
+  <h2>Current Status</h2>
+  <div class="status-rows">
+    <div class="st-row"><div class="badge done">✅ Done</div><div><h4>VPS pe Live</h4><p>systemd timers active — 08:45 + 16:00 IST daily chal raha hai</p></div></div>
+    <div class="st-row"><div class="badge done">✅ Done</div><div><h4>WhatsApp Session Active</h4><p>Last QR scan: 2026-05-14 — session stable hai</p></div></div>
+    <div class="st-row"><div class="badge done">✅ Done</div><div><h4>Self-Alert System</h4><p>FAIL/PARTIAL pe apne number pe WA message aata hai</p></div></div>
+    <div class="st-row"><div class="badge done">✅ Done</div><div><h4>Windows Tasks Disabled</h4><p>Local PC pe Task Scheduler tasks band kar diye</p></div></div>
+    <div class="st-row"><div class="badge pending">⏳ Pending</div><div><h4>Task 7 — Hardening + Backups</h4><p>Profile backup script, CLAUDE.md docs, email/Telegram pre-login alert</p></div></div>
+  </div>
+  <div class="slide-number">6 / 6</div>
+</div>
+
+<div class="nav">
+  <button onclick="prevSlide()">← Prev</button>
+  <button onclick="nextSlide()">Next →</button>
+</div>
+
+<script>
+  let cur = 0;
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  function show(n) {
+    slides[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+  }
+  function nextSlide() { show(cur + 1); }
+  function prevSlide() { show(cur - 1); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+  });
+  progress.style.width = (1 / slides.length * 100) + '%';
+</script>
+</body>
+</html>

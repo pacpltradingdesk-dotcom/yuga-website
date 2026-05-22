@@ -1,0 +1,120 @@
+================================================================
+  WhatsApp Bulk Messaging Dashboard
+  Developed for PPS Anat AMS
+================================================================
+
+OVERVIEW
+--------
+A custom-built, web-based WhatsApp Bulk Messaging Dashboard that
+allows businesses to manage multiple WhatsApp accounts and send
+messages, images, PDFs, and other media to thousands of groups
+simultaneously — with built-in anti-ban protection.
+
+Live URL : https://whatsapp.ppsanatams.cloud
+Server   : Hostinger VPS (Ubuntu 24.04, 8 GB RAM)
+Access   : Login-protected, multi-user
+
+
+KEY FEATURES
+------------
+1. Multi-Account Management
+   - Connect and manage multiple WhatsApp accounts from one panel
+   - Phone Pair (preferred) or QR code login
+   - Persistent sessions — no re-login needed after server restart
+
+2. Group Folder System
+   - Organize thousands of WhatsApp groups into named folders
+   - Bulk-select groups with smart search + Select All
+   - Save folder configurations for repeated sends
+
+3. Bulk Message Sending
+   - Send text, images, PDFs, documents, videos to groups
+   - Support for multiple attachments per message
+   - Custom message per send job
+   - Content Library — pre-saved content for quick reuse
+
+4. Anti-Ban Protection
+   - 3–6 second delay between each message
+   - 30–60 second cooldown every 25 messages
+   - Mimics human behavior to reduce WhatsApp ban risk
+
+5. Real-Time Progress Widget
+   - Persistent floating widget shows live send progress
+   - Messages sent, pending, failed count
+   - ETA (estimated time remaining)
+   - Survives page navigation and browser refresh
+
+6. Stop / Resume / Start Fresh
+   - Pause a running send at any point
+   - Resume from exactly where it stopped (no duplicates)
+   - Start fresh if needed — job state persists
+
+7. Send History & Deduplication
+   - Full history of past sends with search
+   - Auto-deduplication — same message not sent twice in a day
+   - Retry failed groups with one click
+
+8. AI Message Categorization
+   - Automatically categorize groups using AI
+   - Batched + parallel processing for speed
+
+9. Health Monitoring Dashboard
+   - Live memory, Chrome process count, client status
+   - Scheduler state, active job tracking
+   - Accessible from sidebar Health tab
+
+10. File Upload
+    - Supports: JPG, PNG, GIF, WebP, PDF, DOC, DOCX,
+      XLS, XLSX, PPT, PPTX, ZIP, MP4, MP3, OGG
+    - Multi-file upload — first file main, rest as extras
+    - Original filename preserved (no random renaming)
+
+
+TECHNICAL STACK
+---------------
+Backend      : Node.js + Express
+WhatsApp     : whatsapp-web.js (with Puppeteer stealth)
+Browser      : Google Chrome (headless, v146)
+Frontend     : Vanilla JS, HTML5, CSS3
+Process Mgmt : PM2 (auto-restart, log rotation)
+Web Server   : Nginx (reverse proxy + SSL)
+SSL          : Let's Encrypt (auto-renewal)
+DNS          : Cloudflare (proxied)
+Database     : File-based JSON (sessions, jobs, history)
+AI           : OpenAI GPT integration for categorization
+
+
+SCALE & PERFORMANCE
+--------------------
+- Tested with 1,000+ WhatsApp groups (single account)
+- 784 groups sent successfully in ~1 hour 20 minutes
+- Handles multiple users concurrently
+- Auto-recovery after Chrome crash — resumes from last sent group
+- Atomic file writes prevent data corruption on crash
+
+
+DEPLOYMENT
+----------
+- VPS: Hostinger Ubuntu 24.04
+- IP : 82.112.231.3
+- Nginx config with SSE/WebSocket support, 100 MB upload limit
+- PM2 manages server + watchdog + ops-agent processes
+- Persistent session store — users stay logged in after restart
+
+
+SECURITY
+--------
+- Login-protected dashboard (session-based auth)
+- Helmet.js security headers
+- Content Security Policy (CSP) configured
+- CORS restricted to allowed origins
+- File type and size validation on upload
+
+
+CONTACT / ACCESS
+----------------
+Website   : https://whatsapp.ppsanatams.cloud
+Developer : Rahul
+Email     : pacpl.tradingdesk@gmail.com
+
+================================================================

@@ -1,0 +1,98 @@
+================================================================
+PACPL DIALSYNC — WEBSITE TEXT CONTENT
+================================================================
+
+--- HERO SECTION ---
+
+Headline:
+Know Every Call. Coach Every Agent.
+
+Subheadline:
+DialSync is PACPL's AI-powered sales call analytics system. It automatically captures every call your agents make, transcribes and analyzes recordings with AI, and surfaces performance insights in a real-time dashboard.
+
+CTA Button Text:
+See How It Works
+
+
+--- WHAT IS DIALSYNC ---
+
+Section Title:
+End-to-End Sales Call Intelligence
+
+Description:
+DialSync connects your agents' Android phones directly to an AI analytics pipeline. From the moment a call ends, the recording is uploaded, analyzed, and ready for review — no manual steps, no missed calls.
+
+Three core pieces work together:
+
+1. Android Agent App
+   Installed on each sales agent's phone. Silently captures call logs and recordings in real-time. Works even when the phone is in battery-saver mode (FCM keeps it alive).
+
+2. AI Analysis Pipeline
+   n8n workflows + Google Gemini AI transcribe every recording and extract key insights — customer objections, questions raised, call outcome, agent behavior.
+
+3. Web Dashboard
+   A React-based admin portal where managers see all agents, all calls, full transcripts, health alerts, and performance trends — updated live.
+
+
+--- FEATURES ---
+
+Section Title:
+Everything Your Sales Team Needs
+
+Feature 1 — Real-Time Call Tracking
+   Every call is logged the moment it ends. Status is automatically classified: Connected, Not Connected, or Pending. Nothing slips through.
+
+Feature 2 — AI Transcripts & Analysis
+   Google Gemini reads every recording. Get full transcripts, extracted objections, customer questions, and a summary — automatically, without human effort.
+
+Feature 3 — Agent Health Monitoring
+   Know instantly if an agent's app is working correctly. Battery optimization interference, missing permissions, high pending uploads — all surfaced as alerts before they cause data loss.
+
+Feature 4 — OTA App Updates
+   Push a new app version from the admin panel. Agents receive a silent update notification and install with one tap — no manual APK distribution.
+
+Feature 5 — Historical Import
+   Onboard new agents or recover missed data. Select any date range and the app will upload all past calls and recordings automatically.
+
+Feature 6 — FCM Background Keep-Alive
+   A Cloudflare cron sends a silent push notification every 30 minutes to wake the app — defeating OEM background killers on MIUI, ColorOS, and similar ROMs.
+
+Feature 7 — Permanent Device Blocklist
+   Removed or offboarded agents are blocked permanently at the server level. Their device ID can never re-register — data security guaranteed.
+
+
+--- TECH STACK ---
+
+Section Title:
+Built on Modern, Scalable Infrastructure
+
+Android: Kotlin, WorkManager, Room (SQLite), Firebase FCM, ContentObserver
+Backend: Cloudflare Workers (TypeScript), Cloudflare D1, Cloudflare R2, JWT Auth
+Frontend: React + Vite, Cloudflare Pages
+AI Pipeline: n8n, Google Gemini AI, Google Drive API
+Push Notifications: Firebase Cloud Messaging
+
+
+--- STATUS / ABOUT ---
+
+Section Title:
+Production-Ready. Battle-Tested.
+
+Description:
+DialSync is deployed internally at PACPL (Mumbai) and actively tracking sales calls across multiple agents. The system has been through multiple audit cycles, with 12 cross-stack fixes shipped in a single release — covering call status unification, ANR prevention, recording upload reliability, and more.
+
+Version: 3.9.4
+Status: ~90% Production Ready
+Backend: Cloudflare Workers (globally distributed)
+Company: PACPL, Mumbai
+
+
+--- FOOTER / CONTACT TAG ---
+
+A proprietary internal tool built for PACPL.
+For inquiries: pacpl.tradingdesk@gmail.com
+
+
+================================================================
+END OF DIALSYNC WEBSITE TEXT
+================================================================

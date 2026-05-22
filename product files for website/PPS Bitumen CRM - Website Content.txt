@@ -1,0 +1,412 @@
+================================================================================
+  PPS BITUMEN CRM — WEBSITE CONTENT
+  Ready-to-use text for website pages, brochures, or presentations
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 1 — HERO / HOMEPAGE (Main Banner)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HEADLINE:
+  Smart CRM Built for the Bitumen Industry
+
+SUBHEADLINE:
+  Manage your customers, WhatsApp conversations, leads, and sales pipeline —
+  all in one place. Powered by AI. Built for speed.
+
+TAGLINE:
+  From first message to closed deal — PPS CRM handles it all.
+
+CALL TO ACTION:
+  → Login to CRM: https://crm.ppsanatams.online
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 2 — ABOUT THE PRODUCT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ABOUT PPS BITUMEN CRM
+
+PPS Bitumen CRM is a purpose-built customer relationship management system
+designed exclusively for the bitumen and road construction supply industry.
+
+Unlike generic CRMs, PPS CRM deeply integrates with WhatsApp Business — the
+primary communication channel used by contractors, dealers, and buyers in this
+sector. Every incoming WhatsApp message is automatically captured, categorized,
+and scored by AI, so your sales team never misses a hot lead.
+
+The platform runs entirely on Cloudflare's global edge network, ensuring fast
+response times across India and zero server maintenance overhead.
+
+WHO IS IT FOR?
+  • Bitumen traders, suppliers, and distributors
+  • Sales teams managing 100s to 1000s of contacts
+  • Companies that rely on WhatsApp for customer communication
+  • Businesses looking to automate follow-ups and retargeting
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 3 — KEY FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+KEY FEATURES
+
+─────────────────────────────────────────
+1. WHATSAPP INTEGRATION (Live & Two-Way)
+─────────────────────────────────────────
+  • Every incoming WhatsApp message appears instantly in the CRM dashboard
+  • Reply directly from the CRM — no need to open your phone
+  • Full chat history for every customer, searchable and sortable
+  • Supports text, images, documents, and media messages
+  • Session-based messaging: free-form replies within 24-hour window
+  • Template messages for out-of-window contacts (Meta approved)
+
+─────────────────────────────────────────
+2. AI-POWERED LEAD INTELLIGENCE
+─────────────────────────────────────────
+  • Automatically detects HOT, WARM, and COLD leads from message content
+  • AI reads customer messages and assigns lead stage, interest score,
+    and buying signals — without any manual input
+  • Auto-generates tags: city, product type, budget signals, urgency
+  • AI insights panel: "Why is this lead hot?" with supporting evidence
+  • Lead Intelligence Dashboard with filterable, sortable AI scores
+
+─────────────────────────────────────────
+3. CONTACT MANAGEMENT (1000+ Contacts)
+─────────────────────────────────────────
+  • Unified customer database with phone number as unique identifier
+  • Custom fields: company, city, state, designation, product interest
+  • Manual tags + AI auto-tags for every contact
+  • Pin important contacts to top
+  • Soft delete with recovery
+  • Smart search and multi-filter (by tag, city, lead stage, date, etc.)
+  • Virtualized list renders 4000+ contacts without slowdowns
+
+─────────────────────────────────────────
+4. KANBAN BOARD (Visual Sales Pipeline)
+─────────────────────────────────────────
+  • Drag-and-drop Kanban with 6 pipeline stages:
+    NEW LEAD → CONTACTED → INTERESTED → PROPOSAL → NEGOTIATION → CLOSED
+  • Cards grouped by smart categories (Hot, Warm, Follow-up Due, etc.)
+  • Quick view slide panel for each contact without leaving the board
+  • One-click status update from the card
+
+─────────────────────────────────────────
+5. BULK WHATSAPP CAMPAIGNS
+─────────────────────────────────────────
+  • Send approved WhatsApp templates to hundreds of contacts at once
+  • Schedule campaigns for a future date/time
+  • Per-contact delivery status tracking (sent / delivered / read / failed)
+  • Campaign analytics dashboard: delivery rate, read rate, reply rate
+  • Auto-retargeting: contacts who reply are moved to hot leads automatically
+
+─────────────────────────────────────────
+6. FOLLOW-UP MANAGEMENT
+─────────────────────────────────────────
+  • Set follow-up reminders for any contact
+  • Follow-up panel shows today's due follow-ups at a glance
+  • Overdue follow-ups highlighted in red
+  • Automatic n8n-powered follow-up messages (configurable)
+
+─────────────────────────────────────────
+7. SMART EXCEL IMPORT
+─────────────────────────────────────────
+  • Upload any Excel file — columns are mapped automatically by AI
+  • Preview and edit all imported contacts before confirming
+  • Duplicate detection: existing numbers are flagged, not overwritten
+  • Import 500+ contacts in under a minute
+
+─────────────────────────────────────────
+8. PRICE BOARD
+─────────────────────────────────────────
+  • Daily bitumen price updates for all product grades
+  • Visible to all team members in real time
+  • Historical price tracking
+  • Quick-share pricing to customers via WhatsApp
+
+─────────────────────────────────────────
+9. ALERTS & REAL-TIME NOTIFICATIONS
+─────────────────────────────────────────
+  • Instant alerts for every new incoming WhatsApp message
+  • Alert badge count on dashboard
+  • Server-Sent Events (SSE) for real-time updates — no page refresh needed
+  • Alert history with contact linkage
+
+─────────────────────────────────────────
+10. TEAM & USER MANAGEMENT
+─────────────────────────────────────────
+  • Multiple user accounts: Admin + Salesperson roles
+  • Admin can add, edit, or deactivate team members
+  • Role-based access: admin-only features protected
+  • Full login audit log with timestamp and IP tracking
+  • Secure bcrypt-hashed passwords
+
+─────────────────────────────────────────
+11. AI ASSISTANT (Natural Language Query)
+─────────────────────────────────────────
+  • Ask questions in plain English or Hindi about your CRM data
+  • "Show me all hot leads from Mumbai who haven't replied in 3 days"
+  • AI translates your question into a database query and shows results
+  • No SQL knowledge needed
+
+─────────────────────────────────────────
+12. WHATSAPP LOGS & AUDIT TRAIL
+─────────────────────────────────────────
+  • Complete log of every outbound WhatsApp message
+  • Delivery receipts, read receipts, error codes
+  • Field-level audit trail: who changed what, when, and from what value
+  • Export logs for compliance or review
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 4 — HOW IT WORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HOW IT WORKS — STEP BY STEP
+
+STEP 1 — CUSTOMER SENDS A WHATSAPP MESSAGE
+  A contractor or dealer sends a WhatsApp message to your business number.
+  Meta instantly forwards it to PPS CRM.
+
+STEP 2 — AI READS AND SCORES THE LEAD
+  Within seconds, AI analyzes the message:
+  → Assigns a lead stage (HOT / WARM / COLD)
+  → Detects city, product, budget, and urgency signals
+  → Auto-tags the contact
+  → Creates an alert for your sales team
+
+STEP 3 — SALESPERSON RESPONDS FROM CRM
+  Your team member opens the CRM, sees the alert, reads the full conversation,
+  and replies — all without touching their personal phone.
+
+STEP 4 — FOLLOW-UP IS SCHEDULED AUTOMATICALLY
+  If the contact doesn't reply in X days, the system triggers an automated
+  follow-up via n8n. Retargeting runs on autopilot.
+
+STEP 5 — LEAD MOVES THROUGH THE PIPELINE
+  The sales team moves the contact through the Kanban pipeline stages.
+  All interactions are logged. Nothing falls through the cracks.
+
+STEP 6 — DEAL IS CLOSED. DATA IS RECORDED.
+  When the deal closes, it is logged with deal value, date, and the responsible
+  salesperson. Reports and performance metrics update automatically.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 5 — TECHNOLOGY / TRUST SECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+BUILT ON ENTERPRISE-GRADE TECHNOLOGY
+
+  ✦ CLOUDFLARE EDGE NETWORK
+    Runs on Cloudflare Workers & Pages — the same infrastructure used by
+    millions of global businesses. No servers to manage, 99.9% uptime.
+
+  ✦ WHATSAPP BUSINESS API (Meta Official)
+    Direct integration with Meta's official WhatsApp Business Cloud API.
+    No third-party intermediaries. Messages are delivered reliably and securely.
+
+  ✦ OPENAI (GPT-4 POWERED)
+    Lead scoring, auto-tagging, and the AI assistant are powered by OpenAI's
+    GPT-4 — the most advanced language AI available today.
+
+  ✦ GOOGLE FIREBASE AUTHENTICATION
+    Secure login system backed by Google Firebase. Industry-standard JWT-based
+    authentication with automatic token refresh.
+
+  ✦ CLOUDFLARE D1 DATABASE
+    SQLite-based relational database at the edge. Fast queries, automatic
+    backups, zero maintenance.
+
+  ✦ n8n AUTOMATION
+    Open-source automation platform for scheduled campaigns and
+    intelligent retargeting workflows.
+
+  DATA SECURITY:
+    • All data stored on Cloudflare's secure edge infrastructure
+    • HTTPS-only communication
+    • bcrypt-hashed passwords
+    • Role-based access control
+    • Complete audit trail for all changes
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 6 — BENEFITS / WHY USE THIS CRM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+WHY PPS BITUMEN CRM?
+
+  PROBLEM                          →  SOLUTION
+  ─────────────────────────────────────────────────────────────────────────────
+  Leads get lost on personal phones → All WhatsApp messages in one dashboard
+  Can't track who followed up whom  → Full activity log per contact
+  Excel sheets get outdated         → Smart import + live sync
+  Don't know which leads are hot    → AI scores every lead automatically
+  Manual follow-ups are missed      → Automated retargeting via n8n
+  No visibility on team performance → Reports + Kanban + Campaign analytics
+  WhatsApp templates hard to manage → Templates panel with Meta sync
+  Prices change daily — team confused→ Live price board for entire team
+  Bulk messaging is slow and risky  → Scheduled bulk sender with delivery logs
+  ─────────────────────────────────────────────────────────────────────────────
+
+TOP 5 BENEFITS:
+
+  1. SAVE 2-3 HOURS PER DAY
+     No more switching between WhatsApp, Excel, and email. Everything is
+     in one screen.
+
+  2. NEVER MISS A HOT LEAD
+     AI immediately flags high-intent messages. Your team calls the right
+     person first.
+
+  3. SCALE WITHOUT HIRING
+     Automated follow-ups, bulk campaigns, and AI analysis let a small team
+     handle the workload of a much larger one.
+
+  4. FULL VISIBILITY FOR MANAGEMENT
+     See the entire sales pipeline, campaign performance, and team activity
+     from a single dashboard.
+
+  5. INDUSTRY-SPECIFIC
+     Built specifically for bitumen trading — not a generic tool adapted
+     for the industry. Fields, workflows, and terminology match how you
+     actually work.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 7 — PRODUCT SPECIFICATIONS (Technical Summary)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRODUCT SPECIFICATIONS
+
+  Category              : Industry-Specific CRM with WhatsApp Integration
+  Primary Industry      : Bitumen Trading, Road Construction Supply
+  Deployment            : Cloud-based (SaaS) — no installation required
+  Access                : Web browser (desktop & mobile) — no app download
+  Live URL              : https://crm.ppsanatams.online
+
+  CAPACITY:
+    Contacts supported  : 4,000+ (tested)
+    Users / Team size   : Unlimited (admin controls)
+    Message history     : Full history retained per contact
+    File attachments    : Images, PDFs, documents via WhatsApp
+
+  INTEGRATIONS:
+    WhatsApp            : Meta WhatsApp Business Cloud API (official)
+    AI Engine           : OpenAI GPT-4
+    Authentication      : Google Firebase + Custom JWT
+    Automation          : n8n (self-hosted)
+    Infrastructure      : Cloudflare Workers, D1, Pages, KV
+
+  MODULES INCLUDED:
+    ✓ Contact Management
+    ✓ WhatsApp Live Chat
+    ✓ AI Lead Scoring & Auto-Tagging
+    ✓ Kanban Sales Pipeline
+    ✓ Bulk Campaign Sender
+    ✓ Campaign Analytics
+    ✓ Follow-Up Reminders
+    ✓ Smart Excel Import
+    ✓ Price Board
+    ✓ Alerts & Notifications
+    ✓ User & Role Management
+    ✓ WhatsApp Log Viewer
+    ✓ Audit Trail
+    ✓ AI Data Assistant (Natural Language Query)
+    ✓ Groups & Segmentation
+    ✓ Auto-Retargeting (n8n powered)
+    ✓ Deals Pipeline
+    ✓ Activity Timeline
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGE 8 — SHORT DESCRIPTION (for cards, meta tags, social media)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SHORT DESCRIPTIONS (copy-paste as needed):
+
+  ONE LINER (50 chars):
+  "AI-powered WhatsApp CRM for bitumen trading"
+
+  TWO LINES (for cards):
+  "PPS Bitumen CRM brings all your WhatsApp leads, customer conversations,
+  and sales pipeline into one AI-powered dashboard."
+
+  META DESCRIPTION (for SEO, 155 chars):
+  "PPS Bitumen CRM — WhatsApp-integrated sales CRM built for the bitumen
+  industry. AI lead scoring, bulk messaging, Kanban pipeline, and
+  auto-retargeting."
+
+  SOCIAL MEDIA BIO:
+  "🚀 Smart CRM for bitumen traders | WhatsApp integration | AI lead scoring
+  | Bulk campaigns | Built on Cloudflare | crm.ppsanatams.online"
+
+  ELEVATOR PITCH (30 seconds):
+  "PPS Bitumen CRM is a specialized sales platform for bitumen businesses.
+  It integrates directly with WhatsApp Business, so every customer message
+  automatically enters your CRM. AI scores each lead as hot, warm, or cold.
+  Your team can reply, follow up, run campaigns, and track deals — all from
+  one dashboard. No more lost leads on personal phones. No more Excel chaos."
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  HINDI VERSION — WEBSITE KE LIYE (Hindi/Hinglish Content)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HEADLINE (Hindi):
+  बिटुमेन बिज़नेस के लिए बना स्मार्ट CRM
+
+SUBHEADLINE (Hindi):
+  WhatsApp से आने वाले हर lead को capture करो, AI से score करो,
+  और pipeline में track करो — सब एक जगह।
+
+FEATURES (Hindi bullets):
+
+  ✦ WhatsApp Integration
+     हर incoming WhatsApp message automatically CRM में आता है।
+     Phone उठाने की ज़रूरत नहीं — सीधे dashboard से reply करो।
+
+  ✦ AI Lead Scoring
+     AI खुद decide करता है कि कौन सा customer HOT है, कौन WARM है
+     और कौन COLD। बिना आपके कुछ किए।
+
+  ✦ Bulk Messaging
+     एक साथ 500+ contacts को WhatsApp message भेजो।
+     Delivery और read reports भी मिलती हैं।
+
+  ✦ Smart Follow-Up
+     Follow-up miss होना बंद। System खुद reminder देता है।
+     Auto-retargeting से जो reply नहीं किया उन्हें automatically message जाता है।
+
+  ✦ Excel Import
+     अपनी पुरानी Excel contact list एक click में import करो।
+     Duplicates automatically पकड़े जाते हैं।
+
+  ✦ Price Board
+     रोज़ के bitumen prices पूरी team को एक साथ दिखते हैं।
+     आसानी से customer को share भी कर सकते हो।
+
+  ✦ Team Management
+     Admin, Salesperson — अलग-अलग roles। सबकी activity track होती है।
+
+TAGLINE (Hindi):
+  "पहले message से deal close तक — PPS CRM सब संभाल लेता है।"
+
+CTA (Hindi):
+  अभी login करें → https://crm.ppsanatams.online
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CONTACT / FOOTER INFO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Product     : PPS Bitumen CRM v2
+  Company     : PPS (Pacpl Trading Desk)
+  Website     : https://crm.ppsanatams.online
+  Email       : pacpl.tradingdesk@gmail.com
+  Backend API : https://pps-crm-api.pacpl-api.workers.dev
+
+================================================================================
+  END OF FILE
+================================================================================

@@ -1,0 +1,198 @@
+================================================================================
+PPS ANANTAM — AI-POWERED BITUMEN SALES DASHBOARD
+WEBSITE CONTENT
+================================================================================
+
+
+HERO SECTION
+------------
+
+Headline:
+AI-Powered Bitumen Trading Intelligence Platform
+
+Subheadline:
+India's most advanced enterprise dashboard for bitumen procurement, sales,
+and market intelligence — built exclusively for B2B commodity traders.
+
+One-liner:
+Real-time pricing, AI signals, CRM, logistics tracking, and 60+ analytics
+engines — all in one platform.
+
+
+--------------------------------------------------------------------------------
+ABOUT THE SOFTWARE
+--------------------------------------------------------------------------------
+
+PPS Anantam's proprietary AI Dashboard is an enterprise-grade business
+intelligence platform developed in-house for India's bitumen trading industry.
+It combines live market data, artificial intelligence, customer relationship
+management, and logistics intelligence into a single unified interface.
+
+Designed for speed and accuracy, the platform processes data from 25+ global
+and domestic APIs, runs ML-powered forecasting models, and delivers actionable
+insights to our sales and operations team in real time.
+
+
+--------------------------------------------------------------------------------
+KEY MODULES (9 MODULES)
+--------------------------------------------------------------------------------
+
+1. HOME — COMMAND CENTER
+   Live market snapshot, AI buy/sell signals, priority alerts, and executive
+   KPIs on a single screen. Time-based personalized dashboard for quick
+   decision-making.
+
+2. PRICING INTELLIGENCE
+   - 3-column landing cost calculator (Bulk / Drum / Import / PSU Refinery)
+   - AI-powered price prediction (24-month forward forecast)
+   - Import cost model (FOB to CIF to Landed)
+   - Emergency SOS pricing for urgent quotes
+   - Instant PDF quote generation with WhatsApp sharing
+
+3. SALES & CRM
+   - Customer pipeline (New > Quoted > Negotiation > Dispatch > Closed)
+   - AI negotiation assistant — generates briefing packs, walk-away prices,
+     and 3-tier offers (Aggressive / Balanced / Premium)
+   - Smart communication hub — auto-generates WhatsApp, Email, and Call scripts
+   - Task management with calendar view and automation rules
+   - VIP customer scoring (Platinum / Gold / Silver tiers)
+
+4. MARKET INTELLIGENCE
+   - 10-signal composite market signal (Crude, Currency, Weather, News,
+     Infrastructure, Tenders, Economic, Ports)
+   - Live Brent / WTI / USD-INR / VG30 price monitoring
+   - 14-source RSS news aggregator with AI sentiment scoring
+   - Competitor intelligence (IOCL/HPCL price tracking)
+   - Global markets dashboard (Crude, Bitumen, FX)
+
+5. DOCUMENTS
+   - Purchase Orders, Sales Orders, Payment Orders — FY-based auto-numbering
+   - Party Master management
+   - PDF archive with download and share
+
+6. LOGISTICS
+   - Maritime vessel tracking with live map
+   - Port congestion heatmap
+   - Iraq to India supply chain tracker
+   - Refinery production alerts
+   - Infrastructure demand heatmap (28 states)
+
+7. REPORTS & ANALYTICS
+   - Financial P&L, cashflow stress, receivable aging
+   - Demand correlation (Highway KM vs Bitumen demand)
+   - NHAI road budget pipeline and state-wise allocation
+   - Risk scoring (Market / Supply / Financial / Compliance / Margin)
+   - Director's daily executive brief (automated)
+
+8. COMPLIANCE
+   - GST supplier status monitoring
+   - E-Invoice compliance tracker
+   - Govt API integration (data.gov.in, PPAC, MoRTH, NHAI, RBI)
+   - Change log and audit trail
+
+9. AI & SYSTEM
+   - Multi-provider AI chatbot (OpenAI > Ollama > HuggingFace > Claude
+     fallback chain)
+   - System health monitor with traffic-light dashboard
+   - API hub — 25 connectors with auto-healing
+   - Bug tracker and developer ops panel
+
+
+--------------------------------------------------------------------------------
+AI & TECHNOLOGY CAPABILITIES
+--------------------------------------------------------------------------------
+
+ARTIFICIAL INTELLIGENCE
+   - Price Forecasting: Prophet + ARIMA + Linear Regression (24-month outlook)
+   - Opportunity Detection: LightGBM/XGBoost for buyer scoring and deal
+     discovery
+   - Sentiment Analysis: FinBERT + VADER for news and market sentiment
+   - NLP & RAG: FAISS vector search with sentence-transformers for knowledge
+     retrieval
+   - Multi-provider AI: 5-provider fallback chain ensures 99.9% AI uptime
+   - Continuous Learning: Signal weight optimization with accuracy tracking
+
+DATA & APIs
+   - 25 free and premium API integrations
+   - Live: EIA crude, Frankfurter FX, GNEWS/RSS, maritime AIS data
+   - Government: PPAC, data.gov.in, MoRTH, NHAI, RBI, UN Comtrade, World Bank
+   - Refresh intervals: 15 minutes (critical) to 7 days (background)
+
+COMMUNICATION AUTOMATION
+   - WhatsApp (360dialog API) — 20/min, 1,000/day broadcast capacity
+   - Email (SMTP + SendGrid) — automated director reports, weekly summaries
+   - Telegram Bot — channel monitoring and price alerts
+   - SMS integration
+
+
+--------------------------------------------------------------------------------
+PLATFORM STATS
+--------------------------------------------------------------------------------
+
+   Total Pages              :  80+
+   Analytics Engines        :  60+
+   API Integrations         :  25
+   Customer Contacts        :  24,000+
+   States Covered           :  28
+   Market Signals           :  10-signal composite
+   AI Providers             :  5 (auto-failover)
+   Automated Tests          :  405
+
+
+--------------------------------------------------------------------------------
+SECURITY & ACCESS CONTROL
+--------------------------------------------------------------------------------
+
+   - Role-based access control (RBAC) — 4 roles: Director, Sales, Operations,
+     Viewer
+   - PIN authentication with SHA-256 hashing
+   - Rate limiting (5 failed attempts triggers 5-minute lockout)
+   - Session timeout (30 minutes)
+   - Full audit logging
+   - Fernet encryption for stored credentials
+
+
+--------------------------------------------------------------------------------
+TECHNOLOGY STACK
+--------------------------------------------------------------------------------
+
+   Frontend       :  Streamlit (Python)
+   Backend        :  Python 3.12, FastAPI
+   Database       :  SQLite (WAL mode)
+   Charts         :  Plotly
+   ML/Forecasting :  Prophet, ARIMA, LightGBM, XGBoost
+   NLP            :  VADER, FinBERT, FAISS, Sentence Transformers
+   PDF Generation :  ReportLab, FPDF2
+   Market Data    :  yfinance + 25 APIs
+   Communications :  WhatsApp 360dialog, SMTP/SendGrid, Telegram Bot
+   Deployment     :  VPS (Linux) with systemd
+
+
+--------------------------------------------------------------------------------
+BUSINESS VALUE — WHY WE BUILT THIS
+--------------------------------------------------------------------------------
+
+   SPEED
+   Get a full landing cost and PDF quote in under 30 seconds for any city
+   in India.
+
+   INTELLIGENCE
+   AI signals tell the team exactly when to buy, hold, or push pricing —
+   backed by 10 live market signals.
+
+   SCALE
+   24,000 customer contacts managed with automated follow-up sequences,
+   WhatsApp broadcasts, and festival campaign tools.
+
+   ACCURACY
+   ML forecasting trained on crude, FX, seasonal, refinery, and import
+   signals with continuous self-learning.
+
+   CONTROL
+   Full role-based access so the sales team sees only what they need —
+   director sees everything.
+
+
+================================================================================
+END OF CONTENT
+================================================================================

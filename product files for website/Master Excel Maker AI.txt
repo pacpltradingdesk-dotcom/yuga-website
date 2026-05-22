@@ -1,0 +1,261 @@
+================================================================================
+MASTER EXCEL MAKER AI — Website Content
+================================================================================
+
+
+--------------------------------------------------------------------------------
+HERO SECTION
+--------------------------------------------------------------------------------
+
+Headline:
+Master Excel Maker AI
+Turn Messy Customer Data Into Actionable Sales Intelligence — Instantly
+
+Subheadline:
+Upload any Excel or CSV file. Tell us what you need in plain language.
+Get a clean, scored, and AI-enriched contact list ready for your sales team.
+
+CTA Button: Get Started Free
+
+
+--------------------------------------------------------------------------------
+WHAT IT DOES (ABOUT SECTION)
+--------------------------------------------------------------------------------
+
+Heading: What Is Master Excel Maker AI?
+
+Master Excel Maker AI is an intelligent data processing platform built for
+Indian sales teams and businesses. It takes your scattered, inconsistent
+customer lists and transforms them into clean, organized, and AI-powered
+Excel files — without any manual effort.
+
+Whether you have 100 contacts or 50,000, the system automatically:
+- Reads and understands your files, no matter what column names you use
+- Cleans phone numbers, corrects city/state spellings, removes duplicates
+- Scores every lead from 0 to 100 so your team knows who to call first
+- Exports a professional, multi-sheet Excel file ready for CRM import
+
+
+--------------------------------------------------------------------------------
+KEY FEATURES
+--------------------------------------------------------------------------------
+
+Heading: Everything Your Sales Team Needs
+
+1. SMART FILE READING
+   Supports .xlsx, .xls, and .csv files. Automatically identifies columns
+   like "Mobile No", "Ph.", "Cell", "Contact" — no manual mapping needed.
+
+2. INTELLIGENT DATA CLEANING
+   - Phone numbers standardized to E.164 format
+   - City spelling corrections (e.g., "Gujrat" → "Gujarat")
+   - State auto-filled from city name using a built-in India geography database
+   - Duplicate contacts merged intelligently (3-pass: Phone → Email → Name)
+
+3. NATURAL LANGUAGE FILTERING
+   Simply type what you need — in English or Hindi:
+   "Gujarat ke saare contacts do"
+   "Show me Mumbai leads with phone numbers only"
+   "Active customers from Pune with email"
+   The AI understands and filters instantly.
+
+4. AI LEAD SCORING
+   Every contact receives an automatic lead score (0–100):
+   🔥 Hot Lead (70–100)   → Call immediately
+   📊 Medium (40–69)      → Send catalog or quote
+   ❄️ Cold (0–39)         → Add to nurture campaign
+
+   Score is calculated based on data completeness, product interest,
+   positive/negative sentiment, GSTIN presence, and more.
+
+5. AI CUSTOMER PROFILING
+   Get a natural language summary for each contact:
+   "This B2B buyer from Ahmedabad has shown strong purchase intent,
+   has a valid GSTIN, and is likely ready to buy."
+
+6. PROFESSIONAL EXCEL OUTPUT
+   - 11-sheet workbook: By State, By City, High Value Leads, Junk Contacts,
+     CRM Ready, and more
+   - Conditional formatting, color-coded lead categories
+   - Single flat sheet for direct CRM import (HubSpot, Salesforce)
+
+7. BATCH PROCESSING
+   Point the tool at an entire folder of Excel files. It scans, identifies
+   contact sheets, processes them all, and merges into one master file.
+
+
+--------------------------------------------------------------------------------
+HOW IT WORKS (3 STEPS)
+--------------------------------------------------------------------------------
+
+Heading: As Simple As 1, 2, 3
+
+Step 1 — UPLOAD
+Drop your Excel or CSV files into the app. Multiple files at once are fine.
+The AI reads every file and figures out the column structure automatically.
+
+Step 2 — TELL US WHAT YOU WANT
+Type your requirement in plain language:
+"I want all Gujarat contacts who are interested in buying"
+No forms. No filters to configure. Just talk to it.
+
+Step 3 — DOWNLOAD YOUR FILE
+Get a clean, scored, and organized Excel file with every contact cleaned,
+duplicates removed, and leads ranked by priority. Ready to share with
+your sales team or import into your CRM.
+
+
+--------------------------------------------------------------------------------
+AI TECHNOLOGY
+--------------------------------------------------------------------------------
+
+Heading: Powered by the Best AI Models
+
+Master Excel Maker AI integrates multiple AI providers to give you the
+best results at the lowest cost:
+
+- GPT-4o-mini (OpenAI)    → Lead scoring and customer profiling
+- Gemini 2.5 Flash (Google) → High-volume data enrichment (free tier available)
+- Anthropic Claude          → Optional, for advanced analysis
+
+All AI processing is optional — the core cleaning and deduplication
+works without any API key.
+
+
+--------------------------------------------------------------------------------
+USE CASES
+--------------------------------------------------------------------------------
+
+Heading: Built for These Teams
+
+FIELD SALES TEAMS
+Consolidate data collected from multiple exhibitions, campaigns, and
+cold calls into one master list with quality scores.
+
+DISTRIBUTORS & DEALERS
+Merge contact lists from different brands, regions, and vendors.
+Get a single deduplicated database ready for follow-up.
+
+MARKETING AGENCIES
+Clean client databases before launching WhatsApp broadcasts,
+email campaigns, or SMS campaigns.
+
+REAL ESTATE & FINANCE
+Score inbound inquiry data and identify hot leads who need
+immediate attention vs. long-term nurture.
+
+B2B BUSINESSES
+Identify contacts with GSTIN (business buyers) vs. retail customers
+and route them to the right sales rep automatically.
+
+
+--------------------------------------------------------------------------------
+LEAD SCORING BREAKDOWN
+--------------------------------------------------------------------------------
+
+Heading: How We Score Your Leads
+
+Data Point                  Points
+─────────────────────────────────
+Has valid phone number       +20
+Has name                     +15
+Has email address            +15
+Has product interest         +15
+Has city                     +10
+Has address                  +10
+Has GSTIN (B2B indicator)    +10
+Positive sentiment            +5
+Negative sentiment           -30
+
+Maximum Score: 100
+Minimum Score: 0
+
+
+--------------------------------------------------------------------------------
+PERFORMANCE
+--------------------------------------------------------------------------------
+
+Heading: Fast Enough for Real Work
+
+File Size       Processing Time    With AI Scoring
+─────────────────────────────────────────────────
+100 contacts    ~5 seconds         ~30 seconds
+1,000 contacts  ~15 seconds        ~3 minutes
+5,000 contacts  ~45 seconds        ~15 minutes
+
+
+--------------------------------------------------------------------------------
+TECHNOLOGY STACK
+--------------------------------------------------------------------------------
+
+Heading: Built on Proven Technology
+
+- Language:     Python 3.9+
+- Interface:    Streamlit
+- Data Engine:  Pandas, NumPy
+- Matching:     RapidFuzz (fuzzy string matching)
+- Phone Parsing: phonenumbers library
+- Excel Output: OpenPyXL, XlsxWriter
+- AI Models:    GPT-4o-mini, Gemini 2.5 Flash, Claude
+- Geography:    Built-in India City → State → Pincode database
+
+
+--------------------------------------------------------------------------------
+FAQ
+--------------------------------------------------------------------------------
+
+Q: Do I need to format my Excel file a specific way?
+A: No. The AI automatically detects column names like "Mobile", "Ph.", "Cell",
+   "Customer Name", "Party Name", etc. Just upload as-is.
+
+Q: Does it work with Hindi data?
+A: Yes. The system handles Hindi column names and supports Hindi prompts for
+   filtering (e.g., "Gujarat ke contacts chahiye").
+
+Q: Is my data safe?
+A: All processing happens locally on your machine or server. Data is never
+   stored or sent to third parties (except optional AI API calls for scoring).
+
+Q: Do I need an API key?
+A: No API key is needed for basic cleaning, deduplication, and Excel export.
+   AI lead scoring and profiling require a Gemini or OpenAI API key.
+
+Q: What file formats are supported?
+A: .xlsx, .xls, and .csv files are supported.
+
+Q: Can it handle multiple files at once?
+A: Yes. Upload multiple files or use batch mode to process an entire folder.
+
+
+--------------------------------------------------------------------------------
+TAGLINES (choose one for ads/social)
+--------------------------------------------------------------------------------
+
+- "Your messy data, our problem. Clean leads in minutes."
+- "From raw lists to sales-ready contacts — powered by AI."
+- "Stop sorting. Start selling."
+- "Upload any Excel. Get perfect leads."
+- "AI cleans. You sell."
+
+
+--------------------------------------------------------------------------------
+META / SEO
+--------------------------------------------------------------------------------
+
+Page Title:
+Master Excel Maker AI — Smart Customer Data Processing for Sales Teams
+
+Meta Description:
+Upload messy Excel or CSV files and get clean, deduplicated, AI-scored
+customer contacts in minutes. Supports Hindi prompts. Built for Indian
+sales teams. Free to try.
+
+Keywords:
+excel data cleaner, customer contact cleaner, lead scoring software India,
+Excel duplicate remover, CRM data processor, AI lead scoring, contact list
+cleaner, sales data tool India, Excel merger software
+
+
+================================================================================
+END OF CONTENT
+================================================================================

@@ -1,23 +1,48 @@
 // components/PyrolysisProductCard.tsx
+"use client";
+
 import type { PyrolysisProduct } from "@/lib/company-data";
+import { motion } from "framer-motion";
+import { Box, Droplet, Flame } from "lucide-react";
 
-type Props = { product: PyrolysisProduct };
+type Props = { product: PyrolysisProduct; index?: number };
 
-export default function PyrolysisProductCard({ product }: Props) {
+export default function PyrolysisProductCard({ product, index = 0 }: Props) {
+  const getIcon = (emoji: string) => {
+    switch (emoji) {
+      case "🛢️": return <Droplet className="text-accent" size={24} />;
+      case "🧱": return <Box className="text-accent" size={24} />;
+      case "🔥": return <Flame className="text-accent" size={24} />;
+      default: return <Box className="text-accent" size={24} />;
+    }
+  };
+
   return (
-    <div className="bg-white border border-border rounded-2xl p-6 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-      <div className="flex items-center gap-3 mb-3">
-        <span className="text-3xl" aria-hidden="true">{product.icon}</span>
-        <h3 className="font-display font-bold text-primary text-base leading-snug">
+    <motion.div 
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="glass rounded-2xl p-6 group hover:glass-hover transition-all duration-300 relative overflow-hidden"
+    >
+      <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
+      
+      <div className="flex items-center gap-4 mb-4 relative z-10">
+        <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-accent/30 transition-colors">
+          {getIcon(product.icon)}
+        </div>
+        <h3 className="font-display font-bold text-white text-xl leading-snug">
           {product.name}
         </h3>
       </div>
+      
       {product.stat && (
-        <span className="inline-block bg-accent text-white text-xs font-bold px-3 py-1 rounded-full mb-3">
+        <span className="inline-block relative z-10 bg-accent/20 border border-accent/30 text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4 tracking-wide shadow-[0_0_15px_rgba(245,158,11,0.2)]">
           {product.stat}
         </span>
       )}
-      <p className="text-secondary text-sm leading-relaxed">{product.description}</p>
-    </div>
+      
+      <p className="text-secondary text-sm leading-relaxed relative z-10">{product.description}</p>
+    </motion.div>
   );
 }

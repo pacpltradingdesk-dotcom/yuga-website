@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PACPL DialSync — Sales Call Analytics</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #0f0f1a; color: #fff; overflow: hidden; }
+  .slide { display: none; width: 100vw; height: 100vh; padding: 60px 80px; flex-direction: column; justify-content: center; position: relative; }
+  .slide.active { display: flex; }
+  .slide-number { position: absolute; bottom: 24px; right: 36px; font-size: 13px; color: rgba(255,255,255,0.35); }
+  .nav { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 100; }
+  .nav button { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 10px 28px; border-radius: 30px; cursor: pointer; font-size: 14px; transition: all 0.2s; }
+  .nav button:hover { background: rgba(255,255,255,0.2); }
+  .progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #6c63ff, #48dbfb); transition: width 0.4s; }
+
+  /* Slide 1 — Title */
+  .s1 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+  .s1 .tag { background: #6c63ff; color: #fff; display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+  .s1 h1 { font-size: 64px; font-weight: 800; line-height: 1.1; margin-bottom: 16px; }
+  .s1 h1 span { color: #6c63ff; }
+  .s1 p { font-size: 22px; color: rgba(255,255,255,0.65); max-width: 600px; }
+  .s1 .version { position: absolute; top: 40px; right: 60px; font-size: 15px; color: rgba(255,255,255,0.4); }
+
+  /* Slide 2 — What is it */
+  .s2 { background: linear-gradient(135deg, #1a1a2e, #0d0d1f); }
+  .s2 h2 { font-size: 40px; color: #6c63ff; margin-bottom: 40px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.3); border-radius: 16px; padding: 28px; }
+  .card .icon { font-size: 36px; margin-bottom: 12px; }
+  .card h3 { font-size: 18px; margin-bottom: 8px; color: #a29bfe; }
+  .card p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* Slide 3 — Architecture */
+  .s3 { background: linear-gradient(135deg, #0d1117, #161b22); }
+  .s3 h2 { font-size: 40px; color: #48dbfb; margin-bottom: 40px; }
+  .arch { display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .arch-box { background: rgba(72,219,251,0.1); border: 1px solid rgba(72,219,251,0.3); border-radius: 12px; padding: 18px 22px; text-align: center; min-width: 140px; }
+  .arch-box .label { font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .arch-box .name { font-size: 16px; font-weight: 600; color: #48dbfb; }
+  .arch-arrow { font-size: 24px; color: rgba(255,255,255,0.3); margin: 0 10px; }
+
+  /* Slide 4 — Features */
+  .s4 { background: linear-gradient(135deg, #1a0533, #0d0d1f); }
+  .s4 h2 { font-size: 40px; color: #fd79a8; margin-bottom: 36px; }
+  .feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .feat { display: flex; align-items: flex-start; gap: 14px; background: rgba(253,121,168,0.08); border: 1px solid rgba(253,121,168,0.2); border-radius: 12px; padding: 18px; }
+  .feat .ico { font-size: 28px; flex-shrink: 0; }
+  .feat h4 { font-size: 16px; color: #fd79a8; margin-bottom: 4px; }
+  .feat p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.5; }
+
+  /* Slide 5 — Tech Stack */
+  .s5 { background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); }
+  .s5 h2 { font-size: 40px; color: #55efc4; margin-bottom: 36px; }
+  .stack-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .stack-col h3 { font-size: 16px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+  .stack-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: #55efc4; flex-shrink: 0; }
+  .stack-item span { font-size: 15px; color: rgba(255,255,255,0.8); }
+
+  /* Slide 6 — Status */
+  .s6 { background: linear-gradient(135deg, #1a1a2e, #0f0f1a); }
+  .s6 h2 { font-size: 40px; color: #fdcb6e; margin-bottom: 36px; }
+  .status-list { display: flex; flex-direction: column; gap: 16px; }
+  .status-item { display: flex; align-items: center; gap: 16px; background: rgba(253,203,110,0.08); border: 1px solid rgba(253,203,110,0.2); border-radius: 12px; padding: 16px 20px; }
+  .badge { padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; flex-shrink: 0; }
+  .badge.live { background: #00b894; color: #fff; }
+  .badge.pending { background: #fdcb6e; color: #1a1a2e; }
+  .status-item .text h4 { font-size: 15px; margin-bottom: 2px; }
+  .status-item .text p { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+  /* Slide 7 — URLs & Info */
+  .s7 { background: linear-gradient(135deg, #0f3460, #16213e, #1a1a2e); }
+  .s7 h2 { font-size: 40px; color: #74b9ff; margin-bottom: 36px; }
+  .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .info-box { background: rgba(116,185,255,0.08); border: 1px solid rgba(116,185,255,0.25); border-radius: 14px; padding: 22px; }
+  .info-box h4 { font-size: 13px; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .info-box .val { font-size: 15px; color: #74b9ff; font-family: 'Courier New', monospace; word-break: break-all; }
+  .info-box .val.normal { font-family: inherit; color: rgba(255,255,255,0.85); font-size: 16px; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- SLIDE 1: Title -->
+<div class="slide s1 active">
+  <div class="version">v3.9.4 — April 2026</div>
+  <div class="tag">PACPL Internal Tool</div>
+  <h1>PACPL<br><span>DialSync</span></h1>
+  <p>Sales Call Analytics System — Real-time call tracking, AI analysis, and agent performance dashboard</p>
+  <div class="slide-number">1 / 7</div>
+</div>
+
+<!-- SLIDE 2: What is it -->
+<div class="slide s2">
+  <h2>DialSync kya karta hai?</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">📱</div>
+      <h3>Android Agent App</h3>
+      <p>Sales agents ke phones pe install hota hai. Call events + recordings automatically capture karta hai real-time mein.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🤖</div>
+      <h3>AI Analysis</h3>
+      <p>n8n + Gemini AI har recording ka transcript banata hai, customer objections aur key points extract karta hai.</p>
+    </div>
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Web Dashboard</h3>
+      <p>React dashboard mein saare agents ki performance, call status, transcripts aur health metrics dikhte hain.</p>
+    </div>
+  </div>
+  <div class="slide-number">2 / 7</div>
+</div>
+
+<!-- SLIDE 3: Architecture -->
+<div class="slide s3">
+  <h2>System Architecture</h2>
+  <div class="arch">
+    <div class="arch-box"><div class="label">Agent Phone</div><div class="name">Android App</div></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-box"><div class="label">Storage</div><div class="name">Google Drive</div></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-box"><div class="label">AI Pipeline</div><div class="name">n8n + Gemini</div></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-box"><div class="label">Backend</div><div class="name">Cloudflare Worker</div></div>
+    <div class="arch-arrow">→</div>
+    <div class="arch-box"><div class="label">Frontend</div><div class="name">React Dashboard</div></div>
+  </div>
+  <div style="margin-top:36px; display:grid; grid-template-columns: repeat(3,1fr); gap:16px;">
+    <div style="background:rgba(72,219,251,0.07);border:1px solid rgba(72,219,251,0.2);border-radius:10px;padding:14px;">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:4px">DATABASE</div>
+      <div style="color:#48dbfb;font-size:15px">Cloudflare D1 (SQLite)</div>
+    </div>
+    <div style="background:rgba(72,219,251,0.07);border:1px solid rgba(72,219,251,0.2);border-radius:10px;padding:14px;">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:4px">FILE STORAGE</div>
+      <div style="color:#48dbfb;font-size:15px">Cloudflare R2</div>
+    </div>
+    <div style="background:rgba(72,219,251,0.07);border:1px solid rgba(72,219,251,0.2);border-radius:10px;padding:14px;">
+      <div style="font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:4px">PUSH ALERTS</div>
+      <div style="color:#48dbfb;font-size:15px">Firebase FCM</div>
+    </div>
+  </div>
+  <div class="slide-number">3 / 7</div>
+</div>
+
+<!-- SLIDE 4: Features -->
+<div class="slide s4">
+  <h2>Key Features</h2>
+  <div class="feat-grid">
+    <div class="feat"><div class="ico">📞</div><div><h4>Real-time Call Tracking</h4><p>Connected, Not Connected, Orphaned status automatic detect hota hai har call ke baad.</p></div></div>
+    <div class="feat"><div class="ico">⬆️</div><div><h4>OTA App Updates</h4><p>Admin dashboard se naya APK upload karo — agents ko auto-update milta hai phone pe silently.</p></div></div>
+    <div class="feat"><div class="ico">🕐</div><div><h4>Historical Import</h4><p>Date range pick karo — purane calls + recordings bhi upload ho jaate hain ek baar mein.</p></div></div>
+    <div class="feat"><div class="ico">🔔</div><div><h4>FCM Wake Cron</h4><p>Har 30 min mein silent FCM message — OEM background killer se bachata hai app ko.</p></div></div>
+    <div class="feat"><div class="ico">🛡️</div><div><h4>Device Blocklist</h4><p>Deleted agents permanently block ho jaate hain — no re-registration possible.</p></div></div>
+    <div class="feat"><div class="ico">🏥</div><div><h4>Health Monitoring</h4><p>Battery optimization, permissions, pending uploads — dashboard pe CRITICAL alerts dikhte hain.</p></div></div>
+  </div>
+  <div class="slide-number">4 / 7</div>
+</div>
+
+<!-- SLIDE 5: Tech Stack -->
+<div class="slide s5">
+  <h2>Technology Stack</h2>
+  <div class="stack-cols">
+    <div class="stack-col">
+      <h3>Android App</h3>
+      <div class="stack-item"><div class="dot"></div><span>Kotlin</span></div>
+      <div class="stack-item"><div class="dot"></div><span>WorkManager</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Room (SQLite)</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Firebase FCM</span></div>
+      <div class="stack-item"><div class="dot"></div><span>ContentObserver (CallLog)</span></div>
+    </div>
+    <div class="stack-col">
+      <h3>Backend</h3>
+      <div class="stack-item"><div class="dot"></div><span>Cloudflare Workers</span></div>
+      <div class="stack-item"><div class="dot"></div><span>TypeScript</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Cloudflare D1 (SQLite)</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Cloudflare R2 (Storage)</span></div>
+      <div class="stack-item"><div class="dot"></div><span>JWT Auth</span></div>
+    </div>
+    <div class="stack-col">
+      <h3>Frontend + AI</h3>
+      <div class="stack-item"><div class="dot"></div><span>React + Vite</span></div>
+      <div class="stack-item"><div class="dot"></div><span>n8n (Workflow)</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Gemini AI</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Google Drive API</span></div>
+      <div class="stack-item"><div class="dot"></div><span>Cloudflare Pages</span></div>
+    </div>
+  </div>
+  <div class="slide-number">5 / 7</div>
+</div>
+
+<!-- SLIDE 6: Status -->
+<div class="slide s6">
+  <h2>Current Status</h2>
+  <div class="status-list">
+    <div class="status-item"><div class="badge live">Live</div><div class="text"><h4>Android App v3.9.4</h4><p>26 versionCode — OTA, historical import, FCM wake, health monitoring sab active</p></div></div>
+    <div class="status-item"><div class="badge live">Live</div><div class="text"><h4>Cloudflare Worker Backend</h4><p>27 routes live — D1 + R2 + FCM cron running. dialsync-worker.pacpl-api.workers.dev</p></div></div>
+    <div class="status-item"><div class="badge live">Live</div><div class="text"><h4>React Dashboard</h4><p>Admin panel — agents, calls, health alerts, app releases tab sab functional</p></div></div>
+    <div class="status-item"><div class="badge live">Live</div><div class="text"><h4>n8n + Gemini AI Pipeline</h4><p>Fresh recordings auto-trigger hoti hain — transcript + analysis generate hoti hai</p></div></div>
+  </div>
+  <div class="slide-number">6 / 7</div>
+</div>
+
+<!-- SLIDE 7: Key Info -->
+<div class="slide s7">
+  <h2>Key Information</h2>
+  <div class="info-grid">
+    <div class="info-box"><h4>Backend Live URL</h4><div class="val">dialsync-worker.pacpl-api.workers.dev</div></div>
+    <div class="info-box"><h4>Project Location (Local)</h4><div class="val">D:/rahul/keyur/call analzer/<br>making_sales_profile/</div></div>
+    <div class="info-box"><h4>Build Output</h4><div class="val">D:/pacpl-agent-build/outputs/<br>apk/release/</div></div>
+    <div class="info-box"><h4>Firebase Project</h4><div class="val">pacpl-agent-dialsync</div></div>
+    <div class="info-box"><h4>Android Package</h4><div class="val">com.pacpl.agent</div></div>
+    <div class="info-box"><h4>Version</h4><div class="val normal" style="font-size:22px;font-weight:700">v3.9.4 — ~90% Production Ready</div></div>
+  </div>
+  <div class="slide-number">7 / 7</div>
+</div>
+
+<div class="nav">
+  <button onclick="prevSlide()">← Prev</button>
+  <button onclick="nextSlide()">Next →</button>
+</div>
+
+<script>
+  let cur = 0;
+  const slides = document.querySelectorAll('.slide');
+  const progress = document.getElementById('progress');
+  function show(n) {
+    slides[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    progress.style.width = ((cur + 1) / slides.length * 100) + '%';
+  }
+  function nextSlide() { show(cur + 1); }
+  function prevSlide() { show(cur - 1); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+  });
+  progress.style.width = (1 / slides.length * 100) + '%';
+</script>
+</body>
+</html>

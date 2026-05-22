@@ -13,17 +13,17 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "PACPL — Bio-Bitumen Consulting & IT Products",
+  title: "YUGA — Bio-Bitumen Consulting & IT Products",
   description:
-    "PPS Anantams Corporation Private Limited. India's leading bio-bitumen plant consulting firm and industrial IT solutions provider. 25 years experience, 10 plants built.",
+    "YUGA (PPS Anantams Corporation Private Limited). India's leading bio-bitumen plant consulting firm and industrial IT solutions provider. 25 years experience, 10 plants built.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} font-sans flex flex-col min-h-screen bg-white`}>
+      <body className={`${poppins.variable} font-sans flex flex-col min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-white overflow-x-hidden`}>
         <Navbar />
-        <main className="flex-1 pt-[72px]">{children}</main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

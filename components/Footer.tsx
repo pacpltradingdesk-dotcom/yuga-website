@@ -1,43 +1,44 @@
-// components/Footer.tsx
 import Link from "next/link";
 import { COMPANY } from "@/lib/company-data";
+import { Phone, Mail, MapPin } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+    <footer className="bg-surface relative overflow-hidden border-t border-white/5">
+      {/* Subtle glow effect in the background */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-4 gap-12 relative z-10">
         {/* Col 1: Brand */}
-        <div>
-          <p className="font-display text-2xl font-extrabold mb-1">PACPL</p>
-          <p className="text-white/60 text-xs font-semibold uppercase tracking-widest mb-1">
-            YUGA
+        <div className="md:col-span-2 flex flex-col items-start">
+          <Link href="/" className="mb-6 group">
+            <Logo variant="vertical" className="items-start text-left" />
+          </Link>
+          <p className="text-secondary text-base leading-relaxed max-w-md">
+            {COMPANY.tagline}
           </p>
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-4">
-            Bio-Bitumen Consulting
-          </p>
-          <p className="text-white/60 text-sm leading-relaxed">{COMPANY.tagline}</p>
-          <p className="text-white/40 text-xs mt-4">{COMPANY.hq}</p>
         </div>
 
         {/* Col 2: Quick links */}
         <div>
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-white text-sm font-bold uppercase tracking-wider mb-6">
             Quick Links
           </p>
-          <ul className="space-y-3">
+          <ul className="space-y-4">
             {[
               { href: "/", label: "Home" },
               { href: "/consulting", label: "Consulting" },
               { href: "/it-products", label: "IT Products" },
               { href: "/pyrolysis", label: "Pyrolysis" },
               { href: "/about", label: "About" },
-              { href: "/contact", label: "Contact" },
             ].map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-white/70 text-sm hover:text-white transition-colors"
+                  className="text-secondary text-sm hover:text-accent transition-colors flex items-center gap-2"
                 >
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />
                   {label}
                 </Link>
               </li>
@@ -47,14 +48,26 @@ export default function Footer() {
 
         {/* Col 3: Contact */}
         <div>
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-4">
+          <p className="text-white text-sm font-bold uppercase tracking-wider mb-6">
             Contact
           </p>
-          <p className="text-white/70 text-sm mb-2">{COMPANY.phone}</p>
-          <p className="text-white/70 text-sm mb-6">{COMPANY.email}</p>
+          <div className="space-y-4 mb-8">
+            <div className="flex items-center gap-3 text-secondary text-sm hover:text-white transition-colors cursor-pointer">
+              <Phone size={16} className="text-accent" />
+              <span>{COMPANY.phone}</span>
+            </div>
+            <div className="flex items-center gap-3 text-secondary text-sm hover:text-white transition-colors cursor-pointer break-all">
+              <Mail size={16} className="text-accent" />
+              <span>{COMPANY.email}</span>
+            </div>
+            <div className="flex items-start gap-3 text-secondary text-sm">
+              <MapPin size={16} className="text-accent shrink-0 mt-0.5" />
+              <span>{COMPANY.hq}</span>
+            </div>
+          </div>
           <Link
             href="/contact"
-            className="inline-block bg-accent text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-accent-hover transition-colors mt-2"
+            className="inline-block bg-white/5 border border-white/10 text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-accent hover:border-accent transition-all"
           >
             Send a Message
           </Link>
@@ -62,13 +75,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-white/40 text-xs">
+      <div className="border-t border-white/5 bg-background/50">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-secondary text-xs">
           <p>
             © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
           </p>
-          <p>
-            GST: {COMPANY.gst} · PAN: {COMPANY.pan} · CIN: {COMPANY.cin}
+          <p className="flex gap-4 flex-wrap">
+            <span>GST: <span className="text-white/60">{COMPANY.gst}</span></span>
+            <span>PAN: <span className="text-white/60">{COMPANY.pan}</span></span>
+            <span>CIN: <span className="text-white/60">{COMPANY.cin}</span></span>
           </p>
         </div>
       </div>
