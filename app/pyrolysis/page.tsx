@@ -27,10 +27,10 @@ interface FlowVisualProps {
 
 function FlowVisual({ input, process, output, color, activeStage }: FlowVisualProps) {
   const isEco = color === "eco";
-  const textColor = isEco ? "text-eco" : "text-accent";
-  const borderColor = isEco ? "border-eco/30" : "border-accent/30";
-  const bgGlow = isEco ? "bg-eco/5" : "bg-accent/5";
-  const dotBg = isEco ? "bg-eco" : "bg-accent";
+  const textColor = isEco ? "text-emerald-400" : "text-amber-400";
+  const borderColor = isEco ? "border-emerald-500/20" : "border-amber-500/20";
+  const bgGlow = isEco ? "bg-emerald-500/5" : "bg-amber-500/5";
+  const dotBg = isEco ? "bg-emerald-400" : "bg-amber-400";
 
   // Telemetry arrays based on active stage
   const telemetries = [
@@ -59,17 +59,17 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
   const activeTelemetry = telemetries[activeStage];
 
   return (
-    <div className={`border ${borderColor} ${bgGlow} rounded-3xl p-6 relative overflow-hidden h-full flex flex-col justify-between`}>
+    <div className="dark-dashboard rounded-3xl p-6 relative overflow-hidden h-full flex flex-col justify-between">
       {/* Blueprint grid inside visualizer */}
-      <div className="absolute inset-0 blueprint-grid opacity-10 pointer-events-none" />
+      <div className="absolute inset-0 blueprint-grid opacity-[0.03] pointer-events-none" />
       
       {/* Header Info */}
-      <div className="flex items-center justify-between border-b border-border pb-4 mb-4 relative z-10">
-        <span className="text-[10px] font-bold text-secondary uppercase tracking-widest flex items-center gap-1.5">
+      <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4 relative z-10">
+        <span className="text-[10px] font-bold text-slate-300 uppercase tracking-widest flex items-center gap-1.5">
           <Activity size={12} className={textColor} />
           SCADA Simulator Panel (Stage {activeStage + 1})
         </span>
-        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-background border border-border text-[9px] text-primary/70 font-semibold uppercase tracking-wider">
+        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-[9px] text-slate-300 font-semibold uppercase tracking-wider">
           <span className={`w-1.5 h-1.5 rounded-full ${dotBg} animate-ping`} />
           Live Telemetry Link
         </span>
@@ -78,14 +78,14 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
       {/* Live Sensors Grid */}
       <div className="grid grid-cols-3 gap-3 mb-6 relative z-10">
         {activeTelemetry.map((sensor) => (
-          <div key={sensor.label} className="bg-surface border border-border/80 rounded-xl p-3 text-center">
-            <span className="text-[8px] text-secondary font-bold uppercase tracking-wider block mb-1">
+          <div key={sensor.label} className="bg-slate-900/80 border border-white/10 rounded-xl p-3 text-center">
+            <span className="text-[8px] text-slate-400 font-bold uppercase tracking-wider block mb-1">
               {sensor.label}
             </span>
-            <span className="text-sm font-extrabold text-primary font-mono block">
+            <span className="text-sm font-extrabold text-white font-mono block">
               {sensor.value}
             </span>
-            <span className="text-[7px] text-eco font-bold uppercase mt-0.5 inline-block">
+            <span className={`text-[7px] font-bold uppercase mt-0.5 inline-block ${sensor.status === "High" ? "text-amber-400" : "text-emerald-400"}`}>
               {sensor.status}
             </span>
           </div>
@@ -93,57 +93,57 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
       </div>
 
       {/* SVG SCADA Diagram */}
-      <div className="bg-surface-light border border-border/70 rounded-2xl p-5 mb-5 flex items-center justify-center min-h-[220px] relative overflow-hidden">
-        <div className="absolute inset-0 blueprint-grid opacity-[0.04] pointer-events-none" />
+      <div className="bg-slate-950/60 border border-white/10 rounded-2xl p-5 mb-5 flex items-center justify-center min-h-[220px] relative overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-[0.03] pointer-events-none" />
 
         {activeStage === 0 && (
           /* Stage 01: Pretreatment Diagram */
           <svg width="280" height="150" viewBox="0 0 280 150" fill="none" className="relative z-10">
             {/* Hopper box */}
-            <path d="M 20 20 L 70 20 L 55 60 L 35 60 Z" stroke="#475569" strokeWidth="2" fill="rgba(15, 23, 42, 0.03)" />
-            <text x="33" y="14" fill="#475569" fontSize="7" fontWeight="bold">FEED HOPPER</text>
+            <path d="M 20 20 L 70 20 L 55 60 L 35 60 Z" stroke="#64748b" strokeWidth="2" fill="rgba(255, 255, 255, 0.02)" />
+            <text x="33" y="14" fill="#94a3b8" fontSize="7" fontWeight="bold">FEED HOPPER</text>
             
             {/* Shredder cylinder */}
-            <rect x="90" y="45" width="60" height="30" rx="5" stroke="#475569" strokeWidth="2" fill="rgba(15, 23, 42, 0.05)" />
+            <rect x="90" y="45" width="60" height="30" rx="5" stroke="#64748b" strokeWidth="2" fill="rgba(255, 255, 255, 0.02)" />
             <motion.circle
               cx="120"
               cy="60"
               r="8"
-              stroke="#F59E0B"
+              stroke="#D97706"
               strokeWidth="2.5"
               strokeDasharray="4,2"
               fill="none"
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
             />
-            <text x="100" y="38" fill="#475569" fontSize="7" fontWeight="bold">SHREDDER/DRYER</text>
+            <text x="100" y="38" fill="#94a3b8" fontSize="7" fontWeight="bold">SHREDDER/DRYER</text>
 
             {/* Pelletizer Ring */}
-            <circle cx="210" cy="60" r="22" stroke="#475569" strokeWidth="2" fill="rgba(15, 23, 42, 0.05)" />
+            <circle cx="210" cy="60" r="22" stroke="#64748b" strokeWidth="2" fill="rgba(255, 255, 255, 0.02)" />
             <motion.circle
               cx="210"
               cy="60"
               r="14"
-              stroke="#10B981"
+              stroke="#059669"
               strokeWidth="2"
               strokeDasharray="5,2"
               fill="none"
               animate={{ rotate: -360 }}
               transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
             />
-            <text x="188" y="32" fill="#475569" fontSize="7" fontWeight="bold">PELLETIZER</text>
+            <text x="188" y="32" fill="#94a3b8" fontSize="7" fontWeight="bold">PELLETIZER</text>
 
             {/* Pipelines & flows */}
-            <path d="M 45 60 L 45 60 L 90 60" stroke="#475569" strokeWidth="2" strokeDasharray="3,3" />
-            <path d="M 150 60 L 188 60" stroke="#475569" strokeWidth="2" />
-            <path d="M 232 60 L 265 60" stroke="#475569" strokeWidth="2.5" />
+            <path d="M 45 60 L 45 60 L 90 60" stroke="#64748b" strokeWidth="2" strokeDasharray="3,3" />
+            <path d="M 150 60 L 188 60" stroke="#64748b" strokeWidth="2" />
+            <path d="M 232 60 L 265 60" stroke="#64748b" strokeWidth="2.5" />
 
             {/* Floating particles */}
             <motion.circle
               cx="45"
               cy="60"
               r="2.5"
-              fill="#F59E0B"
+              fill="#D97706"
               animate={{ cx: [45, 90] }}
               transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
             />
@@ -152,7 +152,7 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
               y="58"
               width="4"
               height="4"
-              fill="#10B981"
+              fill="#059669"
               animate={{ x: [0, 38] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: "linear" }}
             />
@@ -162,12 +162,12 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
               width="6"
               height="6"
               rx="1.5"
-              fill="#10B981"
+              fill="#059669"
               animate={{ x: [0, 33] }}
               transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}
             />
 
-            <text x="228" y="98" fill="#10B981" fontSize="8" fontWeight="bold">8mm PELLETS</text>
+            <text x="228" y="98" fill="#059669" fontSize="8" fontWeight="bold">8mm PELLETS</text>
           </svg>
         )}
 
@@ -175,25 +175,25 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
           /* Stage 02: Pyrolysis Reactor Diagram */
           <svg width="280" height="150" viewBox="0 0 280 150" fill="none" className="relative z-10">
             {/* Feed pipe */}
-            <path d="M 10 70 L 60 70" stroke="#475569" strokeWidth="2.5" />
+            <path d="M 10 70 L 60 70" stroke="#64748b" strokeWidth="2.5" />
             <motion.rect
               x="10"
               y="67"
               width="6"
               height="6"
-              fill="#10B981"
+              fill="#059669"
               animate={{ x: [0, 50] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
             />
 
             {/* Pyrolysis Tube */}
-            <rect x="60" y="45" width="100" height="50" rx="6" stroke="#475569" strokeWidth="2" fill="rgba(15, 23, 42, 0.05)" />
-            <text x="75" y="38" fill="#475569" fontSize="8" fontWeight="bold">REACTOR CHAMBER</text>
+            <rect x="60" y="45" width="100" height="50" rx="6" stroke="#64748b" strokeWidth="2" fill="rgba(255, 255, 255, 0.02)" />
+            <text x="75" y="38" fill="#94a3b8" fontSize="8" fontWeight="bold">REACTOR CHAMBER</text>
             
             {/* Fire waves */}
             <motion.path
               d="M 75 80 Q 90 70 105 80 T 135 80"
-              stroke="#F59E0B"
+              stroke="#D97706"
               strokeWidth="2.5"
               fill="none"
               animate={{ opacity: [0.3, 0.9, 0.3], y: [-3, 3] }}
@@ -209,21 +209,21 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
             />
 
             {/* Splitter Pipes */}
-            <path d="M 160 70 L 200 70" stroke="#475569" strokeWidth="2" />
-            <path d="M 200 70 L 200 30 L 260 30" stroke="#475569" strokeWidth="2" />
-            <path d="M 200 70 L 260 70" stroke="#475569" strokeWidth="2" />
-            <path d="M 200 70 L 200 110 L 260 110" stroke="#475569" strokeWidth="2" />
+            <path d="M 160 70 L 200 70" stroke="#64748b" strokeWidth="2" />
+            <path d="M 200 70 L 200 30 L 260 30" stroke="#64748b" strokeWidth="2" />
+            <path d="M 200 70 L 260 70" stroke="#64748b" strokeWidth="2" />
+            <path d="M 200 70 L 200 110 L 260 110" stroke="#64748b" strokeWidth="2" />
 
             {/* Outputs labels */}
-            <text x="212" y="24" fill="#3B82F6" fontSize="7" fontWeight="bold">SYNGAS RECIRC</text>
-            <text x="212" y="64" fill="#F59E0B" fontSize="7" fontWeight="bold">CRUDE BIO-OIL</text>
-            <text x="212" y="104" fill="#10B981" fontSize="7" fontWeight="bold">SOLID BIO-CHAR</text>
+            <text x="212" y="24" fill="#60A5FA" fontSize="7" fontWeight="bold">SYNGAS RECIRC</text>
+            <text x="212" y="64" fill="#FBBF24" fontSize="7" fontWeight="bold">CRUDE BIO-OIL</text>
+            <text x="212" y="104" fill="#34D399" fontSize="7" fontWeight="bold">SOLID BIO-CHAR</text>
 
             <motion.circle
               cx="200"
               cy="70"
               r="2.5"
-              fill="#3B82F6"
+              fill="#60A5FA"
               animate={{ cx: [200, 200, 260], cy: [70, 30, 30] }}
               transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
             />
@@ -231,7 +231,7 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
               cx="200"
               cy="70"
               r="2.5"
-              fill="#F59E0B"
+              fill="#FBBF24"
               animate={{ cx: [200, 260], cy: [70, 70] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: "linear", delay: 0.3 }}
             />
@@ -239,7 +239,7 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
               cx="200"
               cy="70"
               r="2.5"
-              fill="#10B981"
+              fill="#34D399"
               animate={{ cx: [200, 200, 260], cy: [70, 110, 110] }}
               transition={{ repeat: Infinity, duration: 2.2, ease: "linear", delay: 0.6 }}
             />
@@ -250,24 +250,24 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
           /* Stage 03: Refining & Blending Diagram */
           <svg width="280" height="150" viewBox="0 0 280 150" fill="none" className="relative z-10">
             {/* Two inlet pipes */}
-            <path d="M 10 35 L 80 35 L 80 55" stroke="#F59E0B" strokeWidth="2.5" fill="none" />
-            <path d="M 10 115 L 80 115 L 80 95" stroke="#1E293B" strokeWidth="2.5" fill="none" />
+            <path d="M 10 35 L 80 35 L 80 55" stroke="#D97706" strokeWidth="2.5" fill="none" />
+            <path d="M 10 115 L 80 115 L 80 95" stroke="#94a3b8" strokeWidth="2.5" fill="none" />
 
-            <text x="12" y="27" fill="#F59E0B" fontSize="7" fontWeight="bold">CRUDE BIO-OIL</text>
-            <text x="12" y="127" fill="#1E293B" fontSize="7" fontWeight="bold">IMPORT VG30 BITUMEN</text>
+            <text x="12" y="27" fill="#D97706" fontSize="7" fontWeight="bold">CRUDE BIO-OIL</text>
+            <text x="12" y="127" fill="#cbd5e1" fontSize="7" fontWeight="bold">IMPORT VG30 BITUMEN</text>
 
             {/* Blending vessel */}
-            <rect x="80" y="55" width="80" height="40" rx="8" stroke="#475569" strokeWidth="2" fill="rgba(15, 23, 42, 0.05)" />
-            <text x="94" y="50" fill="#475569" fontSize="8" fontWeight="bold">SHEAR BLENDER</text>
+            <rect x="80" y="55" width="80" height="40" rx="8" stroke="#64748b" strokeWidth="2" fill="rgba(255, 255, 255, 0.02)" />
+            <text x="94" y="50" fill="#94a3b8" fontSize="8" fontWeight="bold">SHEAR BLENDER</text>
 
             {/* Agitator shaft */}
-            <line x1="120" y1="45" x2="120" y2="75" stroke="#475569" strokeWidth="2.5" />
+            <line x1="120" y1="45" x2="120" y2="75" stroke="#64748b" strokeWidth="2.5" />
             <motion.line
               x1="108"
               y1="75"
               x2="132"
               y2="75"
-              stroke="#475569"
+              stroke="#64748b"
               strokeWidth="3"
               animate={{ scaleX: [-1, 1] }}
               transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
@@ -275,17 +275,17 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
             />
 
             {/* Flow line out */}
-            <path d="M 160 75 L 240 75" stroke="#10B981" strokeWidth="3" />
+            <path d="M 160 75 L 240 75" stroke="#059669" strokeWidth="3" />
             <motion.circle
               cx="160"
               cy="75"
               r="3.5"
-              fill="#10B981"
+              fill="#059669"
               animate={{ cx: [160, 240] }}
               transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
             />
 
-            <text x="168" y="93" fill="#10B981" fontSize="8" fontWeight="bold">BIO-MODIFIED BITUMEN</text>
+            <text x="168" y="93" fill="#34D399" fontSize="8" fontWeight="bold">BIO-MODIFIED BITUMEN</text>
           </svg>
         )}
 
@@ -293,29 +293,29 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
           /* Stage 04: Lab Testing & Quality Check Diagram */
           <svg width="280" height="150" viewBox="0 0 280 150" fill="none" className="relative z-10">
             {/* Inflow pipe */}
-            <path d="M 10 75 L 60 75" stroke="#10B981" strokeWidth="2.5" />
+            <path d="M 10 75 L 60 75" stroke="#059669" strokeWidth="2.5" />
             
             {/* Lab flask testing station */}
-            <rect x="60" y="40" width="70" height="70" rx="10" stroke="#475569" strokeWidth="2" fill="rgba(15, 23, 42, 0.05)" />
-            <text x="68" y="32" fill="#475569" fontSize="8" fontWeight="bold">QUALITY LAB</text>
+            <rect x="60" y="40" width="70" height="70" rx="10" stroke="#64748b" strokeWidth="2" fill="rgba(255, 255, 255, 0.02)" />
+            <text x="68" y="32" fill="#94a3b8" fontSize="8" fontWeight="bold">QUALITY LAB</text>
             
             {/* Simulated test beaker in SVG */}
-            <path d="M 85 90 L 105 90 L 105 60 L 98 60 L 98 52 L 92 52 L 92 60 L 85 60 Z" stroke="#475569" strokeWidth="2.0" fill="rgba(16, 185, 129, 0.15)" />
+            <path d="M 85 90 L 105 90 L 105 60 L 98 60 L 98 52 L 92 52 L 92 60 L 85 60 Z" stroke="#64748b" strokeWidth="2.0" fill="rgba(5, 150, 105, 0.15)" />
             <motion.rect
               x="87"
               y="75"
               width="16"
               height="13"
-              fill="#10B981"
+              fill="#059669"
               animate={{ opacity: [0.5, 0.8, 0.5] }}
               transition={{ repeat: Infinity, duration: 2 }}
             />
 
             {/* Checkmark Node */}
-            <circle cx="195" cy="75" r="22" stroke="#10B981" strokeWidth="2" fill="rgba(16, 185, 129, 0.05)" />
+            <circle cx="195" cy="75" r="22" stroke="#059669" strokeWidth="2" fill="rgba(5, 150, 105, 0.05)" />
             <motion.path
               d="M 187 75 L 192 80 L 205 68"
-              stroke="#10B981"
+              stroke="#059669"
               strokeWidth="3.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -323,10 +323,10 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
               animate={{ pathLength: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             />
-            <text x="175" y="112" fill="#10B981" fontSize="8" fontWeight="bold">NHAI CERTIFIED</text>
+            <text x="175" y="112" fill="#34D399" fontSize="8" fontWeight="bold">NHAI CERTIFIED</text>
 
-            <path d="M 130 75 L 173 75" stroke="#475569" strokeWidth="2" strokeDasharray="3,3" />
-            <path d="M 217 75 L 265 75" stroke="#10B981" strokeWidth="2.5" />
+            <path d="M 130 75 L 173 75" stroke="#64748b" strokeWidth="2" strokeDasharray="3,3" />
+            <path d="M 217 75 L 265 75" stroke="#059669" strokeWidth="2.5" />
           </svg>
         )}
       </div>
@@ -334,37 +334,37 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
       {/* Visual Flow diagram text boxes */}
       <div className="grid grid-cols-11 items-center gap-2 py-2 relative z-10">
         {/* Input Node */}
-        <div className="col-span-3 bg-surface border border-border rounded-xl p-3 text-center min-h-[90px] flex flex-col justify-between">
-          <p className="text-[8px] text-secondary font-bold uppercase tracking-wider mb-1">Inputs</p>
-          <p className="text-[10px] font-bold text-primary leading-snug flex-1 flex items-center justify-center">{input}</p>
+        <div className="col-span-3 bg-slate-900 border border-white/10 rounded-xl p-3 text-center min-h-[90px] flex flex-col justify-between">
+          <p className="text-[8px] text-slate-400 font-bold uppercase tracking-wider mb-1">Inputs</p>
+          <p className="text-[10px] font-bold text-slate-200 leading-snug flex-1 flex items-center justify-center">{input}</p>
         </div>
 
         {/* Animated Connector 1 */}
         <div className="col-span-1 flex items-center justify-center relative h-6">
-          <ArrowRight size={16} className="text-secondary/30" />
+          <ArrowRight size={16} className="text-slate-500/50" />
         </div>
 
         {/* Processing Node */}
-        <div className="col-span-3 bg-surface border border-border rounded-xl p-3 text-center ring-1 ring-border relative overflow-hidden group min-h-[90px] flex flex-col justify-between">
+        <div className="col-span-3 bg-slate-900 border border-white/10 rounded-xl p-3 text-center relative overflow-hidden group min-h-[90px] flex flex-col justify-between">
           <div className={`absolute top-0 left-0 right-0 h-0.5 ${dotBg} opacity-50`} />
-          <p className="text-[8px] text-secondary font-bold uppercase tracking-wider mb-1">Process Action</p>
-          <p className="text-[10px] font-bold text-primary leading-snug flex-1 flex items-center justify-center">{process}</p>
+          <p className="text-[8px] text-slate-400 font-bold uppercase tracking-wider mb-1">Process Action</p>
+          <p className="text-[10px] font-bold text-slate-200 leading-snug flex-1 flex items-center justify-center">{process}</p>
         </div>
 
         {/* Animated Connector 2 */}
         <div className="col-span-1 flex items-center justify-center relative h-6">
-          <ArrowRight size={16} className="text-secondary/30" />
+          <ArrowRight size={16} className="text-slate-500/50" />
         </div>
 
         {/* Output Node */}
-        <div className={`col-span-3 bg-surface border ${borderColor} rounded-xl p-3 text-center min-h-[90px] flex flex-col justify-between`}>
+        <div className="col-span-3 bg-slate-900 border border-white/10 rounded-xl p-3 text-center min-h-[90px] flex flex-col justify-between">
           <p className={`text-[8px] ${textColor} font-bold uppercase tracking-wider mb-1`}>Outputs</p>
-          <p className="text-[10px] font-bold text-primary leading-snug flex-1 flex items-center justify-center">{output}</p>
+          <p className="text-[10px] font-bold text-slate-200 leading-snug flex-1 flex items-center justify-center">{output}</p>
         </div>
       </div>
 
       {/* Footer Assurances */}
-      <div className="mt-4 pt-4 border-t border-border flex items-center justify-between text-[10px] text-secondary relative z-10">
+      <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] text-slate-400 relative z-10">
         <span className="flex items-center gap-1.5 font-semibold">
           <ShieldCheck size={13} className={textColor} />
           IS 73:2013 Highway Specifications Compliant
@@ -454,14 +454,14 @@ export default function PyrolysisPage() {
                     <button
                       key={s.stage}
                       onClick={() => setActiveStage(i)}
-                      className={`py-3.5 px-2 rounded-xl border text-center transition-all duration-200 ${
+                      className={`py-3.5 px-2 rounded-xl border text-center transition-all duration-200 cursor-pointer ${
                         active
-                          ? "bg-accent/10 border-accent text-accent shadow-[0_0_15px_rgba(245,158,11,0.15)] font-bold"
-                          : "bg-surface/50 border-border text-secondary hover:border-border/80 hover:text-primary"
+                          ? "bg-accent/10 border-accent text-accent shadow-[0_0_15px_rgba(217,119,6,0.15)] font-bold"
+                          : "bg-surface border-slate-200 text-secondary hover:border-accent/40 hover:text-primary"
                       }`}
                     >
                       <p className="text-[10px] text-secondary font-bold uppercase tracking-wider">Stage</p>
-                      <p className="text-lg">0{s.stage}</p>
+                      <p className="text-lg font-bold">0{s.stage}</p>
                     </button>
                   );
                 })}

@@ -131,23 +131,23 @@ export default function CapacityCalculator() {
                       <button
                         key={type}
                         onClick={() => setFeedstock(type)}
-                        className={`flex items-center gap-4 p-4 rounded-2xl border text-left transition-all duration-300 transform hover:-translate-y-0.5 ${
+                        className={`flex items-center gap-4 p-4 rounded-2xl border-2 text-left transition-all duration-300 transform hover:-translate-y-0.5 ${
                           active
-                            ? "bg-eco/10 border-eco text-primary glow-border-eco"
-                            : "bg-surface border-border text-secondary hover:border-eco/30 hover:text-primary"
+                            ? "bg-eco/5 border-eco text-primary glow-border-eco"
+                            : "bg-surface border-slate-200 text-secondary hover:border-eco/40 hover:text-primary"
                         }`}
                       >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${active ? "bg-eco/20" : "bg-surface-light border border-border"}`}>
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${active ? "bg-eco/15" : "bg-slate-100 border border-slate-200"}`}>
                           {getIcon()}
                         </div>
                         <div className="flex-1">
-                          <p className={`font-bold text-sm ${active ? "text-eco" : "text-primary"}`}>{FEEDSTOCK_CONFIGS[type].name}</p>
-                          <p className="text-xs text-secondary/80 mt-0.5 font-semibold font-mono">
+                          <p className={`font-extrabold text-sm ${active ? "text-eco" : "text-primary"}`}>{FEEDSTOCK_CONFIGS[type].name}</p>
+                          <p className="text-xs text-secondary font-bold font-mono">
                             Est. cost: ₹{FEEDSTOCK_CONFIGS[type].pricePerTon.toLocaleString()}/Ton
                           </p>
                         </div>
                         {active && (
-                          <span className="w-2.5 h-2.5 rounded-full bg-eco shadow-[0_0_10px_#10B981] mr-1" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-eco shadow-[0_0_10px_#059669] mr-1" />
                         )}
                       </button>
                     );
@@ -185,26 +185,26 @@ export default function CapacityCalculator() {
               </div>
 
               {/* Material Yield Details info */}
-              <div className="bg-background border border-border/80 rounded-2xl p-4 space-y-3">
+              <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-3">
                 <h4 className="text-[11px] font-bold text-primary uppercase tracking-wider flex items-center gap-2">
                   <Gauge size={12} className="text-eco" />
                   Estimated Material Balance
                 </h4>
                 <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                  <div className="bg-surface p-2.5 rounded-xl border border-border/60">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200">
                     <p className="text-[10px] text-secondary mb-0.5">Bio-Bitumen</p>
                     <p className="font-bold text-primary">{(config.bitumenYield * 100).toFixed(0)}%</p>
                   </div>
-                  <div className="bg-surface p-2.5 rounded-xl border border-border/60">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200">
                     <p className="text-[10px] text-secondary mb-0.5">Bio-Char</p>
                     <p className="font-bold text-primary">{(config.charYield * 100).toFixed(0)}%</p>
                   </div>
-                  <div className="bg-surface p-2.5 rounded-xl border border-border/60">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200">
                     <p className="text-[10px] text-secondary mb-0.5">Syn-gas</p>
                     <p className="font-bold text-primary">{(config.syngasYield * 100).toFixed(0)}%</p>
                   </div>
                 </div>
-                <p className="text-[10px] text-secondary/70 leading-relaxed italic">
+                <p className="text-[10px] text-secondary font-semibold leading-relaxed italic">
                   * Syn-gas is entirely recycled to thermal feed combustion, cutting power costs by ~80%.
                 </p>
               </div>
@@ -223,7 +223,7 @@ export default function CapacityCalculator() {
 
               {/* Main ROI Grid Metrics */}
               <div className="grid sm:grid-cols-3 gap-4">
-                <div className="bg-background border border-border/80 rounded-2xl p-5 relative overflow-hidden">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 relative overflow-hidden">
                   <span className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">Estimated CapEx</span>
                   <div className="flex items-baseline gap-1">
                     <span className="text-2xl font-extrabold text-primary">₹{capex.toFixed(1)}</span>
@@ -234,7 +234,7 @@ export default function CapacityCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-background border border-border/80 rounded-2xl p-5 relative overflow-hidden">
+                <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 relative overflow-hidden">
                   <span className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">Annual Profit</span>
                   <div className="flex items-baseline gap-1">
                     <span className="text-2xl font-extrabold text-eco">₹{annualProfitCr.toFixed(2)}</span>
@@ -245,10 +245,10 @@ export default function CapacityCalculator() {
                   </div>
                 </div>
 
-                <div className="bg-background border border-eco/30 rounded-2xl p-5 relative overflow-hidden shadow-[inset_0_0_12px_rgba(16,185,129,0.05)]">
+                <div className="bg-eco/5 border border-eco/40 rounded-2xl p-5 relative overflow-hidden shadow-[inset_0_0_12px_rgba(16,185,129,0.03)]">
                   <span className="text-[10px] font-bold text-eco uppercase tracking-widest block mb-1">Payback Period</span>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-extrabold text-gradient-eco">{paybackPeriodYears.toFixed(1)}</span>
+                    <span className="text-2xl font-extrabold text-eco">{paybackPeriodYears.toFixed(1)}</span>
                     <span className="text-xs font-semibold text-eco">Years</span>
                   </div>
                   <div className="absolute top-3 right-3 text-eco/10">
@@ -258,7 +258,7 @@ export default function CapacityCalculator() {
               </div>
 
               {/* Visual Balance Breakdown */}
-              <div className="border-t border-border pt-6 space-y-4">
+              <div className="border-t border-slate-200 pt-6 space-y-4">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-secondary">Material Input vs Output (Annual)</h4>
                 
                 <div className="space-y-3">

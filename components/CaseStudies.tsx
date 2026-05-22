@@ -281,17 +281,17 @@ export default function CaseStudies() {
           
           {/* Left: SVG India Map Card */}
           <div className="lg:col-span-5 flex flex-col">
-            <div className="glass hover:glow-border-accent rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between flex-grow transition-all duration-300">
+            <div className="dark-dashboard rounded-3xl p-6 relative overflow-hidden flex flex-col justify-between flex-grow transition-all duration-300">
               
               {/* HUD Header */}
-              <div className="flex justify-between items-center mb-4 border-b border-border pb-3">
+              <div className="flex justify-between items-center mb-4 border-b border-white/10 pb-3">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-accent animate-ping shrink-0" />
-                  <span className="text-[10px] font-bold tracking-widest text-primary uppercase font-mono">
+                  <span className="text-[10px] font-bold tracking-widest text-white uppercase font-mono">
                     MAP SCANNER V2.0
                   </span>
                 </div>
-                <div className="text-[9px] font-mono text-secondary tracking-wider">
+                <div className="text-[9px] font-mono text-slate-400 tracking-wider">
                   LOC: {hoveredPlant ? hoveredPlant.location : activePlant.location}
                 </div>
               </div>
@@ -300,7 +300,7 @@ export default function CaseStudies() {
               <div className="relative w-full aspect-[320/385] max-w-[340px] mx-auto flex items-center justify-center">
                 
                 {/* HUD Telemetry Coordinates overlay */}
-                <div className="absolute top-2 left-2 pointer-events-none font-mono text-[9px] text-secondary/70 leading-normal space-y-0.5">
+                <div className="absolute top-2 left-2 pointer-events-none font-mono text-[9px] text-slate-400/80 leading-normal space-y-0.5">
                   <p>LAT: {hoveredPlant ? hoveredPlant.lat : activePlant.lat}</p>
                   <p>LON: {hoveredPlant ? hoveredPlant.lon : activePlant.lon}</p>
                   <p>SYS: {hoveredPlant ? (hoveredPlant.isDetailed ? "PYROLYSIS CORE" : "BITUMEN SYS") : (activePlant.isDetailed ? "PYROLYSIS CORE" : "BITUMEN SYS")}</p>
@@ -309,7 +309,7 @@ export default function CaseStudies() {
                 <svg 
                   viewBox="0 0 320 385" 
                   fill="none" 
-                  className="w-full h-full relative z-10 text-primary/10 select-none"
+                  className="w-full h-full relative z-10 text-white/5 select-none"
                 >
                   {/* Grid Lines Overlay inside SVG */}
                   <g opacity="0.4">
@@ -320,7 +320,7 @@ export default function CaseStudies() {
                         y1={0} 
                         x2={i * 22 + 10} 
                         y2={385} 
-                        stroke="rgba(15, 23, 42, 0.05)" 
+                        stroke="rgba(255, 255, 255, 0.03)" 
                         strokeWidth="0.5" 
                         strokeDasharray="2 3" 
                       />
@@ -332,7 +332,7 @@ export default function CaseStudies() {
                         y1={i * 22 + 10} 
                         x2={320} 
                         y2={i * 22 + 10} 
-                        stroke="rgba(15, 23, 42, 0.05)" 
+                        stroke="rgba(255, 255, 255, 0.03)" 
                         strokeWidth="0.5" 
                         strokeDasharray="2 3" 
                       />
@@ -354,8 +354,8 @@ export default function CaseStudies() {
                   {/* India Outline Path */}
                   <path 
                     d={INDIA_MAP_OUTLINE} 
-                    fill="rgba(15, 23, 42, 0.02)" 
-                    stroke="rgba(15, 23, 42, 0.15)" 
+                    fill="rgba(255, 255, 255, 0.02)" 
+                    stroke="rgba(255, 255, 255, 0.18)" 
                     strokeWidth="1.5" 
                     strokeLinejoin="round"
                     className="transition-all duration-300"
@@ -390,10 +390,10 @@ export default function CaseStudies() {
                       >
                         {/* Interactive hotspot */}
                         <circle 
-                          cx={plant.x} 
-                          cy={plant.y} 
-                          r={14} 
-                          fill="transparent" 
+                           cx={plant.x} 
+                           cy={plant.y} 
+                           r={14} 
+                           fill="transparent" 
                         />
                         
                         {/* Pin Dot */}
@@ -421,7 +421,7 @@ export default function CaseStudies() {
                             <div className={`px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider shadow-sm border ${
                               plant.isDetailed 
                                 ? "bg-accent text-white border-accent-hover" 
-                                : "bg-primary text-white border-primary"
+                                : "bg-slate-900 text-white border-slate-700"
                             }`}>
                               {plant.name}
                             </div>
@@ -434,7 +434,7 @@ export default function CaseStudies() {
               </div>
 
               {/* Legend & Navigation HUD */}
-              <div className="mt-6 pt-4 border-t border-border flex flex-col gap-3 font-mono text-[9px] text-secondary">
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3 font-mono text-[9px] text-slate-400">
                 <div className="flex justify-between items-center">
                   <span className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-accent" />
@@ -445,7 +445,7 @@ export default function CaseStudies() {
                     Bitumen Plants (7)
                   </span>
                 </div>
-                <div className="text-center bg-background border border-border/80 rounded-xl p-2 font-mono text-[10px] font-semibold text-primary flex items-center justify-between">
+                <div className="text-center bg-slate-900 border border-white/10 rounded-xl p-2 font-mono text-[10px] font-semibold text-white flex items-center justify-between">
                   <span>ACTIVE TARGET: {activePlant.id} / 10</span>
                   <span className="text-accent">{activePlant.state.toUpperCase()} NODE</span>
                 </div>

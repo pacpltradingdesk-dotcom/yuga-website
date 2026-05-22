@@ -73,7 +73,7 @@ export default function ReactorTelemetry() {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="glass rounded-3xl p-6 shadow-2xl relative overflow-hidden group hover:glass-hover transition-all duration-500 border border-border/80"
+      className="dark-dashboard rounded-3xl p-6 shadow-2xl relative overflow-hidden group transition-all duration-500"
     >
       {/* Background blueprint elements */}
       <div className="absolute inset-0 blueprint-grid opacity-[0.03] pointer-events-none" />
@@ -81,21 +81,21 @@ export default function ReactorTelemetry() {
       <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-eco/10 rounded-full blur-3xl group-hover:bg-eco/20 transition-all duration-500" />
 
       {/* Header telemetry info */}
-      <div className="flex justify-between items-center border-b border-border/50 pb-4 mb-5 relative z-10">
+      <div className="flex justify-between items-center border-b border-white/10 pb-4 mb-5 relative z-10">
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full bg-eco animate-pulse shadow-[0_0_8px_#10B981]" />
-          <span className="font-display font-extrabold text-xs text-primary uppercase tracking-widest">
+          <span className="font-display font-extrabold text-xs text-white uppercase tracking-widest">
             Reactor Telemetry Sync
           </span>
         </div>
-        <span className="text-[10px] text-secondary font-mono bg-surface-light border border-border/60 px-2.5 py-0.5 rounded-full uppercase">
+        <span className="text-[10px] text-slate-300 font-mono bg-slate-900 border border-white/10 px-2.5 py-0.5 rounded-full uppercase">
           Plant Model: Y-100 TPD
         </span>
       </div>
 
       <div className="grid md:grid-cols-12 gap-6 items-center relative z-10">
         {/* Left: SVG Reactor Blueprint Animation */}
-        <div className="md:col-span-5 flex justify-center py-2 bg-surface-light/40 border border-border/40 rounded-2xl relative overflow-hidden h-[180px]">
+        <div className="md:col-span-5 flex justify-center py-2 bg-slate-950/60 border border-white/10 rounded-2xl relative overflow-hidden h-[180px]">
           <div className="absolute inset-0 blueprint-grid opacity-[0.05]" />
           <svg
             width="120"
@@ -105,7 +105,7 @@ export default function ReactorTelemetry() {
             className="relative z-10"
           >
             {/* Feeder Pipe */}
-            <path d="M 10 30 L 45 30 L 45 50" stroke="#475569" strokeWidth="3" fill="none" />
+            <path d="M 10 30 L 45 30 L 45 50" stroke="#64748b" strokeWidth="3" fill="none" />
             <motion.circle
               cx="10"
               cy="30"
@@ -115,7 +115,7 @@ export default function ReactorTelemetry() {
               transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
             />
             {/* Reactor Column */}
-            <rect x="35" y="50" width="50" height="80" rx="10" fill="rgba(15, 23, 42, 0.05)" stroke="#475569" strokeWidth="2.5" />
+            <rect x="35" y="50" width="50" height="80" rx="10" fill="rgba(255, 255, 255, 0.02)" stroke="#64748b" strokeWidth="2.5" />
             
             {/* Reactor Heat Rings */}
             <motion.path
@@ -136,7 +136,7 @@ export default function ReactorTelemetry() {
             />
 
             {/* Outflow Oil Pipe */}
-            <path d="M 85 110 L 110 110 L 110 140" stroke="#475569" strokeWidth="3" fill="none" />
+            <path d="M 85 110 L 110 110 L 110 140" stroke="#64748b" strokeWidth="3" fill="none" />
             <motion.circle
               cx="85"
               cy="110"
@@ -147,7 +147,7 @@ export default function ReactorTelemetry() {
             />
 
             {/* Labels */}
-            <text x="3" y="20" fill="#475569" fontSize="8" fontWeight="bold">FEEDSTOCK</text>
+            <text x="3" y="20" fill="#94a3b8" fontSize="8" fontWeight="bold">FEEDSTOCK</text>
             <text x="43" y="70" fill="#F59E0B" fontSize="7" fontWeight="bold" className="animate-pulse">450-550°C</text>
             <text x="75" y="152" fill="#F59E0B" fontSize="8" fontWeight="bold">BIO-BITUMEN</text>
           </svg>
@@ -157,53 +157,53 @@ export default function ReactorTelemetry() {
         <div className="md:col-span-7 flex flex-col gap-4">
           <div className="grid grid-cols-2 gap-3">
             {/* Temp Block */}
-            <div className="bg-surface-light border border-border/80 rounded-xl p-3 flex items-center gap-3">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
                 <Thermometer size={18} />
               </div>
               <div>
-                <p className="text-[9px] text-secondary font-bold uppercase tracking-wider">Reactor Temp</p>
-                <p className="text-sm font-extrabold text-primary font-mono">{temp}°C</p>
+                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Reactor Temp</p>
+                <p className="text-sm font-extrabold text-white font-mono">{temp}°C</p>
               </div>
             </div>
 
             {/* Feed Rate Block */}
-            <div className="bg-surface-light border border-border/80 rounded-xl p-3 flex items-center gap-3">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-eco/10 border border-eco/20 flex items-center justify-center text-eco">
                 <RefreshCw size={16} className="animate-spin" style={{ animationDuration: "10s" }} />
               </div>
               <div>
-                <p className="text-[9px] text-secondary font-bold uppercase tracking-wider">Feed Input</p>
-                <p className="text-sm font-extrabold text-primary font-mono">{feedRate} T/h</p>
+                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Feed Input</p>
+                <p className="text-sm font-extrabold text-white font-mono">{feedRate} T/h</p>
               </div>
             </div>
 
             {/* Pressure Block */}
-            <div className="bg-surface-light border border-border/80 rounded-xl p-3 flex items-center gap-3">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500">
                 <Gauge size={16} />
               </div>
               <div>
-                <p className="text-[9px] text-secondary font-bold uppercase tracking-wider">Gas Pressure</p>
-                <p className="text-sm font-extrabold text-primary font-mono">1.25 Bar</p>
+                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Gas Pressure</p>
+                <p className="text-sm font-extrabold text-white font-mono">1.25 Bar</p>
               </div>
             </div>
 
             {/* Efficiency Block */}
-            <div className="bg-surface-light border border-border/80 rounded-xl p-3 flex items-center gap-3">
+            <div className="bg-slate-900/80 border border-white/10 rounded-xl p-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
                 <Activity size={16} />
               </div>
               <div>
-                <p className="text-[9px] text-secondary font-bold uppercase tracking-wider">Yield Ratio</p>
-                <p className="text-sm font-extrabold text-emerald-600 font-mono">{efficiency}%</p>
+                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Yield Ratio</p>
+                <p className="text-sm font-extrabold text-emerald-400 font-mono">{efficiency}%</p>
               </div>
             </div>
           </div>
 
           {/* SVG Real-time Chart */}
-          <div className="bg-surface-light border border-border/80 rounded-2xl p-4 flex flex-col justify-between h-[85px] relative overflow-hidden">
-            <div className="flex justify-between items-center text-[9px] text-secondary font-bold uppercase tracking-wider mb-2 relative z-10">
+          <div className="bg-slate-900/80 border border-white/10 rounded-2xl p-4 flex flex-col justify-between h-[85px] relative overflow-hidden">
+            <div className="flex justify-between items-center text-[9px] text-slate-400 font-bold uppercase tracking-wider mb-2 relative z-10">
               <span className="flex items-center gap-1">
                 <Activity size={10} className="text-accent" /> Conversion Efficiency Timeline
               </span>
@@ -235,16 +235,16 @@ export default function ReactorTelemetry() {
       </div>
 
       {/* Grid of Key Business Stats (originally in StatsCard) */}
-      <div className="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-border/50 relative z-10">
+      <div className="grid grid-cols-2 gap-3 mt-5 pt-5 border-t border-white/10 relative z-10">
         {stats.map(({ value, label }, i) => (
           <div
             key={label}
-            className="bg-surface border border-border/50 rounded-xl p-3 text-center hover:bg-surface-light hover:border-border transition-colors duration-200"
+            className="bg-slate-950/40 border border-white/5 rounded-xl p-3 text-center hover:bg-slate-900 hover:border-white/10 transition-colors duration-200"
           >
-            <p className="font-display text-lg font-black text-primary tracking-tight">
+            <p className="font-display text-lg font-black text-white tracking-tight">
               {value}
             </p>
-            <p className="text-secondary text-[9px] uppercase tracking-wider font-semibold">{label}</p>
+            <p className="text-slate-400 text-[9px] uppercase tracking-wider font-semibold">{label}</p>
           </div>
         ))}
       </div>
