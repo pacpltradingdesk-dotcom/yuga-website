@@ -19,6 +19,276 @@ import {
   Clock
 } from "lucide-react";
 
+function DashboardMockup({ index }: { index: number }) {
+  switch (index) {
+    case 0:
+      return (
+        <div className="p-4 md:p-6 text-xs font-sans text-white h-full flex flex-col justify-between select-none">
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <span className="font-bold text-accent text-[10px] tracking-wider uppercase">YUGA Client Portal</span>
+              <span className="text-[9px] text-white/50 bg-white/5 px-2 py-0.5 rounded border border-white/5">Project ID: PAC-PJB-01</span>
+            </div>
+            
+            <h4 className="font-extrabold text-white text-sm mb-3">Punjab Bio-Bitumen Plant Setup</h4>
+            
+            {/* Stage timeline tracker */}
+            <div className="space-y-3">
+              <p className="text-[9px] text-secondary font-bold uppercase tracking-wider">Project Timeline Stages</p>
+              <div className="grid grid-cols-4 gap-1.5 text-center text-[9px]">
+                <div className="bg-eco/10 border border-eco/30 text-eco p-2 rounded-lg">
+                  <p className="font-bold">Stage 01</p>
+                  <p className="text-[8px] opacity-80">Site Select</p>
+                  <span className="mt-1 block text-[7px] font-bold">✔ DONE</span>
+                </div>
+                <div className="bg-accent/10 border border-accent text-accent p-2 rounded-lg animate-pulse">
+                  <p className="font-bold">Stage 02</p>
+                  <p className="text-[8px] opacity-80">Pyrolysis</p>
+                  <span className="mt-1 block text-[7px] font-bold">● ACTIVE</span>
+                </div>
+                <div className="bg-white/5 border border-white/5 text-secondary p-2 rounded-lg opacity-60">
+                  <p className="font-bold">Stage 03</p>
+                  <p className="text-[8px] opacity-80">Refining</p>
+                  <span className="mt-1 block text-[7px]">WAITING</span>
+                </div>
+                <div className="bg-white/5 border border-white/5 text-secondary p-2 rounded-lg opacity-60">
+                  <p className="font-bold">Stage 04</p>
+                  <p className="text-[8px] opacity-80">Tenders</p>
+                  <span className="mt-1 block text-[7px]">WAITING</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Active task and chat/milestone */}
+          <div className="grid grid-cols-2 gap-3 mt-4 border-t border-white/5 pt-3">
+            <div className="bg-surface/50 p-2.5 rounded-xl border border-white/5">
+              <p className="text-[8px] text-secondary font-bold uppercase tracking-wider mb-1">Recent Approvals</p>
+              <ul className="space-y-1 text-[9px] text-white/90">
+                <li className="flex items-center gap-1"><span className="w-1 h-1 bg-eco rounded-full" /> DPR Feasibility Report</li>
+                <li className="flex items-center gap-1"><span className="w-1 h-1 bg-eco rounded-full" /> Pollution Board NOC</li>
+                <li className="flex items-center gap-1 text-white/40"><span className="w-1 h-1 bg-white/20 rounded-full" /> Equipment Invoice</li>
+              </ul>
+            </div>
+            <div className="bg-surface/50 p-2.5 rounded-xl border border-white/5 flex flex-col justify-between">
+              <div>
+                <p className="text-[8px] text-secondary font-bold uppercase tracking-wider mb-1">Next Milestone</p>
+                <p className="text-[9px] font-bold text-white leading-tight">Biomass Pelletizer Delivery</p>
+              </div>
+              <p className="text-[8px] text-accent font-semibold mt-1">Due in 5 Days</p>
+            </div>
+          </div>
+        </div>
+      );
+    case 1:
+      return (
+        <div className="p-4 md:p-6 text-xs font-sans text-white h-full flex flex-col justify-between select-none">
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <span className="font-bold text-eco text-[10px] tracking-wider uppercase">SCADA Plant Dashboard</span>
+              <span className="flex items-center gap-1 px-2 py-0.5 rounded bg-eco/10 border border-eco/20 text-[9px] text-eco font-semibold uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-eco animate-ping" />
+                Live Feed
+              </span>
+            </div>
+
+            {/* Metric overview */}
+            <div className="grid grid-cols-3 gap-2 mb-4">
+              <div className="bg-surface/60 border border-white/5 rounded-xl p-2 text-center">
+                <p className="text-[8px] text-secondary font-bold uppercase">Reactor Temp</p>
+                <p className="text-sm font-extrabold text-accent mt-0.5">504°C</p>
+                <span className="text-[7px] text-eco">Optimal</span>
+              </div>
+              <div className="bg-surface/60 border border-white/5 rounded-xl p-2 text-center">
+                <p className="text-[8px] text-secondary font-bold uppercase">Feed Feedstock</p>
+                <p className="text-sm font-extrabold text-white mt-0.5">840 kg/h</p>
+                <span className="text-[7px] text-eco">Steady</span>
+              </div>
+              <div className="bg-surface/60 border border-white/5 rounded-xl p-2 text-center">
+                <p className="text-[8px] text-secondary font-bold uppercase">Bio-Oil Out</p>
+                <p className="text-sm font-extrabold text-eco mt-0.5">218 L/h</p>
+                <span className="text-[7px] text-eco">Yield: 24%</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Real-time chart visualization */}
+          <div className="bg-background/40 border border-white/5 rounded-xl p-3 flex-1 flex flex-col justify-between">
+            <div className="flex justify-between text-[8px] text-secondary font-bold uppercase tracking-wider mb-2">
+              <span>Hourly Bio-Oil Production</span>
+              <span>Last 5 hrs</span>
+            </div>
+            {/* Simulated bar chart */}
+            <div className="flex items-end justify-between gap-2 h-16 px-2">
+              {[45, 60, 52, 75, 90].map((h, idx) => (
+                <div key={idx} className="flex-1 flex flex-col items-center gap-1">
+                  <div className="w-full bg-eco/20 rounded-t-sm relative h-12">
+                    <motion.div 
+                      initial={{ height: 0 }}
+                      animate={{ height: `${h}%` }}
+                      transition={{ duration: 0.8, delay: idx * 0.1 }}
+                      className="absolute bottom-0 inset-x-0 bg-eco rounded-t-sm shadow-[0_0_8px_#10B981]"
+                    />
+                  </div>
+                  <span className="text-[7px] text-secondary">{idx + 8}:00</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    case 2:
+      return (
+        <div className="p-4 md:p-6 text-xs font-sans text-white h-full flex flex-col justify-between select-none">
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <span className="font-bold text-accent text-[10px] tracking-wider uppercase">YUGA Supply Chain Hub</span>
+              <span className="text-[9px] text-white/50 bg-white/5 px-2 py-0.5 rounded border border-white/5">Vendor: GETKA Petroleum</span>
+            </div>
+
+            {/* Cargo list */}
+            <p className="text-[8px] text-secondary font-bold uppercase tracking-wider mb-2">Active Cargo & Shipments</p>
+            <div className="space-y-2">
+              <div className="bg-surface/50 border border-white/5 p-2 rounded-xl flex items-center justify-between">
+                <div>
+                  <p className="font-bold text-[10px] text-white">MV Sea Opal - VG30 Bitumen Import</p>
+                  <p className="text-[8px] text-secondary">Qty: 24,000 MT · Origin: USA-Iraq</p>
+                </div>
+                <span className="text-[8px] bg-accent/20 border border-accent/40 text-accent font-bold px-2 py-0.5 rounded uppercase tracking-wider animate-pulse">In Transit</span>
+              </div>
+              
+              <div className="bg-surface/50 border border-white/5 p-2 rounded-xl flex items-center justify-between">
+                <div>
+                  <p className="font-bold text-[10px] text-white">Punjab Hub - Agro Pellets Dispatch</p>
+                  <p className="text-[8px] text-secondary">Qty: 180 Tons · Route: Local aggregator</p>
+                </div>
+                <span className="text-[8px] bg-eco/20 border border-eco/40 text-eco font-bold px-2 py-0.5 rounded uppercase tracking-wider">Delivered</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Verification Status */}
+          <div className="mt-4 pt-3 border-t border-white/5 grid grid-cols-3 gap-2">
+            <div className="bg-background/40 p-2 rounded-lg border border-white/5 text-center">
+              <span className="text-[8px] text-secondary block mb-0.5">SGS Quality</span>
+              <span className="text-[9px] font-bold text-eco flex items-center justify-center gap-0.5">
+                <span className="w-1.5 h-1.5 bg-eco rounded-full inline-block" /> PASS
+              </span>
+            </div>
+            <div className="bg-background/40 p-2 rounded-lg border border-white/5 text-center">
+              <span className="text-[8px] text-secondary block mb-0.5">Bill of Lading</span>
+              <span className="text-[9px] font-bold text-eco flex items-center justify-center gap-0.5">
+                <span className="w-1.5 h-1.5 bg-eco rounded-full inline-block" /> VERIFIED
+              </span>
+            </div>
+            <div className="bg-background/40 p-2 rounded-lg border border-white/5 text-center">
+              <span className="text-[8px] text-secondary block mb-0.5">LC Clearance</span>
+              <span className="text-[9px] font-bold text-eco flex items-center justify-center gap-0.5">
+                <span className="w-1.5 h-1.5 bg-eco rounded-full inline-block" /> RELEASED
+              </span>
+            </div>
+          </div>
+        </div>
+      );
+    case 3:
+      return (
+        <div className="p-4 md:p-6 text-xs font-sans text-white h-full flex flex-col justify-between select-none">
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <span className="font-bold text-eco text-[10px] tracking-wider uppercase">Bitumen Intelligence Hub</span>
+              <span className="text-[9px] text-white/50 bg-white/5 px-2 py-0.5 rounded border border-white/5">17 States Monitored</span>
+            </div>
+
+            {/* Pricing list table */}
+            <div className="space-y-1.5">
+              <div className="flex justify-between text-[8px] text-secondary font-bold uppercase tracking-wider pb-1 border-b border-white/5">
+                <span>State / Terminal</span>
+                <span>Standard VG-30</span>
+                <span>YUGA Bio-Bitumen</span>
+              </div>
+              <div className="flex justify-between text-[9px] items-center py-1">
+                <span className="font-semibold text-white/90">Maharashtra (Panvel)</span>
+                <span className="text-secondary">₹41,800/MT</span>
+                <span className="text-eco font-bold">₹35,000/MT (Saves 16%)</span>
+              </div>
+              <div className="flex justify-between text-[9px] items-center py-1 border-t border-white/5">
+                <span className="font-semibold text-white/90">Gujarat (Vadodara)</span>
+                <span className="text-secondary">₹40,900/MT</span>
+                <span className="text-eco font-bold">₹34,500/MT (Saves 15%)</span>
+              </div>
+              <div className="flex justify-between text-[9px] items-center py-1 border-t border-white/5">
+                <span className="font-semibold text-white/90">UP (Mathura Terminal)</span>
+                <span className="text-secondary">₹42,500/MT</span>
+                <span className="text-eco font-bold">₹35,500/MT (Saves 16%)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Market Alert Footer */}
+          <div className="bg-[#121824] border border-eco/20 rounded-xl p-2.5 flex items-center justify-between text-[9px]">
+            <div>
+              <span className="font-bold text-eco block uppercase tracking-wider">Arbitrage Opportunity Alert</span>
+              <span className="text-secondary">Bio-bitumen margins expanded by +₹800/MT this week due to rising crude.</span>
+            </div>
+            <span className="text-[14px] text-eco">📈</span>
+          </div>
+        </div>
+      );
+    case 4:
+      return (
+        <div className="p-4 text-xs font-sans text-white h-full flex flex-col justify-center select-none">
+          <div className="w-full max-w-[260px] mx-auto bg-[#07090E] border border-white/10 rounded-2xl p-3.5 shadow-inner flex flex-col justify-between aspect-[9/13]">
+            <div>
+              {/* Mobile Top Bar */}
+              <div className="flex justify-between items-center text-[7px] text-secondary/60 border-b border-white/5 pb-1 mb-2.5 font-mono">
+                <span>YUGA Ops App</span>
+                <span>12:45 PM · 4G</span>
+              </div>
+
+              {/* Supervisor profile */}
+              <div className="flex items-center gap-1.5 mb-3">
+                <div className="w-5 h-5 rounded-full bg-accent/20 border border-accent/40 flex items-center justify-center text-[8px] font-bold text-accent">RK</div>
+                <div>
+                  <p className="text-[8px] font-bold text-white leading-none">Rahul Kumar</p>
+                  <p className="text-[6px] text-secondary">Plant Supervisor · Punjab 01</p>
+                </div>
+              </div>
+
+              {/* Shift Checklist */}
+              <p className="text-[7px] text-secondary font-bold uppercase tracking-wider mb-2">Shift Checklist</p>
+              <ul className="space-y-1.5 text-[8px]">
+                <li className="flex items-center gap-1.5 text-white/90">
+                  <span className="w-3 h-3 rounded bg-eco/25 border border-eco/40 flex items-center justify-center text-[6px] text-eco font-extrabold">✔</span>
+                  Moisture check: 12.4% (PASS)
+                </li>
+                <li className="flex items-center gap-1.5 text-white/90">
+                  <span className="w-3 h-3 rounded bg-eco/25 border border-eco/40 flex items-center justify-center text-[6px] text-eco font-extrabold">✔</span>
+                  Reactor pre-heated: 480°C
+                </li>
+                <li className="flex items-center gap-1.5 text-white/90">
+                  <span className="w-3 h-3 rounded bg-eco/25 border border-eco/40 flex items-center justify-center text-[6px] text-eco font-extrabold">✔</span>
+                  syn-gas backup pressure test
+                </li>
+                <li className="flex items-center gap-1.5 text-white/50">
+                  <span className="w-3 h-3 rounded bg-white/5 border border-white/10" />
+                  Yield sample verification
+                </li>
+              </ul>
+            </div>
+
+            {/* Submission box */}
+            <div className="mt-2 pt-2 border-t border-white/5 flex items-center justify-between">
+              <span className="text-[6px] text-secondary font-mono">Unsent logs: 0</span>
+              <button className="bg-eco hover:bg-eco-hover text-background font-bold text-[7px] px-2 py-1 rounded uppercase tracking-wider">Sync Data</button>
+            </div>
+          </div>
+        </div>
+      );
+    default:
+      return null;
+  }
+}
+
 export default function ItProductTabs() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
@@ -232,13 +502,9 @@ export default function ItProductTabs() {
                           <div className="w-12" />
                         </div>
                         
-                        {/* Browser Body */}
-                        <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0D14]">
-                          <img
-                            src="/assets/it-dashboard-mockup.png"
-                            alt={`${service.name} Interface Mockup`}
-                            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover/browser:scale-[1.03]"
-                          />
+                        {/* Browser Body - Interactive CSS Mockup */}
+                        <div className="relative aspect-[16/10] overflow-hidden bg-[#0A0D14] flex flex-col justify-stretch">
+                          <DashboardMockup index={i} />
                           
                           {/* Glass reflection overlay */}
                           <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />

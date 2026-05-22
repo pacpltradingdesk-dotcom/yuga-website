@@ -7,6 +7,8 @@ import WhyNowStrip from "@/components/WhyNowStrip";
 import StageCard from "@/components/StageCard";
 import CredentialsBar from "@/components/CredentialsBar";
 import CtaStrip from "@/components/CtaStrip";
+import CaseStudies from "@/components/CaseStudies";
+import CapacityCalculator from "@/components/CapacityCalculator";
 import { FOUR_STAGES } from "@/lib/company-data";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -106,6 +108,10 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      <CaseStudies />
+
+      <CapacityCalculator />
 
       <CredentialsBar />
 
