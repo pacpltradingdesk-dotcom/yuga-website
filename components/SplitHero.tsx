@@ -2,7 +2,7 @@
 "use client";
 
 import Link from "next/link";
-import StatsCard from "./StatsCard";
+import ReactorTelemetry from "./ReactorTelemetry";
 import { COMPANY } from "@/lib/company-data";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
@@ -64,9 +64,9 @@ export default function SplitHero() {
             </div>
           </motion.div>
 
-          {/* Right: stats card */}
-          <div className="lg:justify-self-end w-full max-w-md">
-            <StatsCard />
+          {/* Right: reactor telemetry */}
+          <div className="lg:justify-self-end w-full max-w-xl">
+            <ReactorTelemetry />
           </div>
         </div>
       </div>

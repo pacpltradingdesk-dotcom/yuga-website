@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sliders, Leaf, TrendingUp, Activity, IndianRupee, ShieldCheck, Factory, Gauge } from "lucide-react";
+import { Sliders, Leaf, TrendingUp, Activity, IndianRupee, ShieldCheck, Factory, Gauge, Wheat, Sprout, Trees } from "lucide-react";
 import Link from "next/link";
 
 type FeedstockType = "rice_straw" | "bagasse" | "mixed_waste";
@@ -120,24 +120,34 @@ export default function CapacityCalculator() {
                 <div className="grid gap-3">
                   {(Object.keys(FEEDSTOCK_CONFIGS) as FeedstockType[]).map((type) => {
                     const active = feedstock === type;
+                    const getIcon = () => {
+                      switch (type) {
+                        case "rice_straw": return <Wheat size={20} className={active ? "text-eco" : "text-secondary"} />;
+                        case "bagasse": return <Sprout size={20} className={active ? "text-eco" : "text-secondary"} />;
+                        case "mixed_waste": return <Trees size={20} className={active ? "text-eco" : "text-secondary"} />;
+                      }
+                    };
                     return (
                       <button
                         key={type}
                         onClick={() => setFeedstock(type)}
-                        className={`flex items-center justify-between p-4 rounded-xl border text-left transition-all duration-200 ${
+                        className={`flex items-center gap-4 p-4 rounded-2xl border text-left transition-all duration-300 transform hover:-translate-y-0.5 ${
                           active
                             ? "bg-eco/10 border-eco text-primary glow-border-eco"
-                            : "bg-surface border-border text-secondary hover:border-eco/50 hover:text-primary"
+                            : "bg-surface border-border text-secondary hover:border-eco/30 hover:text-primary"
                         }`}
                       >
-                        <div>
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${active ? "bg-eco/20" : "bg-surface-light border border-border"}`}>
+                          {getIcon()}
+                        </div>
+                        <div className="flex-1">
                           <p className={`font-bold text-sm ${active ? "text-eco" : "text-primary"}`}>{FEEDSTOCK_CONFIGS[type].name}</p>
-                          <p className="text-xs text-secondary/80 mt-0.5">
+                          <p className="text-xs text-secondary/80 mt-0.5 font-semibold font-mono">
                             Est. cost: ₹{FEEDSTOCK_CONFIGS[type].pricePerTon.toLocaleString()}/Ton
                           </p>
                         </div>
                         {active && (
-                          <span className="w-2.5 h-2.5 rounded-full bg-eco shadow-[0_0_10px_#10B981]" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-eco shadow-[0_0_10px_#10B981] mr-1" />
                         )}
                       </button>
                     );
@@ -163,10 +173,10 @@ export default function CapacityCalculator() {
                     step="5"
                     value={capacity}
                     onChange={(e) => setCapacity(Number(e.target.value))}
-                    className="w-full h-2 bg-background rounded-lg appearance-none cursor-pointer accent-accent"
+                    className="custom-slider w-full cursor-pointer"
                     data-testid="capacity-slider"
                   />
-                  <div className="flex justify-between text-[10px] text-secondary font-semibold uppercase tracking-wider">
+                  <div className="flex justify-between text-[10px] text-secondary font-bold uppercase tracking-wider pt-1">
                     <span>10 TPD (Micro)</span>
                     <span>50 TPD (Medium)</span>
                     <span>100 TPD (Utility)</span>
@@ -258,26 +268,26 @@ export default function CapacityCalculator() {
                       <span className="text-secondary">Biomass Input Feedstock</span>
                       <span className="text-primary font-bold">{annualFeedstockInput.toLocaleString()} Tons</span>
                     </div>
-                    <div className="w-full h-2 bg-background rounded-full overflow-hidden">
-                      <div className="h-full bg-secondary rounded-full" style={{ width: "100%" }} />
+                    <div className="w-full h-3 bg-surface-light border border-border/80 rounded-full overflow-hidden">
+                      <div className="h-full bg-slate-400 rounded-full" style={{ width: "100%" }} />
                     </div>
                   </div>
 
                   {/* Output Line 1 */}
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-xs font-medium">
-                      <span className="text-accent flex items-center gap-1.5">
+                      <span className="text-accent flex items-center gap-1.5 font-bold">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         Bio-Bitumen VG30 Yield
                       </span>
                       <span className="text-primary font-bold">{annualBitumenYield.toLocaleString()} Tons</span>
                     </div>
-                    <div className="w-full h-2 bg-background rounded-full overflow-hidden">
+                    <div className="w-full h-3 bg-surface-light border border-border/80 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${config.bitumenYield * 100}%` }}
                         transition={{ duration: 0.5 }}
-                        className="h-full bg-accent rounded-full"
+                        className="h-full bg-gradient-to-r from-accent to-accent-hover rounded-full shadow-[0_0_8px_rgba(245,158,11,0.25)]"
                       />
                     </div>
                   </div>
@@ -285,18 +295,18 @@ export default function CapacityCalculator() {
                   {/* Output Line 2 */}
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-xs font-medium">
-                      <span className="text-eco flex items-center gap-1.5">
+                      <span className="text-eco flex items-center gap-1.5 font-bold">
                         <span className="w-1.5 h-1.5 rounded-full bg-eco" />
                         Active Bio-Char Yield
                       </span>
                       <span className="text-primary font-bold">{annualCharYield.toLocaleString()} Tons</span>
                     </div>
-                    <div className="w-full h-2 bg-background rounded-full overflow-hidden">
+                    <div className="w-full h-3 bg-surface-light border border-border/80 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${config.charYield * 100}%` }}
                         transition={{ duration: 0.5 }}
-                        className="h-full bg-eco rounded-full"
+                        className="h-full bg-gradient-to-r from-eco to-eco-hover rounded-full shadow-[0_0_8px_rgba(16,185,129,0.25)]"
                       />
                     </div>
                   </div>
