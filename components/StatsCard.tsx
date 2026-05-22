@@ -34,9 +34,9 @@ export default function StatsCard() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-            className="bg-white/5 border border-white/5 rounded-2xl p-5 text-center hover:bg-white/10 transition-colors"
+            className="bg-background border border-border/60 rounded-2xl p-5 text-center hover:bg-background/80 transition-colors"
           >
-            <p className="font-display text-3xl font-extrabold text-white leading-none mb-2 tracking-tight">
+            <p className="font-display text-3xl font-extrabold text-primary leading-none mb-2 tracking-tight">
               {value}
             </p>
             <p className="text-secondary text-xs uppercase tracking-wider font-semibold">{label}</p>

@@ -27,7 +27,7 @@ export default function FeedstockCard({ feedstock, index = 0 }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-surface rounded-2xl overflow-hidden border border-white/5 hover:border-eco/30 shadow-xl group transition-all duration-300 flex flex-col h-full"
+      className="bg-surface rounded-2xl overflow-hidden border border-border hover:border-eco/30 shadow-xl group transition-all duration-300 flex flex-col h-full"
     >
       {/* Visual Header */}
       <div className="relative h-48 w-full overflow-hidden shrink-0">
@@ -36,14 +36,14 @@ export default function FeedstockCard({ feedstock, index = 0 }: Props) {
           style={{ backgroundImage: `url('${imageSrc}')` }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
-        <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-background/80 backdrop-blur-md border border-white/10 flex items-center justify-center">
+        <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-background/90 backdrop-blur-md border border-border flex items-center justify-center">
           {getIcon(feedstock.icon)}
         </div>
       </div>
       
       {/* Content */}
       <div className="p-6 flex flex-col flex-1">
-        <h3 className="font-display font-extrabold text-white text-lg mb-3 tracking-tight group-hover:text-eco transition-colors">
+        <h3 className="font-display font-extrabold text-primary text-lg mb-3 tracking-tight group-hover:text-eco transition-colors">
           {feedstock.name}
         </h3>
         
@@ -52,11 +52,11 @@ export default function FeedstockCard({ feedstock, index = 0 }: Props) {
         </p>
         
         {feedstock.indiaVolume && (
-          <div className="bg-white/5 border border-white/5 rounded-xl px-4 py-2.5 mb-4 group-hover:bg-white/10 transition-colors">
+          <div className="bg-background border border-border/80 rounded-xl px-4 py-2.5 mb-4 group-hover:bg-background/80 transition-colors">
             <p className="text-eco text-[10px] font-bold uppercase tracking-wider mb-0.5">
               India Volume
             </p>
-            <p className="text-white text-xs font-bold tracking-wide leading-snug">{feedstock.indiaVolume}</p>
+            <p className="text-primary text-xs font-bold tracking-wide leading-snug">{feedstock.indiaVolume}</p>
           </div>
         )}
         

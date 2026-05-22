@@ -30,15 +30,15 @@ export default function PmcServiceCard({ service, index = 0 }: Props) {
       <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-xl group-hover:bg-accent/10 transition-colors" />
       
       <div className="flex items-center gap-4 mb-4 relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-accent/30 transition-colors">
+        <div className="w-12 h-12 rounded-xl bg-background border border-border flex items-center justify-center group-hover:border-accent/30 transition-colors">
           <span className="text-2xl" aria-hidden="true">{service.icon}</span>
         </div>
-        <h3 className="text-white font-display text-xl font-bold">{service.category}</h3>
+        <h3 className="text-primary font-display text-xl font-bold">{service.category}</h3>
       </div>
       <p className="text-secondary text-sm leading-relaxed mb-6 relative z-10 min-h-[60px]">{service.description}</p>
       <ul className="space-y-3 relative z-10">
         {service.deliverables.map((d) => (
-          <li key={d} className="flex gap-3 text-secondary group-hover:text-white transition-colors text-xs leading-relaxed">
+          <li key={d} className="flex gap-3 text-secondary group-hover:text-primary transition-colors text-xs leading-relaxed">
             <span className="text-accent mt-0.5 shrink-0"><ArrowRight size={14} /></span>
             {d}
           </li>

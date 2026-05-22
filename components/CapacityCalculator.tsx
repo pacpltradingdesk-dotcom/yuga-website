@@ -99,7 +99,7 @@ export default function CapacityCalculator() {
             Financial Viability Simulator
             <span className="w-4 h-px bg-eco/50" />
           </p>
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold tracking-tight mb-4">
             Capacity & <span className="text-gradient-eco">ROI Calculator</span>
           </h2>
           <p className="text-secondary text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -126,12 +126,12 @@ export default function CapacityCalculator() {
                         onClick={() => setFeedstock(type)}
                         className={`flex items-center justify-between p-4 rounded-xl border text-left transition-all duration-200 ${
                           active
-                            ? "bg-eco/10 border-eco text-white glow-border-eco"
-                            : "bg-surface/50 border-white/5 text-secondary hover:border-white/10 hover:text-white"
+                            ? "bg-eco/10 border-eco text-primary glow-border-eco"
+                            : "bg-surface border-border text-secondary hover:border-eco/50 hover:text-primary"
                         }`}
                       >
                         <div>
-                          <p className="font-bold text-sm text-white">{FEEDSTOCK_CONFIGS[type].name}</p>
+                          <p className={`font-bold text-sm ${active ? "text-eco" : "text-primary"}`}>{FEEDSTOCK_CONFIGS[type].name}</p>
                           <p className="text-xs text-secondary/80 mt-0.5">
                             Est. cost: ₹{FEEDSTOCK_CONFIGS[type].pricePerTon.toLocaleString()}/Ton
                           </p>
@@ -175,23 +175,23 @@ export default function CapacityCalculator() {
               </div>
 
               {/* Material Yield Details info */}
-              <div className="bg-background/60 border border-white/5 rounded-2xl p-4 space-y-3">
-                <h4 className="text-[11px] font-bold text-white uppercase tracking-wider flex items-center gap-2">
+              <div className="bg-background border border-border/80 rounded-2xl p-4 space-y-3">
+                <h4 className="text-[11px] font-bold text-primary uppercase tracking-wider flex items-center gap-2">
                   <Gauge size={12} className="text-eco" />
                   Estimated Material Balance
                 </h4>
                 <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                  <div className="bg-surface/50 p-2.5 rounded-xl border border-white/5">
+                  <div className="bg-surface p-2.5 rounded-xl border border-border/60">
                     <p className="text-[10px] text-secondary mb-0.5">Bio-Bitumen</p>
-                    <p className="font-bold text-white">{(config.bitumenYield * 100).toFixed(0)}%</p>
+                    <p className="font-bold text-primary">{(config.bitumenYield * 100).toFixed(0)}%</p>
                   </div>
-                  <div className="bg-surface/50 p-2.5 rounded-xl border border-white/5">
+                  <div className="bg-surface p-2.5 rounded-xl border border-border/60">
                     <p className="text-[10px] text-secondary mb-0.5">Bio-Char</p>
-                    <p className="font-bold text-white">{(config.charYield * 100).toFixed(0)}%</p>
+                    <p className="font-bold text-primary">{(config.charYield * 100).toFixed(0)}%</p>
                   </div>
-                  <div className="bg-surface/50 p-2.5 rounded-xl border border-white/5">
+                  <div className="bg-surface p-2.5 rounded-xl border border-border/60">
                     <p className="text-[10px] text-secondary mb-0.5">Syn-gas</p>
-                    <p className="font-bold text-white">{(config.syngasYield * 100).toFixed(0)}%</p>
+                    <p className="font-bold text-primary">{(config.syngasYield * 100).toFixed(0)}%</p>
                   </div>
                 </div>
                 <p className="text-[10px] text-secondary/70 leading-relaxed italic">
@@ -213,29 +213,29 @@ export default function CapacityCalculator() {
 
               {/* Main ROI Grid Metrics */}
               <div className="grid sm:grid-cols-3 gap-4">
-                <div className="bg-background/40 border border-white/5 rounded-2xl p-5 relative overflow-hidden">
+                <div className="bg-background border border-border/80 rounded-2xl p-5 relative overflow-hidden">
                   <span className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">Estimated CapEx</span>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-extrabold text-white">₹{capex.toFixed(1)}</span>
+                    <span className="text-2xl font-extrabold text-primary">₹{capex.toFixed(1)}</span>
                     <span className="text-xs font-semibold text-secondary">Crores</span>
                   </div>
-                  <div className="absolute top-3 right-3 text-white/5">
+                  <div className="absolute top-3 right-3 text-primary/5">
                     <IndianRupee size={24} />
                   </div>
                 </div>
 
-                <div className="bg-background/40 border border-white/5 rounded-2xl p-5 relative overflow-hidden">
+                <div className="bg-background border border-border/80 rounded-2xl p-5 relative overflow-hidden">
                   <span className="text-[10px] font-bold text-secondary uppercase tracking-widest block mb-1">Annual Profit</span>
                   <div className="flex items-baseline gap-1">
                     <span className="text-2xl font-extrabold text-eco">₹{annualProfitCr.toFixed(2)}</span>
                     <span className="text-xs font-semibold text-secondary">Cr / yr</span>
                   </div>
-                  <div className="absolute top-3 right-3 text-eco/5">
+                  <div className="absolute top-3 right-3 text-eco/10">
                     <TrendingUp size={24} />
                   </div>
                 </div>
 
-                <div className="bg-background/40 border border-eco/20 rounded-2xl p-5 relative overflow-hidden shadow-[inset_0_0_12px_rgba(16,185,129,0.05)]">
+                <div className="bg-background border border-eco/30 rounded-2xl p-5 relative overflow-hidden shadow-[inset_0_0_12px_rgba(16,185,129,0.05)]">
                   <span className="text-[10px] font-bold text-eco uppercase tracking-widest block mb-1">Payback Period</span>
                   <div className="flex items-baseline gap-1">
                     <span className="text-2xl font-extrabold text-gradient-eco">{paybackPeriodYears.toFixed(1)}</span>
@@ -248,7 +248,7 @@ export default function CapacityCalculator() {
               </div>
 
               {/* Visual Balance Breakdown */}
-              <div className="border-t border-white/5 pt-6 space-y-4">
+              <div className="border-t border-border pt-6 space-y-4">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-secondary">Material Input vs Output (Annual)</h4>
                 
                 <div className="space-y-3">
@@ -256,7 +256,7 @@ export default function CapacityCalculator() {
                   <div className="space-y-1.5">
                     <div className="flex justify-between text-xs font-medium">
                       <span className="text-secondary">Biomass Input Feedstock</span>
-                      <span className="text-white font-bold">{annualFeedstockInput.toLocaleString()} Tons</span>
+                      <span className="text-primary font-bold">{annualFeedstockInput.toLocaleString()} Tons</span>
                     </div>
                     <div className="w-full h-2 bg-background rounded-full overflow-hidden">
                       <div className="h-full bg-secondary rounded-full" style={{ width: "100%" }} />
@@ -270,7 +270,7 @@ export default function CapacityCalculator() {
                         <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                         Bio-Bitumen VG30 Yield
                       </span>
-                      <span className="text-white font-bold">{annualBitumenYield.toLocaleString()} Tons</span>
+                      <span className="text-primary font-bold">{annualBitumenYield.toLocaleString()} Tons</span>
                     </div>
                     <div className="w-full h-2 bg-background rounded-full overflow-hidden">
                       <motion.div
@@ -289,7 +289,7 @@ export default function CapacityCalculator() {
                         <span className="w-1.5 h-1.5 rounded-full bg-eco" />
                         Active Bio-Char Yield
                       </span>
-                      <span className="text-white font-bold">{annualCharYield.toLocaleString()} Tons</span>
+                      <span className="text-primary font-bold">{annualCharYield.toLocaleString()} Tons</span>
                     </div>
                     <div className="w-full h-2 bg-background rounded-full overflow-hidden">
                       <motion.div
@@ -304,18 +304,18 @@ export default function CapacityCalculator() {
               </div>
 
               {/* Operational Financials Table */}
-              <div className="border-t border-white/5 pt-6 space-y-3">
+              <div className="border-t border-border pt-6 space-y-3">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-secondary">Annual Financial Overview</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse text-xs">
                     <thead>
-                      <tr className="border-b border-white/5 text-secondary">
+                      <tr className="border-b border-border text-secondary">
                         <th className="py-2.5 font-semibold">Financial Line</th>
                         <th className="py-2.5 font-semibold text-right">Calculation Detail</th>
                         <th className="py-2.5 font-semibold text-right">Amount (INR)</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-white/5 text-white">
+                    <tbody className="divide-y divide-border text-primary">
                       <tr>
                         <td className="py-3 text-secondary">Bio-Bitumen Revenue</td>
                         <td className="py-3 text-right text-secondary/80">₹35,000 / Ton</td>
@@ -334,9 +334,9 @@ export default function CapacityCalculator() {
                       <tr>
                         <td className="py-3 text-secondary">Total OpEx (Feedstock + Labor + Utilities)</td>
                         <td className="py-3 text-right text-secondary/80">Continuous Operation</td>
-                        <td className="py-3 text-right font-semibold text-red-400">-₹{(totalOpexCr * 10000000).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
+                        <td className="py-3 text-right font-semibold text-red-600">-₹{(totalOpexCr * 10000000).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
                       </tr>
-                      <tr className="border-t-2 border-white/10 font-bold text-white bg-eco/5">
+                      <tr className="border-t-2 border-border font-bold text-primary bg-eco/10">
                         <td className="py-3 px-2 rounded-l-xl">Net Operating Profit (EBITDA)</td>
                         <td className="py-3 text-right text-secondary/80">Before Taxes</td>
                         <td className="py-3 px-2 text-right text-eco font-extrabold rounded-r-xl">₹{(annualProfitCr * 10000000).toLocaleString(undefined, { maximumFractionDigits: 0 })}</td>
@@ -347,13 +347,13 @@ export default function CapacityCalculator() {
               </div>
 
               {/* Call to Action Callout */}
-              <div className="pt-4 flex flex-col sm:flex-row gap-4 items-center justify-between bg-surface/50 border border-white/5 rounded-2xl p-4">
+              <div className="pt-4 flex flex-col sm:flex-row gap-4 items-center justify-between bg-background border border-border rounded-2xl p-4">
                 <p className="text-[10px] md:text-xs text-secondary leading-relaxed max-w-sm">
                   Yields are based on laboratory tested thermal decomposition models. Actual output is dependent on input biomass quality.
                 </p>
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto text-center bg-eco text-background font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl hover:bg-eco-hover transition-colors whitespace-nowrap"
+                  className="w-full sm:w-auto text-center bg-eco text-white font-bold text-xs uppercase tracking-wider px-5 py-3 rounded-xl hover:bg-eco-hover transition-colors whitespace-nowrap"
                 >
                   Request Feasibility Report
                 </Link>

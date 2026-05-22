@@ -67,7 +67,7 @@ export default function Logo({ variant = "vertical", className = "", iconOnly = 
           {icon}
         </div>
         {/* YUGA Text in large bold serif */}
-        <span className="font-serif text-3xl font-extrabold tracking-widest text-white leading-none">
+        <span className="font-serif text-3xl font-extrabold tracking-widest text-primary leading-none">
           YUGA
         </span>
         {/* Tagline */}
@@ -87,7 +87,7 @@ export default function Logo({ variant = "vertical", className = "", iconOnly = 
       </div>
       {/* Text Stack */}
       <div className="flex flex-col justify-center leading-none">
-        <span className="font-serif text-2xl font-black tracking-wider text-white leading-tight group-hover:text-accent transition-colors">
+        <span className="font-serif text-2xl font-black tracking-wider text-primary leading-tight group-hover:text-accent transition-colors">
           YUGA
         </span>
         <span className="text-[7px] font-bold tracking-[0.2em] text-accent uppercase mt-1 whitespace-nowrap">

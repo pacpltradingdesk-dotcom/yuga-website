@@ -27,7 +27,7 @@ export default function ConsultingServiceCard({ category, items, index = 0 }: Pr
       </h4>
       <ul className="space-y-4 relative z-10">
         {items.map((item) => (
-          <li key={item} className="flex gap-3 text-secondary group-hover:text-white transition-colors text-sm leading-relaxed">
+          <li key={item} className="flex gap-3 text-secondary group-hover:text-primary transition-colors text-sm leading-relaxed">
             <span className="text-accent mt-0.5 shrink-0"><ArrowRight size={16} /></span>
             {item}
           </li>

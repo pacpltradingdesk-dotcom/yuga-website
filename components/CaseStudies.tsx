@@ -77,7 +77,7 @@ export default function CaseStudies() {
             Proven Track Record
             <span className="w-4 h-px bg-accent/50" />
           </p>
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight mb-4">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold tracking-tight mb-4">
             Built Plants in <span className="text-gradient">Operation</span>
           </h2>
           <p className="text-secondary text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -105,15 +105,15 @@ export default function CaseStudies() {
                   {study.location}
                 </div>
                 
-                <h3 className="font-display text-xl text-white font-extrabold mb-6 tracking-tight group-hover:text-accent transition-colors">
+                <h3 className="font-display text-xl text-primary font-extrabold mb-6 tracking-tight group-hover:text-accent transition-colors">
                   {study.title}
                 </h3>
 
                 {/* Key Metrics Dashboard */}
-                <div className="grid grid-cols-2 gap-3 mb-6 bg-background/50 border border-white/5 rounded-2xl p-4">
-                  <div className="text-center border-r border-white/5">
+                <div className="grid grid-cols-2 gap-3 mb-6 bg-background border border-border/80 rounded-2xl p-4">
+                  <div className="text-center border-r border-border">
                     <p className="text-[10px] text-secondary font-bold uppercase tracking-wider mb-1">Capacity</p>
-                    <p className="text-sm font-extrabold text-white">{study.capacity.split(" ")[0]} TPD</p>
+                    <p className="text-sm font-extrabold text-primary">{study.capacity.split(" ")[0]} TPD</p>
                   </div>
                   <div className="text-center">
                     <p className="text-[10px] text-secondary font-bold uppercase tracking-wider mb-1">Payback ROI</p>
@@ -122,17 +122,17 @@ export default function CaseStudies() {
                 </div>
 
                 {/* Feedstock and Output Details */}
-                <div className="space-y-4 text-sm mb-6 border-b border-white/5 pb-6">
+                <div className="space-y-4 text-sm mb-6 border-b border-border pb-6">
                   <div>
                     <span className="text-[11px] text-secondary font-bold uppercase tracking-wider block mb-1">Feedstock Input</span>
-                    <p className="text-white font-medium flex items-center gap-2">
+                    <p className="text-primary font-medium flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-eco" />
                       {study.feedstock}
                     </p>
                   </div>
                   <div>
                     <span className="text-[11px] text-secondary font-bold uppercase tracking-wider block mb-1">Primary Output</span>
-                    <p className="text-white font-medium flex items-center gap-2">
+                    <p className="text-primary font-medium flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                       {study.output}
                     </p>
@@ -156,7 +156,7 @@ export default function CaseStudies() {
               </div>
 
               {/* Achievement Badge */}
-              <div className="mt-4 pt-6 border-t border-white/5">
+              <div className="mt-4 pt-6 border-t border-border">
                 <div className="flex gap-2.5 bg-accent/5 border border-accent/20 rounded-xl p-3.5">
                   <ShieldCheck size={18} className="text-accent shrink-0 mt-0.5" />
                   <p className="text-[11px] text-accent font-semibold leading-relaxed">
@@ -177,7 +177,7 @@ export default function CaseStudies() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-white font-bold text-xs uppercase tracking-widest hover:text-accent group transition-colors"
+            className="inline-flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest hover:text-accent group transition-colors"
           >
             Schedule a Virtual Plant Visit
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

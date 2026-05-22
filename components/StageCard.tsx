@@ -34,15 +34,15 @@ export default function StageCard({ stage, index = 0 }: Props) {
       <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl group-hover:bg-accent/20 transition-colors" />
 
       <div className="flex items-center justify-between mb-6 relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-accent/30 transition-colors">
+        <div className="w-12 h-12 rounded-xl bg-background flex items-center justify-center border border-border group-hover:border-accent/30 transition-colors">
           {getIcon(stage.icon)}
         </div>
-        <span className="text-white/30 text-4xl font-extrabold font-display">
+        <span className="text-primary/20 text-4xl font-extrabold font-display">
           0{stage.stage}
         </span>
       </div>
       
-      <h3 className="font-display text-lg text-white font-bold mb-3 leading-snug relative z-10">
+      <h3 className="font-display text-lg text-primary font-bold mb-3 leading-snug relative z-10">
         {stage.name}
       </h3>
       
@@ -50,19 +50,19 @@ export default function StageCard({ stage, index = 0 }: Props) {
         {stage.description}
       </p>
       
-      <div className="space-y-3 pt-4 border-t border-white/5 relative z-10">
+      <div className="space-y-3 pt-4 border-t border-border relative z-10">
         <div className="flex justify-between items-center text-xs">
-          <span className="font-semibold text-white/50 uppercase tracking-wider">CAPEX</span>
+          <span className="font-semibold text-secondary/60 uppercase tracking-wider">CAPEX</span>
           <span className="text-accent font-medium">{stage.capex}</span>
         </div>
         <div className="flex justify-between items-center text-xs">
-          <span className="font-semibold text-white/50 uppercase tracking-wider">Manpower</span>
-          <span className="text-white">{stage.manpower}</span>
+          <span className="font-semibold text-secondary/60 uppercase tracking-wider">Manpower</span>
+          <span className="text-primary font-medium">{stage.manpower}</span>
         </div>
         {stage.space && (
           <div className="flex justify-between items-center text-xs">
-            <span className="font-semibold text-white/50 uppercase tracking-wider">Space</span>
-            <span className="text-white">{stage.space}</span>
+            <span className="font-semibold text-secondary/60 uppercase tracking-wider">Space</span>
+            <span className="text-primary font-medium">{stage.space}</span>
           </div>
         )}
       </div>

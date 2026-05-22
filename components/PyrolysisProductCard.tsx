@@ -28,16 +28,16 @@ export default function PyrolysisProductCard({ product, index = 0 }: Props) {
       <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl group-hover:bg-accent/10 transition-colors" />
       
       <div className="flex items-center gap-4 mb-4 relative z-10">
-        <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:border-accent/30 transition-colors">
+        <div className="w-12 h-12 rounded-xl bg-background border border-border flex items-center justify-center group-hover:border-accent/30 transition-colors">
           {getIcon(product.icon)}
         </div>
-        <h3 className="font-display font-bold text-white text-xl leading-snug">
+        <h3 className="font-display font-bold text-primary text-xl leading-snug">
           {product.name}
         </h3>
       </div>
       
       {product.stat && (
-        <span className="inline-block relative z-10 bg-accent/20 border border-accent/30 text-white text-xs font-bold px-3 py-1.5 rounded-full mb-4 tracking-wide shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+        <span className="inline-block relative z-10 bg-accent/10 border border-accent/30 text-accent-hover text-xs font-bold px-3 py-1.5 rounded-full mb-4 tracking-wide shadow-[0_0_15px_rgba(245,158,11,0.05)]">
           {product.stat}
         </span>
       )}

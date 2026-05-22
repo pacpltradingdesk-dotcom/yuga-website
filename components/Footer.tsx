@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-surface relative overflow-hidden border-t border-white/5">
+    <footer className="bg-surface relative overflow-hidden border-t border-border">
       {/* Subtle glow effect in the background */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
       
@@ -22,7 +22,7 @@ export default function Footer() {
 
         {/* Col 2: Quick links */}
         <div>
-          <p className="text-white text-sm font-bold uppercase tracking-wider mb-6">
+          <p className="text-primary text-sm font-bold uppercase tracking-wider mb-6">
             Quick Links
           </p>
           <ul className="space-y-4">
@@ -48,15 +48,15 @@ export default function Footer() {
 
         {/* Col 3: Contact */}
         <div>
-          <p className="text-white text-sm font-bold uppercase tracking-wider mb-6">
+          <p className="text-primary text-sm font-bold uppercase tracking-wider mb-6">
             Contact
           </p>
           <div className="space-y-4 mb-8">
-            <div className="flex items-center gap-3 text-secondary text-sm hover:text-white transition-colors cursor-pointer">
+            <div className="flex items-center gap-3 text-secondary text-sm hover:text-primary transition-colors cursor-pointer">
               <Phone size={16} className="text-accent" />
               <span>{COMPANY.phone}</span>
             </div>
-            <div className="flex items-center gap-3 text-secondary text-sm hover:text-white transition-colors cursor-pointer break-all">
+            <div className="flex items-center gap-3 text-secondary text-sm hover:text-primary transition-colors cursor-pointer break-all">
               <Mail size={16} className="text-accent" />
               <span>{COMPANY.email}</span>
             </div>
@@ -67,7 +67,7 @@ export default function Footer() {
           </div>
           <Link
             href="/contact"
-            className="inline-block bg-white/5 border border-white/10 text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-accent hover:border-accent transition-all"
+            className="inline-block bg-background border border-border text-primary text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-accent hover:border-accent hover:text-white transition-all"
           >
             Send a Message
           </Link>
@@ -75,15 +75,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5 bg-background/50">
+      <div className="border-t border-border bg-surface-light">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-secondary text-xs">
           <p>
             © {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
           </p>
           <p className="flex gap-4 flex-wrap">
-            <span>GST: <span className="text-white/60">{COMPANY.gst}</span></span>
-            <span>PAN: <span className="text-white/60">{COMPANY.pan}</span></span>
-            <span>CIN: <span className="text-white/60">{COMPANY.cin}</span></span>
+            <span>GST: <span className="text-primary/60">{COMPANY.gst}</span></span>
+            <span>PAN: <span className="text-primary/60">{COMPANY.pan}</span></span>
+            <span>CIN: <span className="text-primary/60">{COMPANY.cin}</span></span>
           </p>
         </div>
       </div>

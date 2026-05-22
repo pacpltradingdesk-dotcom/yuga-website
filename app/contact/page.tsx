@@ -31,7 +31,7 @@ export default function ContactPage() {
             <div className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-accent/50 to-transparent" />
               
-              <h2 className="text-3xl font-display font-extrabold text-white mb-2 tracking-tight">Send Us a Message</h2>
+              <h2 className="text-3xl font-display font-extrabold text-primary mb-2 tracking-tight">Send Us a Message</h2>
               <p className="text-secondary mb-10 leading-relaxed">Fill out the form below and we'll get back to you within 24 hours.</p>
               
               <ContactForm />
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
           {/* Right — Contact Info */}
           <div className="lg:col-span-2">
-            <div className="relative rounded-3xl p-8 md:p-10 h-full flex flex-col overflow-hidden border border-white/10 group shadow-2xl">
+            <div className="relative rounded-3xl p-8 md:p-10 h-full flex flex-col overflow-hidden border border-slate-800 group shadow-2xl">
               {/* Background Image with hover zoom */}
               <div 
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -48,7 +48,7 @@ export default function ContactPage() {
               />
               {/* Dark Readability Overlay */}
               <div className="absolute inset-0 bg-[#0B0F19]/90 md:bg-[#0B0F19]/85 mix-blend-multiply transition-colors group-hover:bg-[#0B0F19]/90" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-[#0F172A]/90 to-[#0F172A]/70 opacity-95" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-slate-900/90 to-slate-950/70 opacity-95" />
               
               {/* Glow effects */}
               <div className="absolute bottom-0 right-0 w-48 h-48 bg-accent/15 rounded-full blur-[60px] pointer-events-none" />
@@ -63,11 +63,11 @@ export default function ContactPage() {
 
                   <div className="space-y-8">
                     <div className="flex gap-4 items-start group/item">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover/item:bg-accent/15 group-hover/item:border-accent/40 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-center shrink-0 group-hover/item:bg-accent/15 group-hover/item:border-accent/40 transition-all duration-300">
                         <Phone className="text-accent" size={24} />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
                           Phone
                         </p>
                         <a
@@ -80,11 +80,11 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex gap-4 items-start group/item">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover/item:bg-accent/15 group-hover/item:border-accent/40 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-center shrink-0 group-hover/item:bg-accent/15 group-hover/item:border-accent/40 transition-all duration-300">
                         <Mail className="text-accent" size={24} />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
                           Email
                         </p>
                         <a
@@ -97,11 +97,11 @@ export default function ContactPage() {
                     </div>
 
                     <div className="flex gap-4 items-start group/item">
-                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover/item:bg-accent/15 group-hover/item:border-accent/40 transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center justify-center shrink-0 group-hover/item:bg-accent/15 group-hover/item:border-accent/40 transition-all duration-300">
                         <MapPin className="text-accent" size={24} />
                       </div>
                       <div>
-                        <p className="text-[10px] font-bold text-secondary uppercase tracking-widest mb-1">
+                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">
                           Headquarters
                         </p>
                         <p className="text-white font-semibold leading-relaxed text-lg tracking-tight">{COMPANY.hq}</p>
@@ -110,19 +110,19 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-white/10">
+                <div className="mt-12 pt-8 border-t border-slate-800">
                   <div className="space-y-4">
                     <div className="flex justify-between items-center text-sm group/row">
-                      <span className="text-secondary font-bold uppercase tracking-widest text-[10px]">GST Number</span>
-                      <span className="text-white font-mono bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5 group-hover/row:border-white/20 transition-colors text-xs">{COMPANY.gst}</span>
+                      <span className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">GST Number</span>
+                      <span className="text-white font-mono bg-slate-900/60 px-2.5 py-1.5 rounded-lg border border-slate-800 group-hover/row:border-slate-700 transition-colors text-xs">{COMPANY.gst}</span>
                     </div>
                     <div className="flex justify-between items-center text-sm group/row">
-                      <span className="text-secondary font-bold uppercase tracking-widest text-[10px]">PAN Number</span>
-                      <span className="text-white font-mono bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5 group-hover/row:border-white/20 transition-colors text-xs">{COMPANY.pan}</span>
+                      <span className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">PAN Number</span>
+                      <span className="text-white font-mono bg-slate-900/60 px-2.5 py-1.5 rounded-lg border border-slate-800 group-hover/row:border-slate-700 transition-colors text-xs">{COMPANY.pan}</span>
                     </div>
                     <div className="flex justify-between items-center text-sm group/row">
-                      <span className="text-secondary font-bold uppercase tracking-widest text-[10px]">Corporate CIN</span>
-                      <span className="text-white font-mono text-[10px] sm:text-xs break-all bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5 group-hover/row:border-white/20 transition-colors">{COMPANY.cin}</span>
+                      <span className="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Corporate CIN</span>
+                      <span className="text-white font-mono text-[10px] sm:text-xs break-all bg-slate-900/60 px-2.5 py-1.5 rounded-lg border border-slate-800 group-hover/row:border-slate-700 transition-colors">{COMPANY.cin}</span>
                     </div>
                   </div>
                 </div>

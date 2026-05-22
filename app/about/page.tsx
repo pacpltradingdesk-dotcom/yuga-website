@@ -53,7 +53,7 @@ export default function AboutPage() {
                   <span className="w-4 h-px bg-accent/50" />
                   Leadership Profile
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-3 tracking-tight">
+                <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-3 tracking-tight">
                   {COMPANY.owner}
                 </h2>
                 <p className="text-secondary text-xl mb-6">Founder & Principal Consultant</p>
@@ -72,10 +72,10 @@ export default function AboutPage() {
                   As the former Founder and MD of BSE-listed Omnipotent Industries (1.2L MT capacity), he leads India's only consulting practice offering complete A-to-Z setup for bio-bitumen plants, from raw material procurement to commercial production.
                 </p>
                 
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mb-10 relative overflow-hidden">
+                <div className="bg-background border border-border rounded-2xl p-5 mb-10 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-1 h-full bg-accent" />
                   <p className="text-xs font-bold text-secondary uppercase tracking-widest mb-1">Education Credentials</p>
-                  <p className="text-white text-sm leading-relaxed">{COMPANY.education}</p>
+                  <p className="text-primary text-sm leading-relaxed">{COMPANY.education}</p>
                 </div>
               </motion.div>
             </div>
@@ -115,7 +115,7 @@ export default function AboutPage() {
           </div>
 
           {/* Stats section (split out) */}
-          <div className="mt-20 border-t border-white/10 pt-16">
+          <div className="mt-20 border-t border-border pt-16">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {STATS.map(({ value, label, icon }, i) => (
                 <motion.div
@@ -129,7 +129,7 @@ export default function AboutPage() {
                   <div className="flex justify-center mb-4 text-accent/50 group-hover:text-accent transition-colors">
                     {icon}
                   </div>
-                  <p className="font-display text-4xl font-black text-white mb-2">{value}</p>
+                  <p className="font-display text-4xl font-black text-primary mb-2">{value}</p>
                   <p className="text-secondary text-xs uppercase tracking-wider font-semibold">{label}</p>
                 </motion.div>
               ))}
@@ -140,7 +140,7 @@ export default function AboutPage() {
 
       {/* Career Timeline section */}
       <section className="bg-surface relative py-24 px-6 overflow-hidden">
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-eco/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -148,7 +148,7 @@ export default function AboutPage() {
             <span className="w-4 h-px bg-eco/50" />
             Career
           </p>
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-16 tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-16 tracking-tight">
             25 Years <span className="text-gradient">Across India</span>
           </h2>
           <CareerTimeline />
@@ -162,7 +162,7 @@ export default function AboutPage() {
             <span className="w-4 h-px bg-accent/50" />
             Credentials
           </p>
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-12 tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-12 tracking-tight">
             Verified Track Record
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -185,7 +185,7 @@ export default function AboutPage() {
 
       {/* Network section */}
       <section className="bg-surface py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
         
         {/* Animated SVG Network Map Background */}
         <div className="absolute inset-0 opacity-[0.06] lg:opacity-[0.09] flex items-center justify-center pointer-events-none z-0">
@@ -223,11 +223,11 @@ export default function AboutPage() {
             Network
             <span className="w-4 h-px bg-eco/50" />
           </p>
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-6 tracking-tight text-center">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-6 tracking-tight text-center">
             Industry <span className="text-gradient">Network</span>
           </h2>
           <p className="text-secondary text-center max-w-2xl mx-auto mb-16 leading-relaxed text-lg">
-            <span className="text-white font-bold">{INDUSTRY_NETWORK.total.toLocaleString()}</span> live industry contacts spanning road construction, trading, importing, and logistics across India.
+            <span className="text-primary font-bold">{INDUSTRY_NETWORK.total.toLocaleString()}</span> live industry contacts spanning road construction, trading, importing, and logistics across India.
           </p>
           
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -240,7 +240,7 @@ export default function AboutPage() {
                 key={label}
                 className="glass p-8 rounded-2xl text-center group hover:glass-hover transition-all duration-300"
               >
-                <p className="font-display text-4xl font-extrabold text-white mb-2 tracking-tight group-hover:text-eco transition-colors">
+                <p className="font-display text-4xl font-extrabold text-primary mb-2 tracking-tight group-hover:text-eco transition-colors">
                   {value.toLocaleString()}
                 </p>
                 <p className="text-secondary text-sm uppercase tracking-widest font-semibold">{label}</p>

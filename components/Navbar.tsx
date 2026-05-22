@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 h-[72px] flex items-center transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-lg border-b border-white/10 shadow-lg" : "bg-transparent"
+        scrolled ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-lg" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
@@ -50,7 +50,7 @@ export default function Navbar() {
               className={`text-sm font-medium transition-all duration-200 ${
                 pathname === href
                   ? "text-accent"
-                  : "text-secondary hover:text-white"
+                  : "text-secondary hover:text-primary"
               }`}
             >
               {label}
@@ -83,7 +83,7 @@ export default function Navbar() {
         <nav 
           id="mobile-nav" 
           aria-label="Mobile navigation" 
-          className="absolute top-[72px] left-0 right-0 bg-surface/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 flex flex-col gap-6 md:hidden shadow-2xl"
+          className="absolute top-[72px] left-0 right-0 bg-surface/95 backdrop-blur-xl border-b border-border px-6 py-6 flex flex-col gap-6 md:hidden shadow-2xl"
         >
           {NAV_LINKS.map(({ href, label }) => (
             <Link

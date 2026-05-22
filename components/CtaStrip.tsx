@@ -25,7 +25,7 @@ export default function CtaStrip({ heading, subtext, buttonLabel, buttonHref }: 
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-6 tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-6 tracking-tight">
             {heading}
           </h2>
           <p className="text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">

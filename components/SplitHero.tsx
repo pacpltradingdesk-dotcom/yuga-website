@@ -37,7 +37,7 @@ export default function SplitHero() {
               India's #1 Bio-Bitumen Consultant
             </motion.div>
             
-            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-white font-extrabold leading-[1.1] mb-6 tracking-tight">
+            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl text-primary font-extrabold leading-[1.1] mb-6 tracking-tight">
               Complete Plant Setup. <br />
               <span className="text-gradient">From Agro-Waste to Road.</span>
             </h1>
@@ -56,10 +56,10 @@ export default function SplitHero() {
               </Link>
               <Link
                 href="/it-products"
-                className="group flex items-center gap-2 bg-white/5 backdrop-blur-md text-white border border-white/10 font-bold px-8 py-4 rounded-full hover:bg-white/10 hover:border-white/20 transition-all text-sm uppercase tracking-wider"
+                className="group flex items-center gap-2 bg-white text-primary border border-border font-bold px-8 py-4 rounded-full hover:bg-surface-light transition-all text-sm uppercase tracking-wider"
               >
                 View IT Products
-                <ChevronRight size={18} className="text-secondary group-hover:text-white transition-colors" />
+                <ChevronRight size={18} className="text-secondary group-hover:text-primary transition-colors" />
               </Link>
             </div>
           </motion.div>

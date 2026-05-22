@@ -27,7 +27,7 @@ export default function WhyNowStrip() {
             Market Opportunity
             <span className="w-4 h-px bg-accent/50" />
           </p>
-          <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight">
+          <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold tracking-tight">
             Why Bio-Bitumen, <span className="text-gradient">Why Now</span>
           </h2>
         </motion.div>
@@ -44,10 +44,10 @@ export default function WhyNowStrip() {
             >
               <div className="absolute -top-10 -right-10 w-24 h-24 bg-accent/10 rounded-full blur-xl group-hover:bg-accent/20 transition-all duration-500" />
               
-              <span className="font-display font-extrabold text-5xl leading-none block mb-4 text-white/10 group-hover:text-accent/30 transition-colors">
+              <span className="font-display font-extrabold text-5xl leading-none block mb-4 text-primary/10 group-hover:text-accent/30 transition-colors">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <p className="text-secondary group-hover:text-white transition-colors text-sm leading-relaxed relative z-10">
+              <p className="text-secondary group-hover:text-primary transition-colors text-sm leading-relaxed relative z-10">
                 {reason}
               </p>
             </motion.div>

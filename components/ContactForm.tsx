@@ -30,7 +30,7 @@ export default function ContactForm() {
               name="name"
               type="text"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white text-sm focus:outline-none focus:border-accent focus:bg-white/10 transition-all placeholder:text-secondary/50"
+              className="w-full bg-background border border-border rounded-xl pl-11 pr-4 py-3.5 text-primary text-sm focus:outline-none focus:border-accent focus:bg-background transition-all placeholder:text-secondary/60"
               placeholder="Your full name"
             />
           </div>
@@ -48,7 +48,7 @@ export default function ContactForm() {
               id="company"
               name="company"
               type="text"
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white text-sm focus:outline-none focus:border-accent focus:bg-white/10 transition-all placeholder:text-secondary/50"
+              className="w-full bg-background border border-border rounded-xl pl-11 pr-4 py-3.5 text-primary text-sm focus:outline-none focus:border-accent focus:bg-background transition-all placeholder:text-secondary/60"
               placeholder="Your company name"
             />
           </div>
@@ -69,7 +69,7 @@ export default function ContactForm() {
               name="phone"
               type="tel"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white text-sm focus:outline-none focus:border-accent focus:bg-white/10 transition-all placeholder:text-secondary/50"
+              className="w-full bg-background border border-border rounded-xl pl-11 pr-4 py-3.5 text-primary text-sm focus:outline-none focus:border-accent focus:bg-background transition-all placeholder:text-secondary/60"
               placeholder="+91 XXXXX XXXXX"
             />
           </div>
@@ -88,7 +88,7 @@ export default function ContactForm() {
               name="email"
               type="email"
               required
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white text-sm focus:outline-none focus:border-accent focus:bg-white/10 transition-all placeholder:text-secondary/50"
+              className="w-full bg-background border border-border rounded-xl pl-11 pr-4 py-3.5 text-primary text-sm focus:outline-none focus:border-accent focus:bg-background transition-all placeholder:text-secondary/60"
               placeholder="you@example.com"
             />
           </div>
@@ -108,7 +108,7 @@ export default function ContactForm() {
             name="message"
             required
             rows={5}
-            className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3.5 text-white text-sm focus:outline-none focus:border-accent focus:bg-white/10 transition-all resize-none placeholder:text-secondary/50"
+            className="w-full bg-background border border-border rounded-xl pl-11 pr-4 py-3.5 text-primary text-sm focus:outline-none focus:border-accent focus:bg-background transition-all resize-none placeholder:text-secondary/60"
             placeholder="Tell us about your project or enquiry…"
           />
         </div>

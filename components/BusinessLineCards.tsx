@@ -21,7 +21,7 @@ export default function BusinessLineCards() {
             Two Business Lines
             <span className="w-4 h-px bg-accent/50" />
           </p>
-          <h2 className="font-display text-3xl md:text-5xl text-white font-extrabold tracking-tight">
+          <h2 className="font-display text-3xl md:text-5xl text-primary font-extrabold tracking-tight">
             Consulting & Technology — <span className="text-gradient">One Partner</span>
           </h2>
         </motion.div>
@@ -40,7 +40,7 @@ export default function BusinessLineCards() {
               className="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-700 ease-out z-0"
               style={{ backgroundImage: "url('/assets/road-construction.png')" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/30 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-slate-950/30 z-10" />
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl z-10 pointer-events-none" />
             
             <div className="relative z-20">
@@ -56,7 +56,7 @@ export default function BusinessLineCards() {
                   "Project Management (PMC) from DPR to handover",
                   "Access to 4,452-contact buyer network",
                 ].map((point) => (
-                  <li key={point} className="flex gap-3 text-secondary text-sm md:text-base leading-relaxed">
+                  <li key={point} className="flex gap-3 text-slate-300 text-sm md:text-base leading-relaxed">
                     <span className="text-accent mt-1 shrink-0"><ArrowRight size={14} /></span>
                     {point}
                   </li>
@@ -87,7 +87,7 @@ export default function BusinessLineCards() {
               className="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-700 ease-out z-0"
               style={{ backgroundImage: "url('/assets/it-dashboard-mockup.png')" }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-background/30 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/85 to-slate-950/30 z-10" />
             <div className="absolute top-0 right-0 w-64 h-64 bg-eco/5 rounded-full blur-3xl z-10 pointer-events-none" />
             
             <div className="relative z-20">
@@ -103,7 +103,7 @@ export default function BusinessLineCards() {
                   "Built specifically for the bitumen & industrial sector",
                   "From plant management to market intelligence",
                 ].map((point) => (
-                  <li key={point} className="flex gap-3 text-secondary text-sm md:text-base leading-relaxed">
+                  <li key={point} className="flex gap-3 text-slate-300 text-sm md:text-base leading-relaxed">
                     <span className="text-eco mt-1 shrink-0"><ArrowRight size={14} /></span>
                     {point}
                   </li>

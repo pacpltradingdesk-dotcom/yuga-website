@@ -39,12 +39,12 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
       <div className="absolute inset-0 blueprint-grid opacity-10 pointer-events-none" />
       
       {/* Header Info */}
-      <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-4 relative z-10">
+      <div className="flex items-center justify-between border-b border-border pb-4 mb-4 relative z-10">
         <span className="text-[10px] font-bold text-secondary uppercase tracking-widest flex items-center gap-1.5">
           <Activity size={12} className={textColor} />
           Process Visualizer (Stage {activeStage + 1})
         </span>
-        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] text-white/70 font-semibold uppercase tracking-wider">
+        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-background border border-border text-[9px] text-primary/70 font-semibold uppercase tracking-wider">
           <span className={`w-1.5 h-1.5 rounded-full ${dotBg} animate-pulse`} />
           Active Sim
         </span>
@@ -53,9 +53,9 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
       {/* Visual Flow diagram */}
       <div className="grid grid-cols-11 items-center gap-2 py-6 relative z-10">
         {/* Input Node */}
-        <div className="col-span-3 bg-background border border-white/10 rounded-xl p-3 text-center">
+        <div className="col-span-3 bg-surface border border-border rounded-xl p-3 text-center">
           <p className="text-[9px] text-secondary font-bold uppercase tracking-wider mb-1">Inputs</p>
-          <p className="text-[11px] font-bold text-white leading-snug">{input}</p>
+          <p className="text-[11px] font-bold text-primary leading-snug">{input}</p>
         </div>
 
         {/* Animated Connector 1 */}
@@ -70,10 +70,10 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
         </div>
 
         {/* Processing Node */}
-        <div className="col-span-3 bg-background border border-white/10 rounded-xl p-3 text-center ring-1 ring-white/5 relative overflow-hidden group">
+        <div className="col-span-3 bg-surface border border-border rounded-xl p-3 text-center ring-1 ring-border relative overflow-hidden group">
           <div className={`absolute top-0 left-0 right-0 h-0.5 ${dotBg} opacity-50`} />
           <p className="text-[9px] text-secondary font-bold uppercase tracking-wider mb-1">Process Action</p>
-          <p className="text-[11px] font-bold text-white leading-snug">{process}</p>
+          <p className="text-[11px] font-bold text-primary leading-snug">{process}</p>
         </div>
 
         {/* Animated Connector 2 */}
@@ -88,14 +88,14 @@ function FlowVisual({ input, process, output, color, activeStage }: FlowVisualPr
         </div>
 
         {/* Output Node */}
-        <div className={`col-span-3 bg-background border ${borderColor} rounded-xl p-3 text-center`}>
+        <div className={`col-span-3 bg-surface border ${borderColor} rounded-xl p-3 text-center`}>
           <p className={`text-[9px] ${textColor} font-bold uppercase tracking-wider mb-1`}>Outputs</p>
-          <p className="text-[11px] font-bold text-white leading-snug">{output}</p>
+          <p className="text-[11px] font-bold text-primary leading-snug">{output}</p>
         </div>
       </div>
 
       {/* Footer Assurances */}
-      <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-[10px] text-secondary relative z-10">
+      <div className="mt-4 pt-4 border-t border-border flex items-center justify-between text-[10px] text-secondary relative z-10">
         <span className="flex items-center gap-1">
           <ShieldCheck size={12} className={textColor} />
           Certified Specs Compliant
@@ -165,7 +165,7 @@ export default function PyrolysisPage() {
               Interactive Workflow
               <span className="w-4 h-px bg-accent/50" />
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight mb-4">
+            <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold tracking-tight mb-4">
               Four Stages to <span className="text-gradient">Bio-Bitumen</span>
             </h2>
             <p className="text-secondary text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
@@ -187,7 +187,7 @@ export default function PyrolysisPage() {
                       className={`py-3.5 px-2 rounded-xl border text-center transition-all duration-200 ${
                         active
                           ? "bg-accent/10 border-accent text-accent shadow-[0_0_15px_rgba(245,158,11,0.15)] font-bold"
-                          : "bg-surface/50 border-white/5 text-secondary hover:border-white/10 hover:text-white"
+                          : "bg-surface/50 border-border text-secondary hover:border-border/80 hover:text-primary"
                       }`}
                     >
                       <p className="text-[10px] text-secondary font-bold uppercase tracking-wider">Stage</p>
@@ -205,12 +205,12 @@ export default function PyrolysisPage() {
                       <Settings size={12} className="animate-spin" />
                       Active Phase
                     </span>
-                    <span className="text-white/20 text-5xl font-extrabold font-display">
+                    <span className="text-primary/10 text-5xl font-extrabold font-display">
                       0{stage.stage}
                     </span>
                   </div>
 
-                  <h3 className="font-display text-2xl text-white font-extrabold mb-4 leading-tight">
+                  <h3 className="font-display text-2xl text-primary font-extrabold mb-4 leading-tight">
                     {stage.name}
                   </h3>
 
@@ -219,19 +219,19 @@ export default function PyrolysisPage() {
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-6 border-t border-white/5">
+                <div className="space-y-3 pt-6 border-t border-border">
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-white/50 uppercase tracking-wider">CAPEX REQUIREMENT</span>
+                    <span className="font-semibold text-secondary uppercase tracking-wider">CAPEX REQUIREMENT</span>
                     <span className="text-accent font-bold text-sm">{stage.capex}</span>
                   </div>
                   <div className="flex justify-between items-center text-xs">
-                    <span className="font-semibold text-white/50 uppercase tracking-wider">MANPOWER REQUIRED</span>
-                    <span className="text-white font-medium">{stage.manpower}</span>
+                    <span className="font-semibold text-secondary uppercase tracking-wider">MANPOWER REQUIRED</span>
+                    <span className="text-primary font-medium">{stage.manpower}</span>
                   </div>
                   {stage.space && (
                     <div className="flex justify-between items-center text-xs">
-                      <span className="font-semibold text-white/50 uppercase tracking-wider">SPACE REQUIRED</span>
-                      <span className="text-white font-medium">{stage.space}</span>
+                      <span className="font-semibold text-secondary uppercase tracking-wider">SPACE REQUIRED</span>
+                      <span className="text-primary font-medium">{stage.space}</span>
                     </div>
                   )}
                 </div>
@@ -255,7 +255,7 @@ export default function PyrolysisPage() {
       {/* Feedstocks */}
       <section className="bg-surface py-24 px-6 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-eco/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
         
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
@@ -268,7 +268,7 @@ export default function PyrolysisPage() {
               <span className="w-4 h-px bg-eco/50" />
               Feedstocks
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-12 tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-12 tracking-tight">
               What Goes <span className="text-gradient">In</span>
             </h2>
           </motion.div>
@@ -296,7 +296,7 @@ export default function PyrolysisPage() {
               <span className="w-4 h-px bg-accent/50" />
               Outputs
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-12 tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-12 tracking-tight">
               What Comes <span className="text-gradient">Out</span>
             </h2>
           </motion.div>
@@ -311,7 +311,7 @@ export default function PyrolysisPage() {
 
       {/* Commercial Products */}
       <section className="bg-surface py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
         <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -327,7 +327,7 @@ export default function PyrolysisPage() {
               Products
               <span className="w-4 h-px bg-accent/50" />
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold tracking-tight">
               Commercial-Grade <span className="text-gradient">Products</span>
             </h2>
           </motion.div>

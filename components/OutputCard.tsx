@@ -42,7 +42,7 @@ export default function OutputCard({ output, index = 0 }: Props) {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat group-hover:scale-105 transition-transform duration-700 ease-out z-0"
         style={{ backgroundImage: `url('${bgImage}')` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/50 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/90 to-slate-950/50 z-10" />
       <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl z-10 pointer-events-none" />
       
       <div className="relative z-20">
@@ -58,7 +58,7 @@ export default function OutputCard({ output, index = 0 }: Props) {
         <div className="grid grid-cols-2 gap-2 mb-4 p-3 bg-white/5 rounded-xl border border-white/5 group-hover:border-white/10 transition-colors backdrop-blur-md">
           {output.yieldRange && (
             <div>
-              <span className="text-secondary text-[9px] uppercase tracking-wider font-bold block mb-0.5">
+              <span className="text-slate-400 text-[9px] uppercase tracking-wider font-bold block mb-0.5">
                 Yield
               </span>
               <p className="text-white font-extrabold text-xs tracking-wide leading-snug">{output.yieldRange.split(" of ")[0]}</p>
@@ -66,7 +66,7 @@ export default function OutputCard({ output, index = 0 }: Props) {
           )}
           {output.heatingValue && (
             <div>
-              <span className="text-secondary text-[9px] uppercase tracking-wider font-bold block mb-0.5">
+              <span className="text-slate-400 text-[9px] uppercase tracking-wider font-bold block mb-0.5">
                 Heating Value
               </span>
               <p className="text-white font-extrabold text-xs tracking-wide leading-snug">{output.heatingValue.split(" comparable ")[0]}</p>
@@ -79,7 +79,7 @@ export default function OutputCard({ output, index = 0 }: Props) {
             <p className="text-accent text-[10px] font-bold uppercase tracking-wider mb-2">Applications</p>
             <ul className="space-y-1.5">
               {output.uses.slice(0, 3).map((use) => (
-                <li key={use} className="flex items-start gap-2.5 text-xs text-secondary group-hover:text-white transition-colors leading-relaxed">
+                <li key={use} className="flex items-start gap-2.5 text-xs text-slate-300 group-hover:text-white transition-colors leading-relaxed">
                   <span className="text-accent mt-0.5 shrink-0"><ArrowRight size={12} /></span>
                   <span>{use}</span>
                 </li>

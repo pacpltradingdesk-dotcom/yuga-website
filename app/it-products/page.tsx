@@ -32,7 +32,7 @@ export default function ItProductsPage() {
               <span className="w-4 h-px bg-accent/50" />
               Our Products
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold mb-6 tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold mb-6 tracking-tight">
               Software Built for the <span className="text-gradient">Bitumen Industry</span>
             </h2>
             <p className="text-secondary text-lg max-w-2xl mb-16 leading-relaxed">
@@ -47,7 +47,7 @@ export default function ItProductsPage() {
 
       {/* Why PACPL for IT Section */}
       <section className="bg-surface py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -63,7 +63,7 @@ export default function ItProductsPage() {
               Why Us
               <span className="w-4 h-px bg-accent/50" />
             </p>
-            <h2 className="font-display text-4xl md:text-5xl text-white font-extrabold tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl text-primary font-extrabold tracking-tight">
               Built by <span className="text-gradient">Practitioners</span>, Not Generalists
             </h2>
           </motion.div>
@@ -80,7 +80,7 @@ export default function ItProductsPage() {
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Factory className="text-accent" size={28} />
               </div>
-              <h3 className="font-display text-2xl font-bold text-white mb-4">Domain Expertise</h3>
+              <h3 className="font-display text-2xl font-bold text-primary mb-4">Domain Expertise</h3>
               <p className="text-secondary text-base leading-relaxed">
                 25 years in bitumen means we know exactly what operators need before they ask for
                 it.
@@ -98,7 +98,7 @@ export default function ItProductsPage() {
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Globe className="text-accent" size={28} />
               </div>
-              <h3 className="font-display text-2xl font-bold text-white mb-4">Built-In Client Network</h3>
+              <h3 className="font-display text-2xl font-bold text-primary mb-4">Built-In Client Network</h3>
               <p className="text-secondary text-base leading-relaxed">
                 You talk to real plant operators, supply chain heads, and logistics managers every
                 day — we build for them directly.
@@ -116,7 +116,7 @@ export default function ItProductsPage() {
               <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <Rocket className="text-accent" size={28} />
               </div>
-              <h3 className="font-display text-2xl font-bold text-white mb-4">Full-Stack Delivery</h3>
+              <h3 className="font-display text-2xl font-bold text-primary mb-4">Full-Stack Delivery</h3>
               <p className="text-secondary text-base leading-relaxed">
                 Design → code → deploy → support. One team, no handoffs, no excuses.
               </p>

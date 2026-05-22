@@ -12,7 +12,7 @@ type Props = {
 
 export default function PageHeader({ title, subtitle, breadcrumb, bgImage }: Props) {
   return (
-    <section className="relative py-32 px-6 overflow-hidden border-b border-white/5 min-h-[40vh] flex items-center bg-background">
+    <section className="relative py-32 px-6 overflow-hidden border-b border-border min-h-[40vh] flex items-center bg-background">
       {bgImage ? (
         <>
           <div 
@@ -39,7 +39,7 @@ export default function PageHeader({ title, subtitle, breadcrumb, bgImage }: Pro
             <span className="w-6 h-px bg-accent/50" />
             {breadcrumb}
           </p>
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-white font-extrabold mb-6 tracking-tight max-w-4xl leading-[1.15]">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary font-extrabold mb-6 tracking-tight max-w-4xl leading-[1.15]">
             {title}
           </h1>
           {subtitle && (
